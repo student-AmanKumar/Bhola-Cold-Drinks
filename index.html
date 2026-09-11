@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bhola Cold Drinks</title>
+
+<meta name="description" content="CoolDrink — bold flavour, ice-cold refreshment and unforgettable moments.">
+<meta name="theme-color" content="#090909">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://kit.fontawesome.com/bfc6a1edf2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- ================= PRELOADER ================= -->
+
+<div class="cd-loader" id="cdLoader">
+    <div class="cd-loader-word">COOL<span>DRINK</span></div>
+    <div class="cd-loader-line">
+        <span id="loaderFill"></span>
+    </div>
+    <div class="cd-loader-count" id="loaderCount">00</div>
+</div>
+
+<!-- =========================================
+     PRACTICE PROJECT NOTICE
+========================================= -->
+
+<div id="cdPracticeNotice" class="cd-practice-notice">
+
+    <div class="cd-notice-content">
+
+        <div class="cd-notice-top">
+            <span class="cd-notice-label">PROJECT NOTICE</span>
+            <span class="cd-notice-line"></span>
+            <span class="cd-notice-number">01</span>
+        </div>
+
+        <div class="cd-notice-icon">
+            <i class="fa-solid fa-flask"></i>
+        </div>
+
+        <p class="cd-notice-kicker">
+            A DIGITAL PRACTICE EXPERIENCE
+        </p>
+
+        <h1>
+            Built to <span>Explore.</span><br>
+            Designed to <span>Learn.</span>
+        </h1>
+
+        <p class="cd-notice-text">
+            This CoolDrink website is a personal practice project
+            created to explore modern frontend development,
+            responsive layouts, animations, interactions and
+            product-focused web design.
+        </p>
+
+        <div class="cd-notice-points">
+
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <span>Frontend Practice</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>UI & Animation</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-mobile-screen"></i>
+                <span>Responsive Design</span>
+            </div>
+
+        </div>
+
+        <div class="cd-notice-bottom">
+
+            <span>
+                <i class="fa-solid fa-circle-info"></i>
+                For learning & portfolio practice only
+            </span>
+
+            <button id="cdEnterProject" type="button">
+                Continue to Website
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= SCROLL PROGRESS ================= -->
+
+<div class="cd-progress" id="cdProgress"></div>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="cd-header" id="cdHeader">
+
+    <a href="#home" class="cd-logo">
+        <span>Cool</span><b>Drink</b>
+    </a>
+
+    <nav class="cd-nav" id="cdNav">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#drinks">Drinks</a>
+        <a href="#offers">Offers</a>
+        <a href="#story">Story</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="cd-header-cta">
+        Let's Talk
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+
+    <button class="cd-menu" id="cdMenu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<main>
+
+<!-- ================= HERO ================= -->
+
+<section class="cd-hero" id="home">
+
+    <div class="cd-hero-grid"></div>
+
+    <div class="cd-hero-top">
+        <span>THE REFRESHMENT LAB</span>
+        <span>EST. 2026 / INDIA</span>
+    </div>
+
+    <div class="cd-hero-content">
+
+        <div class="cd-hero-copy">
+
+            <div class="cd-eyebrow">
+                <span></span>
+                ICE COLD. BOLD FLAVOUR.
+            </div>
+
+            <h1>
+                Refresh
+                <span>your</span>
+                <em>moment.</em>
+            </h1>
+
+            <p>
+                Big flavour. Deep chill. Zero boring moments.
+                CoolDrink brings a fresh attitude to every sip.
+            </p>
+
+            <div class="cd-hero-actions">
+                <a href="#drinks" class="cd-main-btn">
+                    Explore Drinks
+                    <span><i class="fa-solid fa-arrow-down"></i></span>
+                </a>
+
+                <a href="#story" class="cd-text-btn">
+                    Our story
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="cd-hero-product">
+
+            <div class="cd-product-glow"></div>
+
+            <div class="cd-orbit cd-orbit-one"></div>
+            <div class="cd-orbit cd-orbit-two"></div>
+
+            <div class="cd-floating-word word-one">ICE</div>
+            <div class="cd-floating-word word-two">FRESH</div>
+
+            <img
+                src="./images/home.png"
+                class="cd-main-bottle"
+                id="heroBottle"
+                alt="CoolDrink bottle"
+            >
+
+            <div class="cd-product-tag tag-top">
+                <small>FLAVOUR</small>
+                <strong>MANGO</strong>
+            </div>
+
+            <div class="cd-product-tag tag-bottom">
+                <small>STATUS</small>
+                <strong>ICE COLD</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="cd-hero-bottom">
+
+        <div class="cd-stat">
+            <strong data-count="04">00</strong>
+            <span>Signature<br>drinks</span>
+        </div>
+
+        <div class="cd-stat">
+            <strong data-count="24">00</strong>
+            <span>Hours of<br>refreshment</span>
+        </div>
+
+        <div class="cd-stat">
+            <strong data-count="100">00</strong>
+            <span>Percent<br>good mood</span>
+        </div>
+
+        <div class="cd-scroll">
+            <span>SCROLL TO DISCOVER</span>
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MARQUEE ================= -->
+
+<section class="cd-marquee">
+    <div class="cd-marquee-track">
+
+        <span>ICE COLD</span>
+        <i>✦</i>
+
+        <span>BOLD FLAVOUR</span>
+        <i>✦</i>
+
+        <span>FRESH ENERGY</span>
+        <i>✦</i>
+
+        <span>GOOD MOMENTS</span>
+        <i>✦</i>
+
+        <span>ICE COLD</span>
+        <i>✦</i>
+
+        <span>BOLD FLAVOUR</span>
+        <i>✦</i>
+
+        <span>FRESH ENERGY</span>
+        <i>✦</i>
+
+        <span>GOOD MOMENTS</span>
+        <i>✦</i>
+
+    </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<!-- <section class="cd-about cd-section" id="about">
+
+    <div class="cd-section-label">
+        <span>01</span>
+        ABOUT COOLDRINK
+    </div>
+
+    <div class="cd-about-layout">
+
+        <div class="cd-about-heading reveal">
+            <p class="cd-small-label">NOT JUST A DRINK</p>
+
+            <h2>
+                A little
+                <span>coolness</span>
+                changes everything.
+            </h2>
+        </div>
+
+
+        <div class="cd-about-image reveal">
+
+            <img src="./images/about.png" alt="CoolDrink refreshment">
+
+            <div class="cd-image-caption">
+                <span>COOLDRINK / 001</span>
+                <span>REFRESHMENT STUDY</span>
+            </div>
+
+        </div>
+
+
+        <div class="cd-about-copy reveal">
+
+            <p class="large-copy">
+                We believe refreshment should feel like
+                something more than a drink.
+            </p>
+
+            <p>
+                CoolDrink is built around flavour, energy and
+                those simple moments that deserve an extra
+                spark. From a hot afternoon to a late-night
+                hangout, we make every sip count.
+            </p>
+
+            <div class="cd-line"></div>
+
+            <div class="cd-about-points">
+
+                <div>
+                    <span>01</span>
+                    <strong>Bold flavour</strong>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <strong>Maximum chill</strong>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <strong>Better moments</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section> -->
+
+<!-- ================= ABOUT ================= -->
+
+<section class="cd-about cd-section" id="about">
+
+    <div class="cd-section-label">
+        <span>01</span>
+        ABOUT COOLDRINK
+    </div>
+
+    <div class="cd-about-layout">
+
+        <!-- LEFT CONTENT -->
+        <div class="cd-about-heading reveal">
+
+            <p class="cd-small-label">
+                NOT JUST A DRINK
+            </p>
+
+            <h2>
+                A little
+                <span>coolness</span>
+                changes everything.
+            </h2>
+
+        </div>
+
+
+        <!-- IMAGE -->
+        <div class="cd-about-image reveal">
+
+            <img
+                src="./images/about.png"
+                alt="CoolDrink refreshment"
+                draggable="false"
+            >
+
+        </div>
+
+
+        <!-- RIGHT CONTENT -->
+        <div class="cd-about-copy reveal">
+
+            <p class="large-copy">
+                We believe refreshment should feel like
+                something more than a drink.
+            </p>
+
+            <p>
+                CoolDrink is built around flavour, energy and
+                those simple moments that deserve an extra
+                spark. From a hot afternoon to a late-night
+                hangout, we make every sip count.
+            </p>
+
+            <div class="cd-about-points">
+
+                <div>
+                    <span>01</span>
+                    <strong>Bold flavour</strong>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <strong>Maximum chill</strong>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <strong>Better moments</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =========================================
+   ABOUT — CLEAN PREMIUM STYLE
+========================================= */
+
+.cd-about{
+    position: relative;
+    overflow: hidden;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+/* REMOVE EXTRA LINES / DECORATIONS */
+
+.cd-about::before,
+.cd-about::after,
+.cd-about-layout::before,
+.cd-about-layout::after,
+.cd-about-image::before,
+.cd-about-image::after{
+    content: none !important;
+    display: none !important;
+}
+
+
+/* MAIN LAYOUT */
+
+.cd-about-layout{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+/* IMAGE AREA */
+
+.cd-about-image{
+    position: relative;
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    background: transparent !important;
+
+    overflow: visible !important;
+}
+
+
+/* IMAGE */
+
+.cd-about-image img{
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    background: transparent !important;
+
+    object-fit: contain;
+
+    -webkit-user-drag: none;
+    user-select: none;
+
+    filter: none !important;
+}
+
+
+/* REMOVE OLD CAPTION */
+
+.cd-about-image .cd-image-caption{
+    display: none !important;
+}
+
+
+/* ABOUT POINTS — NO BOXES */
+
+.cd-about-points{
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.cd-about-points > div{
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width:800px){
+
+    .cd-about{
+        overflow: hidden;
+    }
+
+    .cd-about-image{
+        width: 100%;
+        margin: 10px 0 20px;
+    }
+
+    .cd-about-image img{
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+}
+
+</style>
+
+
+<!-- ================= DRINKS ================= -->
+
+<section class="cd-drinks cd-section" id="drinks">
+
+    <div class="cd-section-head">
+
+        <div class="cd-section-label">
+            <span>02</span>
+            THE COLLECTION
+        </div>
+
+        <div>
+            <p class="cd-small-label">FOUR WAYS TO REFRESH</p>
+            <h2>Meet the<br><em>flavours.</em></h2>
+        </div>
+
+        <p class="cd-section-intro">
+            Different mood. Different flavour.
+            Same CoolDrink attitude.
+        </p>
+
+    </div>
+
+
+    <div class="cd-drink-showcase">
+
+        <!-- DRINK 01 -->
+
+        <article class="cd-drink-row reveal">
+
+            <div class="cd-drink-number">01</div>
+
+            <div class="cd-drink-image">
+                <img src="./images/bottle1.png" alt="Coca Cola">
+            </div>
+
+            <div class="cd-drink-info">
+                <span>THE CLASSIC</span>
+                <h3>Coca<br>Cola</h3>
+                <p>
+                    Familiar. Bold. Instantly refreshing.
+                    A classic flavour that never misses.
+                </p>
+
+                <a href="order.html">
+                    Order flavour
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </article>
+
+
+        <!-- DRINK 02 -->
+
+        <article class="cd-drink-row reverse reveal">
+
+            <div class="cd-drink-number">02</div>
+
+            <div class="cd-drink-image">
+                <img src="./images/bottle2.png" alt="Orange drink">
+            </div>
+
+            <div class="cd-drink-info">
+                <span>THE CITRUS HIT</span>
+                <h3>Orange<br>Rush</h3>
+                <p>
+                    Bright citrus flavour with a juicy,
+                    energetic finish made for sunny days.
+                </p>
+
+                <a href="order.html">
+                    Order flavour
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </article>
+
+
+        <!-- DRINK 03 -->
+
+        <article class="cd-drink-row reveal">
+
+            <div class="cd-drink-number">03</div>
+
+            <div class="cd-drink-image">
+                <img src="./images/bottle3.png" alt="Sprite">
+            </div>
+
+            <div class="cd-drink-info">
+                <span>THE CRISP ONE</span>
+                <h3>Sprite<br>Fresh</h3>
+                <p>
+                    Crisp bubbles, cool finish and a
+                    clean flavour that wakes everything up.
+                </p>
+
+                <a href="order.html">
+                    Order flavour
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </article>
+
+
+        <!-- DRINK 04 -->
+
+        <article class="cd-drink-row reverse reveal">
+
+            <div class="cd-drink-number">04</div>
+
+            <div class="cd-drink-image">
+                <img src="./images/bottle4.png" alt="Fanta">
+            </div>
+
+            <div class="cd-drink-info">
+                <span>THE FUN ONE</span>
+                <h3>Fanta<br>Pop</h3>
+                <p>
+                    Playful, fruity and unapologetically
+                    fun. Made for moments worth remembering.
+                </p>
+
+                <a href="order.html">
+                    Order flavour
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="cd-view-all">
+        <a href="ezoo.html" target="_blank">
+            <span>VIEW FULL COLLECTION</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+    </div>
+
+</section>
+
+
+<!-- ================= OFFERS ================= -->
+
+<section class="cd-offers cd-section" id="offers">
+
+    <div class="cd-section-label">
+        <span>03</span>
+        COOL MOMENTS
+    </div>
+
+    <div class="cd-offer-layout">
+
+        <div class="cd-offer-title reveal">
+            <p class="cd-small-label">YOUR MOMENT. YOUR RULES.</p>
+
+            <h2>
+                Pick your
+                <em>mood.</em>
+            </h2>
+
+            <p>
+                There is always a reason to open something cold.
+                Find yours.
+            </p>
+        </div>
+
+
+        <div class="cd-offer-list">
+
+            <a href="#contact" class="cd-offer-line reveal">
+
+                <span class="offer-no">01</span>
+
+                <div>
+                    <small>WEEKEND</small>
+                    <h3>Weekend Refresh</h3>
+                    <p>Cold drink. Good music. No plans.</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+            </a>
+
+
+            <a href="#contact" class="cd-offer-line reveal">
+
+                <span class="offer-no">02</span>
+
+                <div>
+                    <small>FRIENDS</small>
+                    <h3>Hangout Mode</h3>
+                    <p>Turn an ordinary evening into a story.</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+            </a>
+
+
+            <a href="#contact" class="cd-offer-line reveal">
+
+                <span class="offer-no">03</span>
+
+                <div>
+                    <small>PARTY</small>
+                    <h3>Party Mode</h3>
+                    <p>More people. More bottles. More memories.</p>
+                </div>
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="cd-story cd-section" id="story">
+
+    <div class="cd-story-bg-text">
+        COOL
+    </div>
+
+    <div class="cd-section-label">
+        <span>04</span>
+        OUR STORY
+    </div>
+
+    <div class="cd-story-content">
+
+        <p class="cd-small-label">BUILT FOR THE MOMENT</p>
+
+        <h2 class="reveal">
+            Born from a simple idea:
+            <span>refreshment should feel alive.</span>
+        </h2>
+
+        <div class="cd-story-bottom reveal">
+
+            <p>
+                CoolDrink combines modern visual energy with
+                familiar flavours to create a digital-first
+                beverage experience.
+            </p>
+
+            <div class="cd-story-sign">
+                <span>COOLDRINK</span>
+                <small>REFRESH / REPEAT</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="cd-experience cd-section">
+
+    <div class="cd-section-head">
+
+        <div class="cd-section-label">
+            <span>05</span>
+            THE EXPERIENCE
+        </div>
+
+        <h2>
+            More than
+            <em>refreshment.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="cd-experience-list">
+
+        <div class="cd-experience-item reveal">
+            <span>01</span>
+
+            <div>
+                <small>ENERGY</small>
+                <h3>Feel the spark.</h3>
+            </div>
+
+            <p>
+                A flavour profile designed to wake up
+                the moment and keep it moving.
+            </p>
+
+        </div>
+
+
+        <div class="cd-experience-item reveal">
+            <span>02</span>
+
+            <div>
+                <small>CHILL</small>
+                <h3>Find the cool.</h3>
+            </div>
+
+            <p>
+                The perfect cold sip has a way of
+                making everything slow down.
+            </p>
+
+        </div>
+
+
+        <div class="cd-experience-item reveal">
+            <span>03</span>
+
+            <div>
+                <small>MOOD</small>
+                <h3>Make it memorable.</h3>
+            </div>
+
+            <p>
+                Because the best moments are usually
+                the ones you never planned.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDER ================= -->
+
+<section class="cd-order">
+
+    <div class="cd-order-line"></div>
+
+    <div class="cd-order-content">
+
+        <span>READY WHEN YOU ARE</span>
+
+        <h2>
+            Your next
+            <em>refresh</em>
+            is waiting.
+        </h2>
+
+        <a href="order.html" >
+            Order Now
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="cd-order-mark">CD</div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="cd-contact cd-section" id="contact">
+
+    <div class="cd-section-label">
+        <span>06</span>
+        GET IN TOUCH
+    </div>
+
+    <div class="cd-contact-layout">
+
+        <div class="cd-contact-heading reveal">
+
+            <p class="cd-small-label">HAVE SOMETHING TO SAY?</p>
+
+            <h2>
+                Let's start
+                a <em>conversation.</em>
+            </h2>
+
+            <p>
+                Questions, ideas, feedback or just want
+                to say hello? Drop us a message.
+            </p>
+
+            <div class="cd-contact-details">
+
+                <a href="mailto:cooldrink@email.com">
+                    <span>EMAIL</span>
+                    cooldrink@email.com
+                </a>
+
+                <a href="tel:+911234567890">
+                    <span>PHONE</span>
+                    +91 1234567890
+                </a>
+
+                <div>
+                    <span>LOCATION</span>
+                    India
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form class="cd-contact-form reveal" id="whatsappForm">
+
+            <div class="cd-input-line">
+                <label for="waName">01 / YOUR NAME</label>
+                <input
+                    type="text"
+                    id="waName"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+
+            <div class="cd-input-line">
+                <label for="waEmail">02 / EMAIL ADDRESS</label>
+                <input
+                    type="email"
+                    id="waEmail"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+
+            <div class="cd-input-line">
+                <label for="waMessage">03 / YOUR MESSAGE</label>
+                <textarea
+                    id="waMessage"
+                    placeholder="Tell us what's on your mind..."
+                    required
+                ></textarea>
+            </div>
+
+
+            <button type="submit" class="cd-send-btn">
+
+                <span>SEND MESSAGE</span>
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="cd-footer">
+
+    <div class="cd-footer-top">
+
+        <div class="cd-footer-brand">
+            <a href="#home" class="cd-logo footer-logo">
+                <span>Cool</span><b>Drink</b>
+            </a>
+
+            <p>
+                Refresh your moment.<br>
+                Repeat whenever necessary.
+            </p>
+        </div>
+
+
+        <div class="cd-footer-nav">
+
+            <div>
+                <small style="color:orange">EXPLORE</small>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#drinks">Drinks</a>
+                <a href="#offers">Offers</a>
+            </div>
+
+            <div>
+                <small style="color:orange">CONNECT</small>
+                <a href="#story">Story</a>
+                <a href="#contact">Contact</a>
+                <a href="order.html">Order</a>
+            </div>
+
+        </div>
+
+
+        <div class="cd-social">
+
+            <small style="color:orange">FOLLOW ALONG</small>
+
+            <a href="https://www.linkedin.com/in/aman-kumar-462a21316/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a href="https://github.com/student-AmanKumar" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://www.instagram.com/ydvaman_______/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="cd-footer-bottom">
+
+        <span>© 2026 COOLDRINK. ALL RIGHTS RESERVED.</span>
+
+        <span>DESIGNED & DEVELOPED BY AMAN </span>
+
+        <a href="#home">
+            BACK TO TOP
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="coolDrinkToast">
+    <span class="cool-toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </span>
+    <span id="coolToastText">Message sent successfully!</span>
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* ================= LOADER ================= */
+
+(function(){
+
+    const loader = document.getElementById("cdLoader");
+    const fill = document.getElementById("loaderFill");
+    const count = document.getElementById("loaderCount");
+
+    let progress = 0;
+
+    const timer = setInterval(() => {
+
+        progress += Math.floor(Math.random() * 9) + 4;
+
+        if(progress >= 100){
+            progress = 100;
+            clearInterval(timer);
+
+            setTimeout(() => {
+                loader.classList.add("loaded");
+                document.body.classList.add("page-ready");
+            }, 350);
+        }
+
+        fill.style.width = progress + "%";
+        count.textContent = String(progress).padStart(2,"0");
+
+    }, 55);
+
+})();
+
+
+/* ================= SCROLL PROGRESS ================= */
+
+const progressBar = document.getElementById("cdProgress");
+
+function updateProgress(){
+
+    const scrollTop = window.scrollY;
+    const height =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const percentage =
+        height > 0 ? (scrollTop / height) * 100 : 0;
+
+    progressBar.style.width = percentage + "%";
+
+}
+
+window.addEventListener("scroll", updateProgress, {passive:true});
+
+
+/* ================= HEADER ================= */
+
+const header = document.getElementById("cdHeader");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 40){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+},{passive:true});
+
+
+/* ================= MOBILE MENU ================= */
+
+const menu = document.getElementById("cdMenu");
+const nav = document.getElementById("cdNav");
+
+menu.addEventListener("click", () => {
+
+    nav.classList.toggle("open");
+    menu.classList.toggle("open");
+
+});
+
+
+nav.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        nav.classList.remove("open");
+        menu.classList.remove("open");
+
+    });
+
+});
+
+
+document.addEventListener("click", (e) => {
+
+    if(
+        nav.classList.contains("open") &&
+        !nav.contains(e.target) &&
+        !menu.contains(e.target)
+    ){
+
+        nav.classList.remove("open");
+        menu.classList.remove("open");
+
+    }
+
+});
+
+
+/* ================= ACTIVE NAV ================= */
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".cd-nav a");
+
+const activeObserver = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                });
+
+                const active =
+                    document.querySelector(
+                        `.cd-nav a[href="#${entry.target.id}"]`
+                    );
+
+                if(active){
+                    active.classList.add("active");
+                }
+
+            }
+
+        });
+
+    },
+    {
+        rootMargin:"-35% 0px -55% 0px"
+    }
+);
+
+sections.forEach(section => {
+    activeObserver.observe(section);
+});
+
+
+/* ================= REVEAL ================= */
+
+const revealObserver = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+});
+
+
+/* ================= COUNTERS ================= */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(!entry.isIntersecting) return;
+
+            const element = entry.target;
+            const target = Number(element.dataset.count);
+
+            let current = 0;
+            const duration = 1100;
+            const start = performance.now();
+
+            function animate(time){
+
+                const elapsed = time - start;
+                const ratio = Math.min(elapsed / duration, 1);
+
+                current = Math.floor(
+                    ratio * target
+                );
+
+                element.textContent =
+                    String(current).padStart(2,"0");
+
+                if(ratio < 1){
+                    requestAnimationFrame(animate);
+                }else{
+                    element.textContent =
+                        target === 100
+                        ? "100"
+                        : String(target).padStart(2,"0");
+                }
+
+            }
+
+            requestAnimationFrame(animate);
+
+            counterObserver.unobserve(element);
+
+        });
+
+    },
+    {
+        threshold:0.8
+    }
+);
+
+counters.forEach(counter => {
+    counterObserver.observe(counter);
+});
+
+
+/* ================= 3D BOTTLE ================= */
+
+const bottle = document.getElementById("heroBottle");
+
+let pointerX = 0;
+let pointerY = 0;
+
+window.addEventListener("mousemove", event => {
+
+    pointerX =
+        (window.innerWidth / 2 - event.clientX) / 45;
+
+    pointerY =
+        (window.innerHeight / 2 - event.clientY) / 55;
+
+},{passive:true});
+
+
+function bottleAnimation(){
+
+    if(
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        window.innerWidth < 768
+    ){
+        bottle.style.transform =
+            "translateY(0) rotateY(0deg) rotateX(0deg)";
+    }else{
+
+        bottle.style.transform =
+            `translateY(0)
+             rotateY(${pointerX}deg)
+             rotateX(${-pointerY}deg)`;
+
+    }
+
+    requestAnimationFrame(bottleAnimation);
+
+}
+
+bottleAnimation();
+
+
+/* ================= SMOOTH ANCHORS ================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(event){
+
+        const id = this.getAttribute("href");
+
+        if(id === "#") return;
+
+        const target = document.querySelector(id);
+
+        if(!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    });
+
+});
+
+
+/* ================= WHATSAPP FORM ================= */
+
+const whatsappForm =
+    document.getElementById("whatsappForm");
+
+if(whatsappForm){
+
+    whatsappForm.addEventListener("submit", function(event){
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("waName")
+            .value.trim();
+
+        const email =
+            document.getElementById("waEmail")
+            .value.trim();
+
+        const message =
+            document.getElementById("waMessage")
+            .value.trim();
+
+        if(!name || !email || !message){
+            return;
+        }
+
+        const whatsappNumber =
+            "917247835971";
+
+        const whatsappText =
+            `Hello Aman!\n\n` +
+            `Name: ${name}\n` +
+            `Email: ${email}\n\n` +
+            `Message:\n${message}`;
+
+        showCoolDrinkToast(
+            "Message sent successfully!"
+        );
+
+        whatsappForm.classList.add("sending");
+
+        setTimeout(() => {
+
+            window.open(
+                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}`,
+                "_blank"
+            );
+
+            whatsappForm.reset();
+            whatsappForm.classList.remove("sending");
+
+        },500);
+
+    });
+
+}
+
+
+/* ================= TOAST ================= */
+
+function showCoolDrinkToast(text){
+
+    const oldToast =
+        document.getElementById("coolDrinkToast");
+
+    const toastText =
+        document.getElementById("coolToastText");
+
+    toastText.textContent = text;
+
+    oldToast.classList.remove("show");
+
+    requestAnimationFrame(() => {
+        oldToast.classList.add("show");
+    });
+
+    clearTimeout(window.coolToastTimer);
+
+    window.coolToastTimer =
+        setTimeout(() => {
+
+            oldToast.classList.remove("show");
+
+        },3000);
+
+}
+
+
+/* ================= ESC MENU ================= */
+
+document.addEventListener("keydown", event => {
+
+    if(event.key === "Escape"){
+
+        nav.classList.remove("open");
+        menu.classList.remove("open");
+
+    }
+
+});
+
+
+/* ================= IMAGE DRAG PROTECTION ================= */
+
+document.addEventListener("dragstart", event => {
+
+    if(event.target.tagName === "IMG"){
+        event.preventDefault();
+    }
+
+});
+
+
+/* ================= REDUCED MOTION ================= */
+
+if(
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+){
+
+    document.documentElement.style.scrollBehavior = "auto";
+
+}
+
+</script>
+<script> const cdPracticeNotice = document.getElementById("cdPracticeNotice");
+const cdEnterProject = document.getElementById("cdEnterProject");
+
+if(cdPracticeNotice && cdEnterProject){
+
+    cdEnterProject.addEventListener("click", () => {
+
+        document.body.classList.add("cd-project-opening");
+
+        cdPracticeNotice.classList.add("cd-notice-hide");
+
+        setTimeout(() => {
+            cdPracticeNotice.remove();
+        }, 1000);
+
+    });
+
+}</script>
+
+<!-- ================= BASIC WEBSITE PROTECTION ================= -->
+
+<script>
+(function(){
+
+    /* Disable right click */
+    document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+    });
+
+    /* Disable text selection */
+    document.addEventListener("selectstart", function(e){
+        if(
+            e.target.tagName !== "INPUT" &&
+            e.target.tagName !== "TEXTAREA"
+        ){
+            e.preventDefault();
+        }
+    });
+
+    /* Disable image dragging */
+    document.addEventListener("dragstart", function(e){
+        if(e.target.tagName === "IMG"){
+            e.preventDefault();
+        }
+    });
+
+    /* Block common inspect/save shortcuts */
+    document.addEventListener("keydown", function(e){
+
+        const key = e.key.toLowerCase();
+
+        /* F12 */
+        if(e.key === "F12"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + U */
+        if(e.ctrlKey && key === "u"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + S */
+        if(e.ctrlKey && key === "s"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + Shift + I */
+        if(e.ctrlKey && e.shiftKey && key === "i"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + Shift + J */
+        if(e.ctrlKey && e.shiftKey && key === "j"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + Shift + C */
+        if(e.ctrlKey && e.shiftKey && key === "c"){
+            e.preventDefault();
+            return false;
+        }
+
+        /* Ctrl + P */
+        if(e.ctrlKey && key === "p"){
+            e.preventDefault();
+            return false;
+        }
+
+    });
+
+})();
+</script>
+
+
+<!-- ================= FLOATING ORDER BUTTON ================= -->
+
+<a
+    href="order.html"
+    
+    rel="noopener noreferrer"
+    class="cd-floating-order"
+    aria-label="Order Now"
+>
+    <span class="cd-order-dot"></span>
+    <span class="cd-order-text">ORDER NOW</span>
+    <span class="cd-order-arrow">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </span>
+</a>
+
+
+</body>
+</html>

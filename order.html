@@ -1,0 +1,9303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bhola Cold Drinks — Online Store</title>
+
+<meta name="description"
+content="Shop chilled cold drinks, juices, energy drinks, dairy drinks and more from Bhola Cold Drinks.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="order.css">
+<script src="https://kit.fontawesome.com/bfc6a1edf2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- =========================================
+     LOADER
+========================================= -->
+
+<div class="site-loader" id="siteLoader">
+  
+<div class="loader-logo">
+    <img src="imgs/logo.png" alt="Logo">
+</div>
+
+
+    <strong>Bhola Cold Drinks</strong>
+    <small>Fresh • Chilled • Delivered</small>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+    <div class="loader-welcome">
+    <strong>Welcome to Bhola Cold Drinks</strong>
+</div>
+</div>
+<style>
+/* =========================================
+   BHOLA COLD DRINKS — PREMIUM LOADER
+========================================= */
+
+.site-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 183, 77, .13), transparent 32%),
+        radial-gradient(circle at 80% 75%, rgba(255, 122, 24, .10), transparent 34%),
+        #fffaf3;
+
+    color: #29231e;
+
+    overflow: hidden;
+
+    animation: loaderBackground 6s ease-in-out infinite alternate;
+}
+
+
+/* =========================================
+   DECORATIVE ORBS
+========================================= */
+
+.site-loader::before,
+.site-loader::after {
+    content: "";
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.site-loader::before {
+    width: 260px;
+    height: 260px;
+
+    top: -130px;
+    left: -100px;
+
+    background: rgba(255, 183, 77, .08);
+
+    animation: loaderOrbOne 7s ease-in-out infinite;
+}
+
+.site-loader::after {
+    width: 300px;
+    height: 300px;
+
+    right: -150px;
+    bottom: -150px;
+
+    background: rgba(255, 122, 24, .07);
+
+    animation: loaderOrbTwo 8s ease-in-out infinite;
+}
+
+
+/* =========================================
+   LOGO AREA
+========================================= */
+
+.loader-logo {
+    position: relative;
+
+    width: clamp(70px, 18vw, 92px);
+    height: clamp(70px, 18vw, 92px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 17px;
+
+    flex-shrink: 0;
+
+    z-index: 2;
+
+    animation: logoEnter .9s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+
+/* glowing circular background */
+
+.loader-logo::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -9px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .72);
+
+    box-shadow:
+        0 12px 35px rgba(70, 45, 20, .10),
+        0 0 0 1px rgba(255, 140, 40, .12);
+
+    z-index: -1;
+
+    animation: logoGlow 2.5s ease-in-out infinite;
+}
+
+
+/* rotating dashed ring */
+
+.loader-logo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -16px;
+
+    border-radius: 50%;
+
+    border: 2px dashed rgba(242, 138, 32, .35);
+
+    animation: loaderSpin 8s linear infinite;
+}
+
+
+.loader-logo img {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter: drop-shadow(0 9px 12px rgba(70, 45, 20, .15));
+
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   BRAND NAME
+========================================= */
+
+.site-loader strong {
+    position: relative;
+    z-index: 2;
+
+    margin: 3px 0 5px;
+
+    color: #29231e;
+
+    font-size: clamp(21px, 5vw, 27px);
+    font-weight: 850;
+
+    letter-spacing: -.7px;
+
+    animation: textUp .8s .15s ease both;
+}
+
+
+/* tagline */
+
+.site-loader small {
+    position: relative;
+    z-index: 2;
+
+    color: #8a7665;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: .8px;
+
+    animation: textUp .8s .25s ease both;
+}
+
+
+/* =========================================
+   LOADING LINE
+========================================= */
+
+.loader-line {
+    position: relative;
+    z-index: 2;
+
+    width: min(220px, 65vw);
+    height: 5px;
+
+    margin-top: 22px;
+
+    overflow: hidden;
+
+    border-radius: 50px;
+
+    background: rgba(242, 138, 32, .12);
+
+    box-shadow: inset 0 1px 2px rgba(70, 45, 20, .05);
+
+    animation: lineEnter .7s .35s ease both;
+}
+
+
+.loader-line span {
+    position: absolute;
+
+    top: 0;
+    left: -45%;
+
+    width: 45%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #ffb347,
+        #f28a20,
+        #ffb347
+    );
+
+    box-shadow:
+        0 0 12px rgba(242, 138, 32, .28);
+
+    animation: loaderProgress 1.35s ease-in-out infinite;
+}
+
+
+/* small loading dots */
+
+.loader-line::after {
+    content: "•••";
+
+    position: absolute;
+
+    left: 50%;
+    top: 10px;
+
+    transform: translateX(-50%);
+
+    color: #e87514;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    opacity: .65;
+
+    animation: loaderDots 1.2s ease-in-out infinite;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes logoEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes logoFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes logoGlow {
+
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 12px 35px rgba(70, 45, 20, .10),
+            0 0 0 1px rgba(255, 140, 40, .12);
+    }
+
+    50% {
+        transform: scale(1.04);
+        box-shadow:
+            0 15px 42px rgba(70, 45, 20, .13),
+            0 0 25px rgba(255, 160, 60, .12);
+    }
+}
+
+@keyframes loaderSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes textUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineEnter {
+
+    from {
+        opacity: 0;
+        transform: scaleX(.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes loaderProgress {
+
+    0% {
+        left: -45%;
+    }
+
+    100% {
+        left: 105%;
+    }
+}
+
+@keyframes loaderDots {
+
+    0%, 100% {
+        opacity: .25;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: .9;
+        transform: translateX(-50%) translateY(2px);
+    }
+}
+
+@keyframes loaderOrbOne {
+
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(35px, 25px);
+    }
+}
+
+@keyframes loaderOrbTwo {
+
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-30px, -25px);
+    }
+}
+
+@keyframes loaderBackground {
+
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .site-loader {
+        padding: 20px;
+    }
+
+    .loader-logo {
+        margin-bottom: 15px;
+    }
+
+    .site-loader strong {
+        font-size: 21px;
+    }
+
+    .site-loader small {
+        font-size: 11px;
+        letter-spacing: .6px;
+    }
+
+    .loader-line {
+        width: 185px;
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .site-loader *,
+    .site-loader::before,
+    .site-loader::after {
+        animation: none !important;
+    }
+}
+.loader-welcome {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 32px;
+
+    text-align: center;
+
+    animation: welcomeIn 1s .7s ease both;
+}
+
+.loader-welcome strong {
+    display: block;
+
+    color: #e87514;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: .3px;
+}
+
+.loader-welcome span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #9a8878;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: .5px;
+}
+
+@keyframes welcomeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .loader-welcome {
+        margin-top: 28px;
+    }
+
+    .loader-welcome strong {
+        font-size: 13px;
+    }
+
+    .loader-welcome span {
+        font-size: 10px;
+    }
+}
+</style>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="store-header" id="storeHeader">
+
+    <div class="header-inner">
+
+<a href="#home" class="brand" >
+    <span class="brand-icon">
+        <img src="imgs/logo.png" alt="Logo">
+    </span>
+
+    <span class="brand-copy">
+        <strong>Bhola</strong>
+        <small>Cold Drinks</small>
+    </span>
+</a>
+
+<style>
+.brand-icon {
+    width: clamp(38px, 8vw, 48px);
+    height: clamp(38px, 8vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background:transparent;
+}
+
+.brand-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+</style>
+
+        <nav class="main-nav">
+
+            <a href="#home" class="active">Home</a>
+
+            <a href="#shop">Shop</a>
+
+            <a href="#offers">Offers</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Contact</a>
+
+            <a href="javascript:void(0)" class="shop-pos-btn" onclick="openPosNotice()">
+    <i class="fa-solid fa-cash-register"></i>
+    POS
+</a>
+
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button class="header-search-btn" id="openSearch">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button class="account-btn" id="accountBtn">
+                <i class="fa-regular fa-user"></i>
+
+                <span id="accountText">Login</span>
+            </button>
+
+            
+            <button class="cart-btn" id="openCart">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span class="cart-count" id="cartCount">0</span>
+
+            </button>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MOBILE MENU
+========================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-head">
+
+        <strong>Bhola Cold Drinks</strong>
+
+        <button id="closeMobileMenu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#offers">Offers</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+    <button class="mobile-login" id="mobileLogin">
+        <i class="fa-regular fa-user"></i>
+        Account
+    </button>
+
+</div>
+
+
+<!-- =========================================
+     SEARCH OVERLAY
+========================================= -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <div class="search-box">
+
+        <button class="close-search" id="closeSearch">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <span>Search our drinks</span>
+
+        <div class="search-input-wrap">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search Maaza, Sprite, Pepsi..."
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div class="search-results" id="searchResults"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<main>
+
+<section class="hero-section" id="home">
+
+    <div class="hero-bg-orb orb-one"></div>
+    <div class="hero-bg-orb orb-two"></div>
+
+    <div class="hero-container">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-badge">
+                <span></span>
+                Freshly chilled & ready
+            </div>
+
+            <h1>
+                Your favourite
+                <em>refreshment</em>
+                delivered.
+            </h1>
+
+            <p>
+                Explore cold drinks, juices, energy drinks,
+                dairy favourites and more — all in one place.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#shop" class="primary-btn">
+                    Shop now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#offers" class="secondary-btn">
+                    View offers
+                </a>
+
+            </div>
+
+            <div class="hero-trust">
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Fresh stock
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-snowflake"></i>
+                    Chilled drinks
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-bolt"></i>
+                    Fast ordering
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual reveal">
+
+            <div class="hero-ring"></div>
+
+            <div class="floating-card float-card-one">
+                <i class="fa-solid fa-bolt"></i>
+                <span>
+                    Quick<br>
+                    Order
+                </span>
+            </div>
+
+            <div class="floating-card float-card-two">
+                <strong>₹20</strong>
+                <span>starting price</span>
+            </div>
+
+            <div class="hero-bottle">
+
+                <div class="hero-bottle-glow"></div>
+
+                <img
+                    src="imgs/home.png"
+                    alt="Chilled drink"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SERVICE STRIP
+========================================= -->
+
+<section class="service-strip">
+
+    <div class="service-container">
+
+        <div class="service-item reveal">
+            <i class="fa-solid fa-truck-fast"></i>
+
+            <div>
+                <strong>Quick delivery</strong>
+                <span>Fast local order processing</span>
+            </div>
+        </div>
+
+        <div class="service-item reveal">
+            <i class="fa-solid fa-temperature-low"></i>
+
+            <div>
+                <strong>Fresh & chilled</strong>
+                <span>Drinks ready for you</span>
+            </div>
+        </div>
+
+        <div class="service-item reveal">
+            <i class="fa-solid fa-shield-heart"></i>
+
+            <div>
+                <strong>Easy ordering</strong>
+                <span>Simple & secure checkout</span>
+            </div>
+        </div>
+
+        <div class="service-item reveal">
+            <i class="fa-solid fa-headset"></i>
+
+            <div>
+                <strong>Customer support</strong>
+                <span>We're here to help</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- add new -->
+ <div class="bhola-marquee">
+    <div class="bhola-marquee-track">
+
+        <div class="bhola-marquee-content">
+            <span>FRESH STOCK</span>
+            <i class="fa-solid fa-star"></i>
+            <span>ICE COLD DRINKS</span>
+            <i class="fa-solid fa-star"></i>
+            <span>40+ DRINK CHOICES</span>
+            <i class="fa-solid fa-star"></i>
+            <span>QUICK LOCAL ORDERING</span>
+            <i class="fa-solid fa-star"></i>
+            <span>FRESH • CHILLED • READY</span>
+            <i class="fa-solid fa-star"></i>
+        </div>
+
+        <div class="bhola-marquee-content" aria-hidden="true">
+            <span>FRESH STOCK</span>
+            <i class="fa-solid fa-star"></i>
+            <span>ICE COLD DRINKS</span>
+            <i class="fa-solid fa-star"></i>
+            <span>40+ DRINK CHOICES</span>
+            <i class="fa-solid fa-star"></i>
+            <span>QUICK LOCAL ORDERING</span>
+            <i class="fa-solid fa-star"></i>
+            <span>FRESH • CHILLED • READY</span>
+            <i class="fa-solid fa-star"></i>
+        </div>
+
+    </div>
+</div>
+
+<style>
+/* ================================
+   BHOLA RESPONSIVE MARQUEE
+================================ */
+
+.bhola-marquee {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #ff7a18;
+    color: #fff;
+    padding: 13px 0;
+    margin: 0;
+    isolation: isolate;
+}
+
+.bhola-marquee-track {
+    width: max-content;
+    display: flex;
+    animation: bholaMarqueeMove 24s linear infinite;
+    will-change: transform;
+}
+
+.bhola-marquee-content {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.bhola-marquee-content span {
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    padding: 0 22px;
+}
+
+.bhola-marquee-content i {
+    font-size: 8px;
+    opacity: .9;
+    flex-shrink: 0;
+}
+
+/* Smooth infinite movement */
+@keyframes bholaMarqueeMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on hover */
+.bhola-marquee:hover .bhola-marquee-track {
+    animation-play-state: paused;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .bhola-marquee {
+        padding: 11px 0;
+    }
+
+    .bhola-marquee-content span {
+        font-size: 10px;
+        letter-spacing: 1.3px;
+        padding: 0 15px;
+    }
+
+    .bhola-marquee-content i {
+        font-size: 7px;
+    }
+
+    .bhola-marquee-track {
+        animation-duration: 19s;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .bhola-marquee-track {
+        animation: none;
+        transform: translateX(0);
+    }
+}
+</style>
+
+
+<section class="category-section bhola-open-categories">
+
+    <div class="section-container">
+
+        <div class="open-cat-heading">
+            <div>
+                <span class="eyebrow">SHOP BY CATEGORY</span>
+
+                <h2>
+                    Choose your
+                    <em>favourite.</em>
+                </h2>
+            </div>
+
+            <span class="open-cat-live">
+                <i></i>
+                LIVE COLLECTION
+            </span>
+        </div>
+
+
+        <div class="open-category-row">
+
+            <!-- SOFT DRINKS -->
+            <button class="open-category" data-category="Soft Drinks">
+
+                <span class="open-cat-visual green">
+                    <i class="fa-solid fa-bottle-water"></i>
+                </span>
+
+                <span class="open-cat-content">
+                    <span class="open-cat-index">01</span>
+
+                    <span class="open-cat-name">
+                        Soft Drinks
+                    </span>
+
+                    <small>Sprite · Pepsi · Cola</small>
+                </span>
+
+                <span class="open-cat-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- ENERGY -->
+            <button class="open-category" data-category="Energy">
+
+                <span class="open-cat-visual red">
+                    <i class="fa-solid fa-bolt"></i>
+                </span>
+
+                <span class="open-cat-content">
+                    <span class="open-cat-index">02</span>
+
+                    <span class="open-cat-name">
+                        Energy
+                    </span>
+
+                    <small>Sting · Red Bull</small>
+                </span>
+
+                <span class="open-cat-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- JUICES -->
+            <button class="open-category" data-category="Juices">
+
+                <span class="open-cat-visual orange">
+                    <i class="fa-solid fa-glass-water"></i>
+                </span>
+
+                <span class="open-cat-content">
+                    <span class="open-cat-index">03</span>
+
+                    <span class="open-cat-name">
+                        Juices
+                    </span>
+
+                    <small>Maaza · Frooti · Real</small>
+                </span>
+
+                <span class="open-cat-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </button>
+
+
+            <!-- DAIRY -->
+            <button class="open-category" data-category="Dairy">
+
+                <span class="open-cat-visual cream">
+                    <i class="fa-solid fa-cow"></i>
+                </span>
+
+                <span class="open-cat-content">
+                    <span class="open-cat-index">04</span>
+
+                    <span class="open-cat-name">
+                        Dairy
+                    </span>
+
+                    <small>Lassi · Milk</small>
+                </span>
+
+                <span class="open-cat-arrow">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =====================================================
+   BHOLA — PREMIUM CIRCULAR CATEGORIES
+===================================================== */
+
+.bhola-open-categories {
+    width: 100%;
+    padding: 72px 0 58px;
+    overflow: hidden;
+}
+
+
+/* -------------------------
+   Heading
+------------------------- */
+
+.open-cat-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 42px;
+}
+
+.open-cat-heading h2 {
+    margin: 7px 0 0;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(28px, 4vw, 41px);
+
+    line-height: 1;
+
+    letter-spacing: -1.6px;
+
+    color: #171717;
+}
+
+.open-cat-heading h2 em {
+    font-family: "Cormorant Garamond", serif;
+
+    color: #ff7a18;
+
+    font-weight: 600;
+}
+
+
+/* Live indicator */
+
+.open-cat-live {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    color: #1f8f55;
+
+    white-space: nowrap;
+}
+
+.open-cat-live i {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #1f8f55;
+
+    animation: bholaCatLive 1.7s infinite;
+}
+
+@keyframes bholaCatLive {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(31,143,85,.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 7px rgba(31,143,85,0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(31,143,85,0);
+    }
+
+}
+
+
+/* =====================================================
+   CATEGORY ROW
+===================================================== */
+
+.open-category-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    border-top: 1px solid rgba(23,23,23,.11);
+
+    border-bottom: 1px solid rgba(23,23,23,.11);
+}
+
+
+/* =====================================================
+   CATEGORY ITEM
+===================================================== */
+
+.open-category {
+
+    position: relative;
+
+    min-width: 0;
+
+    min-height: 145px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px 18px;
+
+    background: transparent;
+
+    border: 0;
+
+    border-right: 1px solid rgba(23,23,23,.11);
+
+    color: #171717;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        background .3s ease,
+        padding .3s ease;
+}
+
+.open-category:last-child {
+    border-right: 0;
+}
+
+
+/* Small animated bottom line */
+
+.open-category::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+    right: 18px;
+
+    bottom: -1px;
+
+    height: 2px;
+
+    background: #ff7a18;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform .4s ease;
+}
+
+.open-category:hover::after {
+    transform: scaleX(1);
+}
+
+.open-category:hover {
+    background: rgba(255,122,24,.025);
+
+    padding-left: 22px;
+}
+
+
+/* =====================================================
+   CIRCLE
+===================================================== */
+
+.open-cat-visual {
+
+    position: relative;
+
+    width: 68px;
+    height: 68px;
+
+    min-width: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    background: rgba(31,143,85,.09);
+
+    color: #1f8f55;
+
+    border: 1px solid rgba(31,143,85,.13);
+
+    transition:
+        transform .45s cubic-bezier(.22,.61,.36,1),
+        box-shadow .45s ease,
+        background .3s ease;
+}
+
+
+/* Circle outer ring */
+
+.open-cat-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(23,23,23,.13);
+
+    opacity: .7;
+
+    transition:
+        transform .5s ease,
+        border-color .3s ease;
+}
+
+
+/* Different colours */
+
+.open-cat-visual.red {
+    background: rgba(231,76,60,.09);
+    color: #e74c3c;
+    border-color: rgba(231,76,60,.14);
+}
+
+.open-cat-visual.orange {
+    background: rgba(255,122,24,.10);
+    color: #e65f00;
+    border-color: rgba(255,122,24,.16);
+}
+
+.open-cat-visual.cream {
+    background: rgba(214,174,82,.14);
+    color: #96711f;
+    border-color: rgba(214,174,82,.18);
+}
+
+
+/* Circle animation */
+
+.open-category:hover .open-cat-visual {
+
+    transform:
+        translateY(-5px)
+        rotate(-5deg);
+
+    box-shadow:
+        0 12px 28px rgba(23,23,23,.09);
+}
+
+.open-category:hover .open-cat-visual::before {
+
+    transform: rotate(25deg);
+
+    border-color: rgba(255,122,24,.35);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.open-cat-content {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.open-cat-index {
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    color: #aaa;
+}
+
+.open-cat-name {
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    transition:
+        color .25s ease,
+        transform .3s ease;
+}
+
+.open-cat-content small {
+
+    display: block;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 10px;
+
+    color: #888;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.open-category:hover .open-cat-name {
+
+    color: #e65f00;
+
+    transform: translateX(3px);
+}
+
+
+/* =====================================================
+   ARROW
+===================================================== */
+
+.open-cat-arrow {
+
+    width: 30px;
+    height: 30px;
+
+    min-width: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+
+    border-radius: 50%;
+
+    color: #999;
+
+    font-size: 9px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .35s ease;
+}
+
+.open-category:hover .open-cat-arrow {
+
+    background: #ff7a18;
+
+    color: #fff;
+
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .bhola-open-categories {
+        padding-top: 62px;
+    }
+
+    .open-category-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .open-category:nth-child(2) {
+        border-right: 0;
+    }
+
+    .open-category:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(23,23,23,.11);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .bhola-open-categories {
+        padding: 48px 0 45px;
+    }
+
+    .open-cat-heading {
+
+        align-items: flex-start;
+
+        margin-bottom: 32px;
+    }
+
+    .open-cat-heading h2 {
+        font-size: 28px;
+    }
+
+    .open-cat-live {
+        margin-top: 5px;
+        font-size: 8px;
+    }
+
+    .open-category {
+
+        min-height: 112px;
+
+        gap: 10px;
+
+        padding: 15px 10px;
+    }
+
+    .open-category:hover {
+        padding-left: 13px;
+    }
+
+    .open-cat-visual {
+
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+
+        font-size: 17px;
+    }
+
+    .open-cat-visual::before {
+        inset: -4px;
+    }
+
+    .open-cat-name {
+        font-size: 12px;
+    }
+
+    .open-cat-content small {
+        font-size: 9px;
+    }
+
+    .open-cat-arrow {
+        width: 25px;
+        height: 25px;
+
+        min-width: 25px;
+
+        font-size: 8px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .open-category-row {
+        grid-template-columns: 1fr;
+    }
+
+    .open-category,
+    .open-category:nth-child(2) {
+        border-right: 0;
+
+        border-bottom: 1px solid rgba(23,23,23,.11);
+    }
+
+    .open-category:last-child {
+        border-bottom: 0;
+    }
+
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .open-cat-live i,
+    .open-category *,
+    .open-category::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
+
+</style>
+
+<!-- =========================================
+     SHOP
+========================================= -->
+
+<section class="shop-section" id="shop" style="    background: #fffaf3;
+">
+
+    <div class="section-container">
+
+        <div class="shop-top reveal">
+
+            <div>
+
+                <span class="eyebrow">OUR COLLECTION</span>
+
+                <h2>
+                    Shop your
+                    <em>favourites.</em>
+                </h2>
+
+                <p>
+                    Real products from our store, ready to order.
+                </p>
+
+            </div>
+
+
+            <div class="shop-controls">
+
+                <div class="shop-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search products..."
+                    >
+
+                </div>
+
+
+                <select id="sortProducts">
+
+                    <option value="default">Sort by</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="name">Name: A–Z</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="filter-row" id="filterRow">
+
+            <button class="filter-btn active" data-filter="All">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="Soft Drinks">
+                Soft Drinks
+            </button>
+
+            <button class="filter-btn" data-filter="Juices">
+                Juices
+            </button>
+
+            <button class="filter-btn" data-filter="Energy">
+                Energy
+            </button>
+
+            <button class="filter-btn" data-filter="Dairy">
+                Dairy
+            </button>
+
+            <button class="filter-btn" data-filter="Water">
+                Water
+            </button>
+
+        </div>
+
+
+        <div class="product-grid" id="productGrid"></div>
+
+
+        <div class="empty-products" id="emptyProducts">
+
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <h3>No products found</h3>
+
+            <p>Try another search or category.</p>
+
+            <button id="resetProducts">
+                View all products
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Funny Milk Moment -->
+<section class="milk-fun-section" id="milkFun" style="background: #fffaf3;;">
+    <div class="milk-fun-inner">
+
+        <div class="milk-fun-content">
+            <span class="milk-fun-badge">
+                <i class="fa-solid fa-face-laugh-wink"></i>
+                Just For Fun
+            </span>
+
+            <h2>
+                Milk so fresh,
+                <span>even the cow approves! </span>
+            </h2>
+
+            <p>
+                When your drink is this refreshing,
+                you don't need a review... the cow already gave it a thumbs up! 😎
+            </p>
+
+            <div class="milk-fun-line">
+                <span>🥛</span>
+                <strong>Fresh • Fun • Refreshing</strong>
+                <span>✨</span>
+            </div>
+        </div>
+
+        <div class="milk-fun-image">
+            <div class="milk-fun-circle"></div>
+
+            <!-- Apni image yahan lagao -->
+            <img src="imgs/cowfun.png" alt="Funny Milk Cow">
+
+            <span class="milk-bubble bubble-one">Yummy! 😋</span>
+            <span class="milk-bubble bubble-two">Moo! 🐄</span>
+        </div>
+
+    </div>
+</section>
+
+<style>
+/* =========================================
+   MILK FUN — CARD FREE / OPEN EDITORIAL
+========================================= */
+
+.milk-fun-section {
+    position: relative;
+    width: 100%;
+    padding: 75px 24px;
+    overflow: hidden;
+    background: #fffaf3;
+}
+
+/* subtle decorative shapes — full section */
+.milk-fun-section::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255, 183, 77, .08);
+    top: -130px;
+    left: -100px;
+}
+
+.milk-fun-section::after {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: rgba(255, 122, 24, .06);
+    right: -150px;
+    bottom: -170px;
+}
+
+.milk-fun-inner {
+    max-width: 1120px;
+    min-height: 340px;
+    margin: auto;
+    padding: 20px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    position: relative;
+    z-index: 2;
+
+    /* CARD REMOVED */
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.milk-fun-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 3;
+}
+
+.milk-fun-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 14px;
+    border-radius: 50px;
+
+    background: #fff0dc;
+    color: #e87514;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+
+    transition: .3s ease;
+}
+
+.milk-fun-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(232, 117, 20, .12);
+}
+
+.milk-fun-badge i {
+    font-size: 13px;
+}
+
+/* Heading */
+
+.milk-fun-content h2 {
+    margin: 17px 0 14px;
+
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.05;
+
+    color: #29231e;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.milk-fun-content h2 span {
+    display: block;
+    color: #f28a20;
+
+    position: relative;
+    width: fit-content;
+}
+
+/* little underline */
+
+.milk-fun-content h2 span::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -7px;
+
+    width: 65%;
+    height: 4px;
+
+    border-radius: 20px;
+    background: #ffd39f;
+
+    transform: rotate(-2deg);
+}
+
+/* Paragraph */
+
+.milk-fun-content p {
+    max-width: 520px;
+    margin: 24px 0 0;
+
+    color: #756b61;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* Bottom line */
+
+.milk-fun-line {
+    margin-top: 23px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #403830;
+    font-size: 13px;
+}
+
+.milk-fun-line span {
+    font-size: 20px;
+
+    animation: milkEmoji 2s ease-in-out infinite;
+}
+
+.milk-fun-line span:last-child {
+    animation-delay: .5s;
+}
+
+.milk-fun-line strong {
+    font-weight: 800;
+}
+
+/* =========================================
+   IMAGE AREA
+========================================= */
+
+.milk-fun-image {
+    width: 390px;
+    min-width: 330px;
+    height: 310px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* glowing circle behind cow */
+
+.milk-fun-circle {
+    position: absolute;
+
+    width: 245px;
+    height: 245px;
+
+    border-radius: 50%;
+
+    background: #fff0d9;
+
+    z-index: 1;
+
+    animation: milkCirclePulse 3.5s ease-in-out infinite;
+}
+
+/* soft second ring */
+
+.milk-fun-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 285px;
+    height: 285px;
+
+    border: 1px dashed rgba(242, 138, 32, .25);
+    border-radius: 50%;
+
+    z-index: 1;
+
+    animation: milkRing 12s linear infinite;
+}
+
+/* Cow */
+
+.milk-fun-image img {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+    max-width: 355px;
+    max-height: 300px;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 18px 18px rgba(70, 45, 20, .14));
+
+    animation: milkCowFloat 3.5s ease-in-out infinite;
+
+    transition: .35s ease;
+}
+
+.milk-fun-image:hover img {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* =========================================
+   FUNNY BUBBLES
+========================================= */
+
+.milk-bubble {
+    position: absolute;
+    z-index: 5;
+
+    padding: 9px 14px;
+
+    border-radius: 15px;
+
+    background: #fff;
+    color: #403830;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 22px rgba(70, 45, 20, .10);
+
+    white-space: nowrap;
+}
+
+.bubble-one {
+    top: 22px;
+    right: 5px;
+
+    transform: rotate(5deg);
+
+    animation: bubbleOne 2.8s ease-in-out infinite;
+}
+
+.bubble-two {
+    bottom: 28px;
+    left: 5px;
+
+    transform: rotate(-6deg);
+
+    animation: bubbleTwo 3s ease-in-out infinite;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes milkCowFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-11px) rotate(1deg);
+    }
+}
+
+@keyframes milkCirclePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+@keyframes milkRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bubbleOne {
+    0%, 100% {
+        transform: translateY(0) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(8deg);
+    }
+}
+
+@keyframes bubbleTwo {
+    0%, 100% {
+        transform: translateY(0) rotate(-6deg);
+    }
+
+    50% {
+        transform: translateY(7px) rotate(-3deg);
+    }
+}
+
+@keyframes milkEmoji {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px) rotate(5deg);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .milk-fun-section {
+        padding: 48px 16px;
+    }
+
+    .milk-fun-inner {
+        min-height: auto;
+
+        padding: 10px 5px;
+
+        flex-direction: column;
+        text-align: center;
+
+        gap: 12px;
+    }
+
+    .milk-fun-content {
+        max-width: 100%;
+    }
+
+    .milk-fun-content h2 {
+        margin-top: 15px;
+
+        font-size: 30px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .milk-fun-content h2 span {
+        display: inline;
+        width: auto;
+    }
+
+    .milk-fun-content h2 span::after {
+        display: none;
+    }
+
+    .milk-fun-content p {
+        margin: 18px auto 0;
+
+        max-width: 430px;
+
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .milk-fun-line {
+        justify-content: center;
+        margin-top: 16px;
+
+        font-size: 12px;
+    }
+
+    .milk-fun-image {
+        width: 100%;
+        min-width: 0;
+        height: 235px;
+    }
+
+    .milk-fun-image img {
+        max-width: 290px;
+        max-height: 235px;
+    }
+
+    .milk-fun-circle {
+        width: 185px;
+        height: 185px;
+    }
+
+    .milk-fun-image::before {
+        width: 220px;
+        height: 220px;
+    }
+
+    .milk-bubble {
+        font-size: 11px;
+        padding: 7px 11px;
+    }
+
+    .bubble-one {
+        top: 8px;
+        right: 2px;
+    }
+
+    .bubble-two {
+        bottom: 15px;
+        left: 2px;
+    }
+}
+
+/* very small phones */
+
+@media (max-width: 390px) {
+
+    .milk-fun-section {
+        padding: 42px 13px;
+    }
+
+    .milk-fun-content h2 {
+        font-size: 27px;
+    }
+
+    .milk-fun-image {
+        height: 215px;
+    }
+
+    .milk-fun-image img {
+        max-width: 265px;
+    }
+
+    .milk-fun-circle {
+        width: 170px;
+        height: 170px;
+    }
+
+    .milk-fun-image::before {
+        width: 205px;
+        height: 205px;
+    }
+}
+</style>
+
+
+<section class="offer-section bhola-offer" id="offers">
+
+    <div class="section-container">
+
+        <div class="offer-banner reveal">
+
+            <!-- LEFT CONTENT -->
+            <div class="offer-copy">
+
+                <span class="eyebrow light">
+                    TODAY'S REFRESHMENT
+                </span>
+
+                <h2>
+                    More drinks.
+                    <br>
+                    <em>More moments.</em>
+                </h2>
+
+                <p>
+                    Grab your favourites and make your
+                    next break a little better.
+                </p>
+
+                <button class="offer-btn" id="offerShopBtn">
+                    Shop collection
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- RIGHT VISUAL -->
+            <div class="offer-products">
+
+                <div class="offer-glow"></div>
+
+                <span class="offer-circle circle-one"></span>
+                <span class="offer-circle circle-two"></span>
+
+                <div class="offer-bottle bottle-one">
+                    <img
+                        src="imgs/offer2.png"
+                        alt="Maaza"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="offer-bottle bottle-two">
+                    <img
+                        src="images/bottle2.png"
+                        alt="Sprite"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="offer-bottle bottle-three">
+                    <img
+                        src="imgs/offer1.png"
+                        alt="Pepsi"
+                        loading="lazy"
+                    >
+                </div>
+
+                <span class="offer-spark spark-one">✦</span>
+                <span class="offer-spark spark-two">✦</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+/* =====================================================
+   BHOLA — OPEN EDITORIAL OFFER
+===================================================== */
+
+.bhola-offer {
+    width: 100%;
+    padding: 72px 0 78px;
+    overflow: hidden;
+    background: #fffaf3;
+}
+
+
+/* =====================================================
+   MAIN OPEN LAYOUT
+===================================================== */
+
+.bhola-offer .offer-banner {
+    position: relative;
+    min-height: 390px;
+
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(390px, 1.05fr);
+
+    align-items: center;
+
+    padding: 35px 10px 35px 8px;
+
+    background: transparent;
+    color: #171717;
+
+    overflow: visible;
+}
+
+
+/* Fine editorial line */
+
+.bhola-offer .offer-banner::before {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background: rgba(23,23,23,.10);
+
+    pointer-events: none;
+}
+
+
+/* Small orange top accent */
+
+.bhola-offer .offer-banner::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+
+    width: 85px;
+    height: 2px;
+
+    background: #ff7a18;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   COPY
+===================================================== */
+
+.bhola-offer .offer-copy {
+    position: relative;
+    z-index: 5;
+
+    max-width: 500px;
+
+    padding-right: 25px;
+}
+
+
+.bhola-offer .offer-copy .eyebrow {
+    color: #e65f00;
+}
+
+
+.bhola-offer .offer-copy h2 {
+    margin: 12px 0 17px;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(36px, 4.4vw, 54px);
+
+    line-height: .98;
+
+    letter-spacing: -2.3px;
+
+    color: #171717;
+}
+
+
+.bhola-offer .offer-copy h2 em {
+    display: inline-block;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.1em;
+
+    font-weight: 600;
+
+    color: #e65f00;
+}
+
+
+.bhola-offer .offer-copy p {
+    max-width: 390px;
+
+    margin: 0 0 26px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.bhola-offer .offer-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 45px;
+
+    padding: 0 20px;
+
+    border: 1px solid rgba(230,95,0,.25);
+
+    border-radius: 999px;
+
+    background: #ff7a18;
+
+    color: #fff;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 9px 22px rgba(230,95,0,.14);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+
+.bhola-offer .offer-btn i {
+    font-size: 10px;
+
+    transition: transform .3s ease;
+}
+
+
+.bhola-offer .offer-btn:hover {
+
+    transform: translateY(-3px);
+
+    background: #e65f00;
+
+    box-shadow: 0 14px 28px rgba(230,95,0,.20);
+}
+
+
+.bhola-offer .offer-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   RIGHT VISUAL
+===================================================== */
+
+.bhola-offer .offer-products {
+
+    position: relative;
+
+    height: 345px;
+
+    min-width: 0;
+
+    overflow: visible;
+}
+
+
+/* Soft background glow */
+
+.bhola-offer .offer-glow {
+
+    position: absolute;
+
+    width: 255px;
+    height: 255px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,122,24,.13) 0%,
+            rgba(255,122,24,.055) 42%,
+            transparent 72%
+        );
+
+    filter: blur(3px);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   OPEN CIRCLES
+===================================================== */
+
+.bhola-offer .offer-circle {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(230,95,0,.13);
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.bhola-offer .circle-one {
+    width: 260px;
+    height: 260px;
+}
+
+
+.bhola-offer .circle-two {
+    width: 335px;
+    height: 335px;
+
+    border-style: dashed;
+
+    border-color: rgba(23,23,23,.08);
+
+    animation: bholaOfferRotate 22s linear infinite;
+}
+
+
+@keyframes bholaOfferRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   BOTTLES
+===================================================== */
+
+.bhola-offer .offer-bottle {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    z-index: 3;
+
+    transform-origin: bottom center;
+
+    animation:
+        bholaBottleFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.bhola-offer .offer-bottle img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 20px 15px
+            rgba(40,25,10,.16)
+        );
+}
+
+
+/* Left */
+
+.bhola-offer .bottle-one {
+
+    left: 10%;
+
+    width: 105px;
+    height: 220px;
+
+    transform: rotate(-9deg);
+
+    animation-delay: -.8s;
+}
+
+
+/* Center */
+
+.bhola-offer .bottle-two {
+
+    left: 38%;
+
+    bottom: 10px;
+
+    width: 135px;
+    height: 280px;
+
+    z-index: 5;
+
+    transform: rotate(1deg);
+
+    animation-delay: -.2s;
+}
+
+
+/* Right */
+
+.bhola-offer .bottle-three {
+
+    right: 10%;
+
+    width: 105px;
+    height: 220px;
+
+    transform: rotate(9deg);
+
+    animation-delay: -1.4s;
+}
+
+
+/* =====================================================
+   FLOAT
+===================================================== */
+
+@keyframes bholaBottleFloat {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+
+}
+
+
+/* =====================================================
+   SPARKS
+===================================================== */
+
+.bhola-offer .offer-spark {
+
+    position: absolute;
+
+    z-index: 6;
+
+    color: #ff7a18;
+
+    font-size: 17px;
+
+    animation:
+        bholaSpark
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+
+.bhola-offer .spark-one {
+
+    left: 16%;
+    top: 25%;
+
+    animation-delay: -.5s;
+}
+
+
+.bhola-offer .spark-two {
+
+    right: 17%;
+    top: 17%;
+
+    font-size: 12px;
+
+    animation-delay: -1.3s;
+}
+
+
+@keyframes bholaSpark {
+
+    0%,
+    100% {
+        opacity: .35;
+
+        transform:
+            scale(.8)
+            rotate(0);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.15)
+            rotate(18deg);
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .bhola-offer {
+        padding: 62px 0 65px;
+    }
+
+
+    .bhola-offer .offer-banner {
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        min-height: 350px;
+
+        padding:
+            30px
+            0;
+    }
+
+
+    .bhola-offer .offer-copy {
+        padding-right: 15px;
+    }
+
+
+    .bhola-offer .offer-products {
+        height: 290px;
+    }
+
+
+    .bhola-offer .bottle-one {
+        width: 82px;
+        height: 180px;
+    }
+
+
+    .bhola-offer .bottle-two {
+        width: 110px;
+        height: 230px;
+    }
+
+
+    .bhola-offer .bottle-three {
+        width: 82px;
+        height: 180px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .bhola-offer {
+
+        padding:
+            48px
+            0
+            55px;
+    }
+
+
+    .bhola-offer .offer-banner {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        min-height: auto;
+
+        padding:
+            10px
+            0
+            25px;
+    }
+
+
+    .bhola-offer .offer-copy {
+
+        max-width: 100%;
+
+        padding-right: 0;
+    }
+
+
+    .bhola-offer .offer-copy h2 {
+
+        font-size: 35px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .bhola-offer .offer-copy p {
+
+        font-size: 12px;
+
+        max-width: 310px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .bhola-offer .offer-btn {
+
+        min-height: 43px;
+
+        padding: 0 17px;
+
+        font-size: 11px;
+    }
+
+
+    /* Mobile visual */
+
+    .bhola-offer .offer-products {
+
+        width: 100%;
+
+        height: 245px;
+
+        margin-top: 25px;
+    }
+
+
+    .bhola-offer .offer-glow {
+
+        width: 175px;
+        height: 175px;
+    }
+
+
+    .bhola-offer .circle-one {
+
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .bhola-offer .circle-two {
+
+        width: 245px;
+        height: 245px;
+    }
+
+
+    .bhola-offer .bottle-one {
+
+        left: 9%;
+
+        width: 70px;
+        height: 150px;
+
+        bottom: 15px;
+    }
+
+
+    .bhola-offer .bottle-two {
+
+        left: 37%;
+
+        width: 92px;
+        height: 195px;
+
+        bottom: 7px;
+    }
+
+
+    .bhola-offer .bottle-three {
+
+        right: 8%;
+
+        width: 70px;
+        height: 150px;
+
+        bottom: 15px;
+    }
+
+
+    .bhola-offer .spark-one {
+
+        left: 11%;
+        top: 22%;
+    }
+
+
+    .bhola-offer .spark-two {
+
+        right: 10%;
+        top: 14%;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .bhola-offer {
+
+        padding-top: 42px;
+    }
+
+
+    .bhola-offer .offer-copy h2 {
+
+        font-size: 30px;
+    }
+
+
+    .bhola-offer .offer-products {
+
+        height: 215px;
+    }
+
+
+    .bhola-offer .bottle-one {
+
+        width: 60px;
+        height: 130px;
+    }
+
+
+    .bhola-offer .bottle-two {
+
+        width: 80px;
+        height: 170px;
+    }
+
+
+    .bhola-offer .bottle-three {
+
+        width: 60px;
+        height: 130px;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bhola-offer .offer-bottle,
+    .bhola-offer .offer-spark,
+    .bhola-offer .circle-two {
+
+        animation: none !important;
+    }
+
+}
+
+</style>
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section class="about-section" id="about">
+
+    <div class="section-container about-grid">
+
+        <div class="about-visual reveal">
+
+            <div class="about-image-main">
+
+                <img
+                    src="imgs/about.png"
+                    alt="Cold drink"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="about-floating">
+
+                <strong>40+</strong>
+                <span>refreshing choices</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-content reveal">
+
+            <span class="eyebrow">ABOUT BHOLA</span>
+
+            <h2>
+                Your local stop for
+                <em>good refreshment.</em>
+            </h2>
+
+            <p>
+                Bhola Cold Drinks is built around one simple idea:
+                making your favourite drinks easy to discover and
+                order.
+            </p>
+
+            <p>
+                From a quick chilled bottle to drinks for your
+                family and friends, our online store keeps
+                everything simple.
+            </p>
+
+            <div class="about-points">
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    <span>Wide drink collection</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    <span>Simple online ordering</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    <span>Customer-first experience</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<style>
+
+/* =====================================================
+   BHOLA — CARD FREE ABOUT SECTION
+===================================================== */
+
+.about-section {
+    position: relative;
+    width: 100%;
+    padding: 90px 0;
+    overflow: hidden;
+    background: #fffaf3;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.about-section .about-grid {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, .95fr)
+        minmax(0, 1.05fr);
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* =====================================================
+   IMAGE AREA — NO CARD
+===================================================== */
+
+.about-section .about-visual {
+
+    position: relative;
+
+    min-height: 470px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+}
+
+
+/* Large soft glow */
+
+.about-section .about-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,122,24,.14) 0%,
+            rgba(255,122,24,.06) 42%,
+            transparent 72%
+        );
+
+    filter: blur(4px);
+
+    pointer-events: none;
+}
+
+
+/* Editorial circle */
+
+.about-section .about-visual::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(23,23,23,.11);
+
+    animation:
+        aboutCircleRotate
+        24s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes aboutCircleRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.about-section .about-image-main {
+
+    position: relative;
+
+    width: 280px;
+    height: 410px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: 0;
+    box-shadow: none;
+
+    z-index: 3;
+
+    animation:
+        aboutBottleFloat
+        4.5s
+        ease-in-out
+        infinite;
+}
+
+
+.about-section .about-image-main::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 135px;
+    height: 20px;
+
+    bottom: 12px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(35,25,15,.12);
+
+    filter: blur(9px);
+
+    z-index: -1;
+}
+
+
+.about-section .about-image-main img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 25px 18px
+            rgba(50,30,10,.17)
+        );
+}
+
+
+@keyframes aboutBottleFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(2deg);
+    }
+
+}
+
+
+/* =====================================================
+   40+ FLOATING EDITORIAL LABEL
+===================================================== */
+
+.about-section .about-floating {
+
+    position: absolute;
+
+    left: 8%;
+    bottom: 65px;
+
+    z-index: 6;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding-left: 14px;
+
+    border-left: 2px solid #ff7a18;
+
+    background: transparent;
+
+    box-shadow: none;
+}
+
+
+.about-section .about-floating strong {
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: 34px;
+
+    line-height: .9;
+
+    color: #171717;
+
+    letter-spacing: -1.5px;
+}
+
+
+.about-section .about-floating span {
+
+    margin-top: 6px;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    color: #888;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.about-section .about-content {
+
+    position: relative;
+
+    max-width: 570px;
+}
+
+
+.about-section .about-content h2 {
+
+    margin:
+        10px
+        0
+        20px;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(
+            34px,
+            4vw,
+            51px
+        );
+
+    line-height: 1.02;
+
+    letter-spacing: -2px;
+
+    color: #171717;
+}
+
+
+.about-section .about-content h2 em {
+
+    display: inline-block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.08em;
+
+    font-weight: 600;
+
+    color: #e65f00;
+}
+
+
+.about-section .about-content p {
+
+    max-width: 510px;
+
+    margin:
+        0
+        0
+        14px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+
+/* =====================================================
+   POINTS — OPEN ROWS, NO CARDS
+===================================================== */
+
+.about-section .about-points {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 27px;
+
+    max-width: 440px;
+
+    border-top:
+        1px solid
+        rgba(23,23,23,.10);
+}
+
+
+.about-section .about-points > div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        13px
+        0;
+
+    border-bottom:
+        1px solid
+        rgba(23,23,23,.10);
+
+    transition:
+        padding-left .3s ease,
+        color .3s ease;
+}
+
+
+.about-section .about-points > div:hover {
+
+    padding-left: 7px;
+}
+
+
+.about-section .about-points i {
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(31,143,85,.10);
+
+    color: #1f8f55;
+
+    font-size: 9px;
+
+    flex-shrink: 0;
+}
+
+
+.about-section .about-points span {
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .about-section {
+
+        padding:
+            75px
+            0;
+    }
+
+
+    .about-section .about-grid {
+
+        gap: 35px;
+    }
+
+
+    .about-section .about-visual {
+
+        min-height: 400px;
+    }
+
+
+    .about-section .about-visual::after {
+
+        width: 320px;
+        height: 320px;
+    }
+
+
+    .about-section .about-image-main {
+
+        width: 220px;
+        height: 340px;
+    }
+
+
+    .about-section .about-floating {
+
+        left: 2%;
+        bottom: 45px;
+    }
+
+
+    .about-section .about-content h2 {
+
+        font-size: 38px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .about-section {
+
+        padding:
+            60px
+            0;
+    }
+
+
+    .about-section .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .about-section .about-visual {
+
+        min-height: 390px;
+    }
+
+
+    .about-section .about-visual::before {
+
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .about-section .about-visual::after {
+
+        width: 310px;
+        height: 310px;
+    }
+
+
+    .about-section .about-image-main {
+
+        width: 205px;
+        height: 320px;
+    }
+
+
+    .about-section .about-floating {
+
+        left: 15%;
+
+        bottom: 42px;
+    }
+
+
+    .about-section .about-floating strong {
+
+        font-size: 30px;
+    }
+
+
+    .about-section .about-content {
+
+        max-width: 100%;
+    }
+
+
+    .about-section .about-content h2 {
+
+        font-size: 34px;
+
+        letter-spacing: -1.4px;
+    }
+
+
+    .about-section .about-content p {
+
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+
+    .about-section .about-points {
+
+        margin-top: 23px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .about-section {
+
+        padding:
+            48px
+            0;
+    }
+
+
+    .about-section .about-visual {
+
+        min-height: 340px;
+    }
+
+
+    .about-section .about-visual::after {
+
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .about-section .about-image-main {
+
+        width: 175px;
+        height: 280px;
+    }
+
+
+    .about-section .about-floating {
+
+        left: 9%;
+
+        bottom: 35px;
+    }
+
+
+    .about-section .about-floating strong {
+
+        font-size: 27px;
+    }
+
+
+    .about-section .about-content h2 {
+
+        font-size: 30px;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-section .about-image-main,
+    .about-section .about-visual::after {
+
+        animation: none !important;
+    }
+
+}
+
+</style>
+
+
+
+<!-- Banana Fun Section -->
+<section class="banana-fun-section">
+
+    <div class="banana-fun-wrap">
+
+        <div class="banana-fun-text">
+
+            <span class="banana-fun-tag">
+                <i class="fa-solid fa-bolt"></i>
+                Warning: Too Much Fun
+            </span>
+
+            <h2 style="color: #60605e;">
+                Someone is
+                <span>stealing the drinks! </span>
+            </h2>
+
+            <p>
+                Our banana tried to take the whole crate...
+                but honestly, we respect the ambition. 
+            </p>
+
+            <div class="banana-fun-jokes">
+                <div>
+                    <i class="fa-solid fa-face-laugh"></i>
+                    <span>Mission: Refreshment</span>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Target: Full Crate</span>
+                </div>
+            </div>
+
+            <div class="banana-fun-bottom">
+                <strong> 😂:</strong>
+                <span>"Just one more drink..."</span>
+            </div>
+
+        </div>
+
+        <div class="banana-fun-visual">
+
+            <div class="banana-glow"></div>
+
+            <div class="banana-sticker sticker-top">
+                PULL! 💪
+            </div>
+
+            <img 
+                src="imgs/bnanafun.png"
+                alt="Funny Banana Pulling Drinks"
+            >
+
+            <div class="banana-sticker sticker-bottom">
+                Almost there! 😂
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<style>/* =========================================
+   BANANA FUN SECTION
+========================================= */
+
+.banana-fun-section {
+    position: relative;
+    padding: 45px 20px;
+    overflow: hidden;
+/* background: linear-gradient(135deg, #fffaf2 0%, #fff7ed 50%, #fffaf2 100%);} */
+background: #fffaf2;
+}
+
+
+.banana-fun-section::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    left: -100px;
+    top: -100px;
+    border-radius: 50%;
+    background: rgba(255, 193, 7, .08);
+}
+
+.banana-fun-section::after {
+    content: " ";
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    font-size: 70px;
+    opacity: .035;
+    transform: rotate(25deg);
+}
+
+.banana-fun-wrap {
+    width: min(1100px, 100%);
+    min-height: 310px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    align-items: center;
+    gap: 20px;
+
+    position: relative;
+}
+
+/* TEXT */
+
+.banana-fun-text {
+    position: relative;
+    z-index: 3;
+}
+
+.banana-fun-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 13px;
+    border-radius: 100px;
+
+    background: rgba(255, 193, 7, .10);
+    border: 1px solid rgba(255, 193, 7, .18);
+
+    color: #ffc107;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+
+.banana-fun-text h2 {
+    margin: 16px 0 12px;
+
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.03;
+    letter-spacing: -1.8px;
+
+    color: #fff;
+}
+
+.banana-fun-text h2 span {
+    display: block;
+    color: #ffc107;
+}
+
+.banana-fun-text p {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: #aeb2b5;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* JOKES */
+
+.banana-fun-jokes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 19px;
+}
+
+.banana-fun-jokes div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+
+    background: #1b1e20;
+    border: 1px solid rgba(255,255,255,.07);
+
+    color: #d9dcde;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: .25s ease;
+}
+
+.banana-fun-jokes div:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,193,7,.3);
+}
+
+.banana-fun-jokes i {
+    color: #ffc107;
+}
+
+/* QUOTE */
+
+.banana-fun-bottom {
+    margin-top: 17px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 12px;
+    color: #858b8f;
+}
+
+.banana-fun-bottom strong {
+    color: #ffc107;
+}
+
+/* VISUAL */
+
+.banana-fun-visual {
+    min-height: 310px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banana-fun-visual img {
+    position: relative;
+    z-index: 3;
+
+    width: min(100%, 570px);
+    max-height: 350px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 20px 25px rgba(0,0,0,.35));
+
+    animation: bananaFloat 4s ease-in-out infinite;
+}
+
+.banana-glow {
+    position: absolute;
+
+    width: 310px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(255,193,7,.09);
+
+    filter: blur(35px);
+
+    z-index: 1;
+
+    animation: bananaGlow 3s ease-in-out infinite;
+}
+
+/* FUNNY STICKERS */
+
+.banana-sticker {
+    position: absolute;
+    z-index: 5;
+
+    padding: 9px 13px;
+
+    background: #ffc107;
+    color: #151515;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    border-radius: 8px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
+    white-space: nowrap;
+}
+
+.sticker-top {
+    top: 20px;
+    right: 8%;
+
+    transform: rotate(6deg);
+
+    animation: stickerTop 2.5s ease-in-out infinite;
+}
+
+.sticker-bottom {
+    bottom: 18px;
+    left: 8%;
+
+    transform: rotate(-5deg);
+
+    animation: stickerBottom 2.8s ease-in-out infinite;
+}
+
+/* ANIMATIONS */
+
+@keyframes bananaFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(.7deg);
+    }
+}
+
+@keyframes bananaGlow {
+
+    0%, 100% {
+        transform: scale(1);
+        opacity: .7;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 1;
+    }
+}
+
+@keyframes stickerTop {
+
+    0%, 100% {
+        transform: rotate(6deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(9deg) translateY(-5px);
+    }
+}
+
+@keyframes stickerBottom {
+
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-2deg) translateY(5px);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .banana-fun-section {
+        padding: 35px 14px 25px;
+    }
+
+    .banana-fun-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .banana-fun-text {
+        width: 100%;
+    }
+
+    .banana-fun-text h2 {
+        font-size: 29px;
+        letter-spacing: -.9px;
+    }
+
+    .banana-fun-text h2 span {
+        display: inline;
+    }
+
+    .banana-fun-text p {
+        font-size: 13px;
+        line-height: 1.6;
+        margin: auto;
+        max-width: 390px;
+    }
+
+    .banana-fun-jokes {
+        justify-content: center;
+        margin-top: 14px;
+    }
+
+    .banana-fun-jokes div {
+        font-size: 10px;
+        padding: 7px 9px;
+    }
+
+    .banana-fun-bottom {
+        justify-content: center;
+        margin-top: 12px;
+        font-size: 11px;
+    }
+
+    .banana-fun-visual {
+        width: 100%;
+        min-height: 230px;
+        margin-top: -5px;
+    }
+
+    .banana-fun-visual img {
+        width: 100%;
+        max-width: 430px;
+        max-height: 260px;
+    }
+
+    .banana-glow {
+        width: 230px;
+        height: 130px;
+    }
+
+    .banana-sticker {
+        font-size: 10px;
+        padding: 7px 10px;
+    }
+
+    .sticker-top {
+        top: 5px;
+        right: 2%;
+    }
+
+    .sticker-bottom {
+        bottom: 5px;
+        left: 2%;
+    }
+} </style>
+
+<section class="contact-section bhola-contact" id="contact">
+
+    <div class="section-container">
+
+        <div class="contact-editorial reveal">
+
+            <!-- LEFT CONTENT -->
+            <div class="contact-copy">
+
+                <span class="eyebrow">
+                    NEED HELP?
+                </span>
+
+                <h2>
+                    Have a question?
+                    <em>Let's talk.</em>
+                </h2>
+
+                <p>
+                    Need help with your order or products?
+                    We're happy to help.
+                </p>
+
+            </div>
+
+
+            <!-- RIGHT ACTION -->
+            <div class="contact-action">
+
+                <span class="contact-action-label">
+                    QUICK SUPPORT
+                </span>
+
+                <a
+                    href="tel:+917247835971"
+                    class="contact-btn"
+                    aria-label="Call Bhola Cold Drinks"
+                >
+
+                    <span class="contact-btn-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+
+                    <span class="contact-btn-text">
+                        <strong>Call us</strong>
+                        <small>We're here to help</small>
+                    </span>
+
+                    <span class="contact-btn-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<style>
+
+/* =====================================================
+   BHOLA — EDITORIAL CONTACT SECTION
+===================================================== */
+
+.bhola-contact {
+    width: 100%;
+    padding: 75px 0 85px;
+    background: #fffaf3;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   MAIN OPEN LAYOUT
+===================================================== */
+
+.bhola-contact .contact-editorial {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(280px, .85fr);
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding:
+        55px
+        0
+        55px;
+
+    border-top:
+        1px solid
+        rgba(23,23,23,.11);
+
+    border-bottom:
+        1px solid
+        rgba(23,23,23,.11);
+}
+
+
+/* Orange editorial accent */
+
+.bhola-contact .contact-editorial::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -1px;
+
+    width: 90px;
+    height: 2px;
+
+    background: #ff7a18;
+}
+
+
+/* =====================================================
+   COPY
+===================================================== */
+
+.bhola-contact .contact-copy {
+
+    max-width: 620px;
+}
+
+
+.bhola-contact .contact-copy .eyebrow {
+
+    display: inline-block;
+
+    color: #e65f00;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.bhola-contact .contact-copy h2 {
+
+    margin:
+        11px
+        0
+        16px;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:
+        clamp(
+            35px,
+            4.2vw,
+            52px
+        );
+
+    line-height: .98;
+
+    letter-spacing: -2px;
+
+    color: #171717;
+}
+
+
+.bhola-contact .contact-copy h2 em {
+
+    display: inline-block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.1em;
+
+    font-weight: 600;
+
+    color: #e65f00;
+}
+
+
+.bhola-contact .contact-copy p {
+
+    max-width: 430px;
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ACTION SIDE
+===================================================== */
+
+.bhola-contact .contact-action {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding-left: 35px;
+}
+
+
+/* Vertical divider */
+
+.bhola-contact .contact-action::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+
+    width: 1px;
+
+    background:
+        rgba(23,23,23,.10);
+}
+
+
+.bhola-contact .contact-action-label {
+
+    margin-bottom: 12px;
+
+    color: #999;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+}
+
+
+/* =====================================================
+   CONTACT BUTTON
+===================================================== */
+
+.bhola-contact .contact-btn {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    width: min(100%, 340px);
+
+    min-height: 66px;
+
+    padding: 8px 10px 8px 8px;
+
+    border: 1px solid
+        rgba(23,23,23,.10);
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,.58);
+
+    color: #171717;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 24px
+        rgba(23,23,23,.045);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+
+.bhola-contact .contact-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255,122,24,.35);
+
+    background: #fff;
+
+    box-shadow:
+        0 15px 32px
+        rgba(23,23,23,.09);
+}
+
+
+/* Phone icon */
+
+.bhola-contact .contact-btn-icon {
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,122,24,.10);
+
+    color: #e65f00;
+
+    font-size: 14px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.bhola-contact .contact-btn:hover
+.contact-btn-icon {
+
+    background: #ff7a18;
+
+    color: #fff;
+
+    transform:
+        rotate(-8deg)
+        scale(1.05);
+}
+
+
+/* Text */
+
+.bhola-contact .contact-btn-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+
+.bhola-contact .contact-btn-text strong {
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    color: #222;
+}
+
+
+.bhola-contact .contact-btn-text small {
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 10px;
+
+    color: #999;
+}
+
+
+/* Arrow */
+
+.bhola-contact .contact-btn-arrow {
+
+    width: 32px;
+    height: 32px;
+
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f5f1eb;
+
+    color: #777;
+
+    font-size: 9px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.bhola-contact .contact-btn:hover
+.contact-btn-arrow {
+
+    background: #ff7a18;
+
+    color: #fff;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .bhola-contact {
+
+        padding:
+            65px
+            0
+            70px;
+    }
+
+
+    .bhola-contact .contact-editorial {
+
+        gap: 40px;
+
+        padding:
+            45px
+            0;
+    }
+
+
+    .bhola-contact .contact-action {
+
+        padding-left: 25px;
+    }
+
+
+    .bhola-contact .contact-copy h2 {
+
+        font-size: 40px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 680px) {
+
+    .bhola-contact {
+
+        padding:
+            52px
+            0
+            58px;
+    }
+
+
+    .bhola-contact .contact-editorial {
+
+        grid-template-columns: 1fr;
+
+        gap: 32px;
+
+        padding:
+            38px
+            0
+            42px;
+    }
+
+
+    .bhola-contact .contact-copy h2 {
+
+        font-size: 35px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .bhola-contact .contact-copy p {
+
+        font-size: 12px;
+
+        max-width: 330px;
+    }
+
+
+    .bhola-contact .contact-action {
+
+        padding-left: 0;
+
+        align-items: flex-start;
+    }
+
+
+    /* Remove vertical divider */
+
+    .bhola-contact .contact-action::before {
+
+        display: none;
+    }
+
+
+    .bhola-contact .contact-action-label {
+
+        margin-bottom: 10px;
+    }
+
+
+    .bhola-contact .contact-btn {
+
+        width: 100%;
+
+        max-width: 380px;
+
+        min-height: 62px;
+    }
+
+
+    .bhola-contact .contact-btn-icon {
+
+        width: 44px;
+        height: 44px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .bhola-contact {
+
+        padding-top: 45px;
+    }
+
+
+    .bhola-contact .contact-editorial {
+
+        gap: 27px;
+
+        padding:
+            32px
+            0
+            36px;
+    }
+
+
+    .bhola-contact .contact-copy h2 {
+
+        font-size: 30px;
+    }
+
+
+    .bhola-contact .contact-copy p {
+
+        font-size: 11px;
+    }
+
+
+    .bhola-contact .contact-btn {
+
+        min-height: 58px;
+
+        gap: 10px;
+    }
+
+
+    .bhola-contact .contact-btn-icon {
+
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .bhola-contact .contact-btn-text strong {
+
+        font-size: 12px;
+    }
+
+
+    .bhola-contact .contact-btn-text small {
+
+        font-size: 9px;
+    }
+
+
+    .bhola-contact .contact-btn-arrow {
+
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bhola-contact .contact-btn,
+    .bhola-contact .contact-btn * {
+
+        transition: none !important;
+    }
+
+}
+
+</style>
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+
+<footer class="store-footer bhola-footer">
+
+    <div class="section-container">
+
+        <div class="footer-editorial">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <a href="#home" class="brand">
+
+                    <span class="brand-icon">
+                        <img
+                            src="imgs/logo.png"
+                            alt="Bhola Cold Drinks Logo"
+                        >
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong>Bhola</strong>
+                        <small>Cold Drinks</small>
+                    </span>
+
+                </a>
+
+                <p>
+                    Refreshing choices, simple ordering
+                    and a better online shopping experience.
+                </p>
+
+                <span class="footer-status">
+                    <i></i>
+                    Online store • Fresh & ready
+                </span>
+
+            </div>
+
+
+            <!-- SHOP -->
+            <div class="footer-column">
+
+                <strong>Shop</strong>
+
+                <a href="index.html">Back to home</a>
+                <a href="#shop">Soft Drinks</a>
+                <a href="#shop">Juices</a>
+                <a href="#shop">Energy Drinks</a>
+
+            </div>
+
+
+            <!-- COMPANY -->
+            <div class="footer-column">
+
+                <strong>Company</strong>
+
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#offers">Offers</a>
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+            <div class="footer-column">
+
+                <strong>Account</strong>
+
+                <button id="footerLogin">
+                    Login / Signup
+                </button>
+
+                <button id="footerOrders">
+                    My Orders
+                </button>
+
+                <button id="footerCart">
+                    My Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Bhola Cold Drinks. All rights reserved.
+            </span>
+
+            <span class="footer-bottom-right">
+                Made for easy ordering
+                <i class="fa-solid fa-arrow-up"></i>
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<style>
+
+/* =========================================================
+   BHOLA — PREMIUM EDITORIAL FOOTER
+   Modern • Responsive • Light/Dark Mode Ready
+========================================================= */
+
+.bhola-footer{
+    --footer-bg:#fffaf3;
+    --footer-text:#171717;
+    --footer-muted:#858585;
+    --footer-line:rgba(23,23,23,.09);
+    --footer-orange:#ff7a18;
+    --footer-orange-dark:#e65f00;
+    --footer-green:#1f8f55;
+
+    position:relative;
+    width:100%;
+    padding:78px 0 25px;
+    background:var(--footer-bg);
+    color:var(--footer-text);
+    overflow:hidden;
+    isolation:isolate;
+}
+
+
+/* =========================================================
+   DECORATIVE BACKGROUND
+========================================================= */
+
+.bhola-footer::after{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    right:-120px;
+    bottom:-150px;
+    border:1px solid rgba(255,122,24,.10);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.bhola-footer::before{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    left:-100px;
+    top:60px;
+    border:1px solid rgba(255,122,24,.08);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   FOOTER INNER
+========================================================= */
+
+.bhola-footer .footer-editorial{
+    position:relative;
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(270px,1.7fr)
+        repeat(3,minmax(130px,.7fr));
+
+    gap:58px;
+
+    padding:
+        0
+        0
+        56px;
+
+    border-bottom:
+        1px solid
+        var(--footer-line);
+}
+
+
+/* =========================================================
+   ORANGE EDITORIAL LINE
+========================================================= */
+
+.bhola-footer .footer-editorial::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-1px;
+
+    width:78px;
+    height:2px;
+
+    background:var(--footer-orange);
+
+    transform-origin:left;
+
+    transition:
+        width .5s ease,
+        box-shadow .5s ease;
+}
+
+.bhola-footer .footer-editorial:hover::before{
+    width:125px;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,122,24,.25);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.bhola-footer .footer-brand{
+    max-width:340px;
+}
+
+
+/* =========================================================
+   BRAND LINK
+========================================================= */
+
+.bhola-footer .brand{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+
+    color:var(--footer-text);
+
+    text-decoration:none;
+
+    transition:
+        transform .3s ease;
+}
+
+.bhola-footer .brand:hover{
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.bhola-footer .brand-icon{
+    position:relative;
+
+    width:49px;
+    height:49px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,122,24,.10),
+            rgba(255,122,24,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,122,24,.12);
+
+    overflow:hidden;
+}
+
+.bhola-footer .brand-icon::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 35%,
+            rgba(255,255,255,.65),
+            transparent 65%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform .6s ease;
+}
+
+.bhola-footer .brand:hover .brand-icon::after{
+    transform:
+        translateX(120%);
+}
+
+.bhola-footer .brand-icon img{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   BRAND COPY
+========================================================= */
+
+.bhola-footer .brand-copy{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+.bhola-footer .brand-copy strong{
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:17px;
+    font-weight:900;
+
+    line-height:1;
+
+    letter-spacing:-.5px;
+}
+
+.bhola-footer .brand-copy small{
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:1.7px;
+
+    text-transform:uppercase;
+
+    color:
+        var(--footer-orange-dark);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.bhola-footer .footer-brand p{
+    max-width:310px;
+
+    margin:
+        20px 0 18px;
+
+    color:
+        var(--footer-muted);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size:12px;
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   LIVE STATUS
+========================================================= */
+
+.bhola-footer .footer-status{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:
+        6px 10px;
+
+    border:
+        1px solid
+        rgba(31,143,85,.10);
+
+    border-radius:30px;
+
+    background:
+        rgba(31,143,85,.035);
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:8px;
+    font-weight:800;
+
+    letter-spacing:1.1px;
+
+    text-transform:uppercase;
+
+    color:#777;
+}
+
+.bhola-footer .footer-status i{
+    width:6px;
+    height:6px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:
+        var(--footer-green);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(31,143,85,.09);
+
+    animation:
+        footerLive 2s ease-in-out infinite;
+}
+
+@keyframes footerLive{
+
+    0%,
+    100%{
+        opacity:.45;
+        transform:scale(.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+========================================================= */
+
+.bhola-footer .footer-column{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.bhola-footer .footer-column > strong{
+    position:relative;
+
+    margin-bottom:19px;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    color:var(--footer-text);
+}
+
+
+/* =========================================================
+   COLUMN TITLE ACCENT
+========================================================= */
+
+.bhola-footer .footer-column > strong::after{
+    content:"";
+
+    display:block;
+
+    width:20px;
+    height:2px;
+
+    margin-top:8px;
+
+    border-radius:10px;
+
+    background:
+        var(--footer-orange);
+
+    transition:
+        width .3s ease;
+}
+
+.bhola-footer .footer-column:hover > strong::after{
+    width:34px;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.bhola-footer .footer-column a,
+.bhola-footer .footer-column button{
+    position:relative;
+
+    width:max-content;
+
+    margin:
+        0 0 12px;
+
+    padding:0;
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--footer-muted);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size:11px;
+    line-height:1.5;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+/* underline */
+
+.bhola-footer .footer-column a::before,
+.bhola-footer .footer-column button::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-3px;
+
+    width:0;
+    height:1px;
+
+    background:
+        var(--footer-orange);
+
+    transition:
+        width .3s ease;
+}
+
+.bhola-footer .footer-column a:hover,
+.bhola-footer .footer-column button:hover{
+    color:
+        var(--footer-orange-dark);
+
+    transform:
+        translateX(4px);
+}
+
+.bhola-footer .footer-column a:hover::before,
+.bhola-footer .footer-column button:hover::before{
+    width:100%;
+}
+
+
+/* =========================================================
+   BOTTOM AREA
+========================================================= */
+
+.bhola-footer .footer-bottom{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding-top:23px;
+
+    color:#999;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size:9px;
+}
+
+
+/* =========================================================
+   BOTTOM RIGHT
+========================================================= */
+
+.bhola-footer .footer-bottom-right{
+    display:inline-flex;
+    align-items:center;
+
+    gap:9px;
+
+    color:#999;
+
+    text-decoration:none;
+
+    transition:
+        color .25s ease;
+}
+
+.bhola-footer .footer-bottom-right i{
+    width:22px;
+    height:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,122,24,.09);
+
+    color:
+        var(--footer-orange-dark);
+
+    font-size:8px;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease;
+}
+
+.bhola-footer .footer-bottom-right:hover{
+    color:
+        var(--footer-orange-dark);
+}
+
+.bhola-footer .footer-bottom-right:hover i{
+    transform:
+        translateY(-3px)
+        rotate(-8deg);
+
+    background:
+        var(--footer-orange);
+
+    color:#fff;
+
+    box-shadow:
+        0 7px 18px
+        rgba(255,122,24,.18);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    .bhola-footer{
+        padding:
+            64px 0 23px;
+    }
+
+    .bhola-footer .footer-editorial{
+        grid-template-columns:
+            1.4fr
+            repeat(3,1fr);
+
+        gap:34px;
+    }
+
+    .bhola-footer .footer-brand{
+        max-width:280px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+    .bhola-footer{
+        padding:
+            54px 0 20px;
+    }
+
+    .bhola-footer .footer-editorial{
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            38px 24px;
+
+        padding-bottom:40px;
+    }
+
+    .bhola-footer .footer-brand{
+        grid-column:
+            1 / -1;
+
+        max-width:100%;
+
+        padding-bottom:5px;
+    }
+
+    .bhola-footer .footer-brand p{
+        max-width:340px;
+
+        margin-top:15px;
+
+        font-size:11px;
+        line-height:1.7;
+    }
+
+    .bhola-footer .footer-column > strong{
+        margin-bottom:16px;
+    }
+
+    .bhola-footer .footer-column a,
+    .bhola-footer .footer-column button{
+        font-size:10.5px;
+        margin-bottom:10px;
+    }
+
+    .bhola-footer .footer-bottom{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:11px;
+
+        padding-top:18px;
+
+        font-size:8px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .bhola-footer{
+        padding:
+            46px 0 18px;
+    }
+
+    .bhola-footer .footer-editorial{
+        gap:
+            31px 17px;
+    }
+
+    .bhola-footer .brand-icon{
+        width:43px;
+        height:43px;
+
+        border-radius:12px;
+    }
+
+    .bhola-footer .brand-copy strong{
+        font-size:16px;
+    }
+
+    .bhola-footer .brand-copy small{
+        font-size:8px;
+        letter-spacing:1.4px;
+    }
+
+    .bhola-footer .footer-column a,
+    .bhola-footer .footer-column button{
+        font-size:10px;
+        margin-bottom:9px;
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+   Works with common body.dark / body.dark-mode classes
+========================================================= */
+
+body.dark .bhola-footer,
+body.dark-mode .bhola-footer,
+html.dark .bhola-footer{
+
+    --footer-bg:#151311;
+    --footer-text:#f5eee7;
+    --footer-muted:#99918a;
+    --footer-line:rgba(255,255,255,.09);
+}
+
+body.dark .bhola-footer .brand-icon,
+body.dark-mode .bhola-footer .brand-icon,
+html.dark .bhola-footer .brand-icon{
+
+    background:
+        rgba(255,122,24,.08);
+
+    border-color:
+        rgba(255,122,24,.14);
+}
+
+body.dark .bhola-footer .footer-status,
+body.dark-mode .bhola-footer .footer-status,
+html.dark .bhola-footer .footer-status{
+
+    background:
+        rgba(31,143,85,.07);
+
+    border-color:
+        rgba(31,143,85,.14);
+}
+
+body.dark .bhola-footer .footer-bottom-right i,
+body.dark-mode .bhola-footer .footer-bottom-right i,
+html.dark .bhola-footer .footer-bottom-right i{
+
+    background:
+        rgba(255,122,24,.12);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .bhola-footer *,
+    .bhola-footer *::before,
+    .bhola-footer *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+    }
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+    .bhola-footer{
+        display:none !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — FOOTER COLUMNS CENTER
+========================================================= */
+
+@media (max-width:680px){
+
+    .bhola-footer .footer-column{
+        align-items:center;
+        text-align:center;
+    }
+
+    .bhola-footer .footer-column > strong{
+        width:100%;
+        text-align:center;
+    }
+
+    .bhola-footer .footer-column > strong::after{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .bhola-footer .footer-column a,
+    .bhola-footer .footer-column button{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+    }
+
+}
+@media (max-width:680px){
+    .bhola-footer .footer-column:nth-child(3){
+        display:none !important;
+    }
+}
+@media(max-width:680px){
+    .bhola-footer .footer-bottom{
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+    }
+}</style>
+
+
+<!-- =========================================
+     CART DRAWER
+========================================= -->
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="drawer-head">
+
+        <div>
+            <span>Your bag</span>
+            <strong id="drawerItemCount">0 items</strong>
+        </div>
+
+        <button id="closeCart">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <div class="cart-items" id="cartItems"></div>
+
+
+    <div class="empty-cart" id="emptyCart">
+
+        <div class="empty-cart-icon">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+
+        <h3>Your bag is empty</h3>
+
+        <p>
+            Add something refreshing to get started.
+        </p>
+
+        <button id="startShopping">
+            Start shopping
+        </button>
+
+    </div>
+
+
+    <div class="cart-summary" id="cartSummary">
+
+        <div class="summary-line">
+            <span>Subtotal</span>
+            <strong id="cartSubtotal">₹0</strong>
+        </div>
+
+        <div class="summary-line">
+            <span>Delivery</span>
+            <strong id="cartDelivery">₹0</strong>
+        </div>
+
+        <div class="summary-total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <button class="checkout-btn" id="checkoutBtn">
+
+            Proceed to checkout
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================
+     LOGIN MODAL
+========================================= -->
+
+<div class="modal-layer" id="accountModal">
+
+    <div class="account-modal">
+
+        <button class="modal-close" data-close-account>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="account-icon">
+            <i class="fa-regular fa-user"></i>
+        </div>
+
+        <div class="account-heading">
+
+            <span id="accountEyebrow">WELCOME BACK</span>
+
+            <h2 id="accountTitle">
+                Sign in to your account
+            </h2>
+
+            <p id="accountSubtitle">
+                Manage your orders and checkout faster.
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <form id="loginForm" class="account-form">
+
+            <label>
+                Mobile number
+                <div class="field-wrap">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                    <input
+                        id="loginMobile"
+                        type="tel"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+
+                </div>
+            </label>
+
+
+            <label>
+                Password
+                <div class="field-wrap">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        placeholder="Enter password"
+                        required
+                    >
+
+                    <button type="button" class="password-toggle"
+                            data-target="loginPassword">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+
+                </div>
+            </label>
+
+
+            <div class="form-row">
+
+                <label class="remember-check">
+
+                    <input type="checkbox" id="rememberMe">
+
+                    <span>Remember me</span>
+
+                </label>
+
+                <button type="button" class="text-btn" id="forgotPassword">
+                    Forgot password?
+                </button>
+
+            </div>
+
+
+            <button class="account-submit" type="submit">
+                Sign in
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+
+            <div class="account-switch">
+
+                Don't have an account?
+
+                <button type="button" id="showSignup">
+                    Create account
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- SIGNUP -->
+
+        <form id="signupForm" class="account-form hidden">
+
+            <label>
+                Full name
+                <div class="field-wrap">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <input
+                        id="signupName"
+                        type="text"
+                        placeholder="Your full name"
+                        required
+                    >
+
+                </div>
+            </label>
+
+
+            <label>
+                Mobile number
+                <div class="field-wrap">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                    <input
+                        id="signupMobile"
+                        type="tel"
+                        maxlength="10"
+                        inputmode="numeric"
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+
+                </div>
+            </label>
+
+
+            <label>
+                Password
+                <div class="field-wrap">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        id="signupPassword"
+                        type="password"
+                        minlength="6"
+                        placeholder="Minimum 6 characters"
+                        required
+                    >
+
+                    <button type="button" class="password-toggle"
+                            data-target="signupPassword">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+
+                </div>
+            </label>
+
+
+            <label>
+                Confirm password
+                <div class="field-wrap">
+
+                    <i class="fa-solid fa-shield"></i>
+
+                    <input
+                        id="signupConfirm"
+                        type="password"
+                        minlength="6"
+                        placeholder="Confirm password"
+                        required
+                    >
+
+                </div>
+            </label>
+
+
+            <button class="account-submit" type="submit">
+
+                Create account
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+            <div class="account-switch">
+
+                Already have an account?
+
+                <button type="button" id="showLogin">
+                    Sign in
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- ACCOUNT PROFILE -->
+
+        <div id="profilePanel" class="profile-panel hidden">
+
+            <div class="profile-avatar" id="profileAvatar">
+                A
+            </div>
+
+            <h3 id="profileName">
+                Customer
+            </h3>
+
+            <p id="profileMobile">
+                +91
+            </p>
+
+
+            <div class="profile-actions">
+
+                <button id="profileOrders">
+                    <i class="fa-solid fa-box"></i>
+                    My orders
+                </button>
+
+                <button id="profileLogout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     CHECKOUT MODAL
+========================================= -->
+
+<div class="modal-layer" id="checkoutModal">
+
+    <div class="checkout-modal">
+
+        <button class="modal-close" data-close-checkout>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="checkout-head">
+
+            <div>
+
+                <span>CHECKOUT</span>
+
+                <h2>
+                    Complete your order
+                </h2>
+
+            </div>
+
+            <div class="checkout-step">
+                <span>01</span>
+                Checkout
+            </div>
+
+        </div>
+
+
+        <div class="checkout-layout">
+
+
+            <!-- FORM -->
+
+            <form id="checkoutForm" class="checkout-form">
+
+                <div class="checkout-section-title">
+                    <span>01</span>
+                    Delivery details
+                </div>
+
+
+                <label>
+                    Full name
+
+                    <input
+                        type="text"
+                        id="checkoutName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+                    Mobile number
+
+                    <input
+                        type="tel"
+                        id="checkoutMobile"
+                        maxlength="10"
+                        inputmode="numeric"
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+
+                </label>
+
+
+                <label>
+                    Delivery address
+
+                    <textarea
+                        id="checkoutAddress"
+                        rows="3"
+                        placeholder="House / street / village / area"
+                        required
+                    ></textarea>
+
+                </label>
+
+
+                <label>
+                    Landmark <span>Optional</span>
+
+                    <input
+                        type="text"
+                        id="checkoutLandmark"
+                        placeholder="Nearby landmark"
+                    >
+
+                </label>
+
+
+                <div class="checkout-section-title payment-title">
+
+                    <span>02</span>
+                    Payment method
+
+                </div>
+
+
+                <label class="payment-option active">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="Cash on Delivery"
+                        checked
+                    >
+
+                    <span class="payment-icon">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                    </span>
+
+                    <span class="payment-copy">
+
+                        <strong>Cash on Delivery</strong>
+
+                        <small>
+                            Pay when your order arrives
+                        </small>
+
+                    </span>
+
+                    <i class="fa-solid fa-circle-check payment-check"></i>
+
+                </label>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="payment"
+                        value="UPI on Delivery"
+                    >
+
+                    <span class="payment-icon">
+                        <i class="fa-solid fa-qrcode"></i>
+                    </span>
+
+                    <span class="payment-copy">
+
+                        <strong>UPI on Delivery</strong>
+
+                        <small>
+                            Pay using UPI when received
+                        </small>
+
+                    </span>
+
+                    <i class="fa-solid fa-circle-check payment-check"></i>
+
+                </label>
+
+
+                <button class="place-order-btn" type="submit">
+
+                    Place order
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="checkout-summary">
+
+                <div class="summary-card">
+
+                    <div class="summary-card-head">
+
+                        <strong>Your order</strong>
+
+                        <span id="checkoutCount">0 items</span>
+
+                    </div>
+
+                    <div id="checkoutItems"></div>
+
+
+                    <div class="checkout-total-lines">
+
+                        <div>
+                            <span>Subtotal</span>
+                            <strong id="checkoutSubtotal">₹0</strong>
+                        </div>
+
+                        <div>
+                            <span>Delivery</span>
+                            <strong>₹0</strong>
+                        </div>
+
+                        <div class="final-total">
+                            <span>Total</span>
+                            <strong id="checkoutTotal">₹0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     ORDER SUCCESS
+========================================= -->
+
+<div class="modal-layer" id="successModal">
+
+    <div class="success-modal">
+
+        <button class="modal-close" data-close-success>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="success-animation">
+
+            <div class="success-circle">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <span class="success-ring ring-a"></span>
+            <span class="success-ring ring-b"></span>
+
+        </div>
+
+
+        <span class="success-label">
+            ORDER CONFIRMED
+        </span>
+
+        <h2>
+            Thanks, <span id="successName">Customer</span>!
+        </h2>
+
+        <p>
+            Your order has been placed successfully.
+            We'll get it ready for you.
+        </p>
+
+
+        <div class="order-number">
+
+            <span>ORDER ID</span>
+
+            <strong id="successOrderId">
+                BHD-000000
+            </strong>
+
+            <button id="copyOrderId">
+                <i class="fa-regular fa-copy"></i>
+            </button>
+
+        </div>
+
+
+        <div class="success-info">
+
+            <div>
+                <span>Total</span>
+                <strong id="successTotal">₹0</strong>
+            </div>
+
+            <div>
+                <span>Payment</span>
+                <strong id="successPayment">Cash on Delivery</strong>
+            </div>
+
+        </div>
+
+
+        <div class="success-actions">
+
+            <button id="continueShopping" class="primary-btn">
+                Continue shopping
+            </button>
+
+            <button id="viewOrders" class="secondary-btn">
+                My orders
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     ORDERS MODAL
+========================================= -->
+
+<div class="modal-layer" id="ordersModal">
+
+    <div class="orders-modal">
+
+        <button class="modal-close" data-close-orders>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="orders-head">
+
+            <span>ACCOUNT</span>
+
+            <h2>My orders</h2>
+
+        </div>
+
+        <div id="ordersList" class="orders-list"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     TOAST
+========================================= -->
+
+<div class="store-toast" id="storeToast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Added to cart
+    </span>
+
+</div>
+
+
+<!-- =========================================
+     BACK TO TOP
+========================================= -->
+
+<button class="back-top" id="backTop">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+
+
+
+<script src="order.js"></script>
+
+<!-- =================  ASSISTANT ================= -->
+<section id="bholaAssistant">
+
+    <!-- Floating Launcher -->
+    <button id="bholaAiLauncher" aria-label="Open Bhola Assistant">
+        <span class="bhola-ai-orb">
+            <i class="fa-solid fa-headset"></i>
+            
+        </span>
+        <span class="bhola-ai-label">Ask Bhola</span>
+    </button>
+
+    <!-- Assistant Panel -->
+    <div id="bholaAiPanel" aria-hidden="true">
+
+        <div class="bhola-ai-header">
+
+            <div class="bhola-ai-profile">
+                <div class="bhola-ai-avatar">
+            <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <div>
+                    <strong>Bhola Assistant</strong>
+                    <span>
+                        <i></i>
+                        Online • Ready to help
+                    </span>
+                </div>
+            </div>
+
+            <button id="bholaAiClose" aria-label="Close assistant">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="bhola-ai-chat" id="bholaAiChat">
+
+            <div class="bhola-ai-message bot">
+                <div class="bhola-message-avatar">
+                  <i class="fa-solid fa-comments"></i>
+                   </div>
+
+                <div class="bhola-message-content">
+                    <span class="bhola-message-name">
+                        Bhola Assistant
+                    </span>
+
+                    <div class="bhola-bubble">
+                        Hi! 👋 I'm your Bhola Assistant.
+                        <br><br>
+                        You can ask me about products, offers,
+                        cart, orders or anything about this store.
+                    </div>
+                </div>
+            </div>
+
+            <div class="bhola-ai-suggestions">
+
+                <button data-question="Show me drinks">
+                    🥤 Show drinks
+                </button>
+
+                <button data-question="What offers are available?">
+                    🏷️ Offers
+                </button>
+
+                <button data-question="What's in my cart?">
+                    🛒 My cart
+                </button>
+
+                <button data-question="How can I contact you?">
+                    📞 Contact
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="bhola-ai-typing" id="bholaAiTyping">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <form class="bhola-ai-input-area" id="bholaAiForm">
+
+            <input
+                type="text"
+                id="bholaAiInput"
+                placeholder="Ask me anything..."
+                autocomplete="off"
+            >
+
+            <button type="submit" aria-label="Send">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+        </form>
+
+        <div class="bhola-ai-footer">
+            <span>
+                <i class="fa-solid fa-shield-halved"></i>
+                Bhola Store Assistant
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+<style>/* =========================================================
+   BHOLA ASSISTANT
+========================================================= */
+
+#bholaAssistant{
+    --bha-orange:#ff7a18;
+    --bha-orange-dark:#e86100;
+    --bha-green:#1f8f55;
+    --bha-bg:#fffaf4;
+    --bha-text:#171717;
+    --bha-muted:#858585;
+    --bha-border:rgba(20,20,20,.08);
+
+    position:relative;
+    z-index:9999;
+}
+
+/* ================= LAUNCHER ================= */
+
+#bholaAiLauncher{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+
+    display:flex;
+    align-items:center;
+    gap:9px;
+
+    padding:6px 13px 6px 6px;
+
+    border:1px solid rgba(255,122,24,.18);
+    border-radius:50px;
+
+    background:rgba(255,250,244,.94);
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,.13),
+        0 4px 15px rgba(255,122,24,.10);
+
+    backdrop-filter:blur(14px);
+
+    cursor:pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+#bholaAiLauncher:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.16),
+        0 8px 25px rgba(255,122,24,.16);
+}
+
+.bhola-ai-orb{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff9a3c,
+            #ff6b00
+        );
+
+    box-shadow:
+        0 8px 20px rgba(255,122,24,.28);
+
+    animation:
+        bholaOrbFloat 3s ease-in-out infinite;
+}
+
+.bhola-ai-orb i{
+    font-size:16px;
+}
+
+.bhola-ai-label{
+    color:#333;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:.2px;
+}
+
+@keyframes bholaOrbFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-3px);
+    }
+}
+
+/* ================= PANEL ================= */
+
+#bholaAiPanel{
+    position:fixed;
+
+    right:24px;
+    bottom:84px;
+
+    width:365px;
+    max-width:calc(100vw - 30px);
+
+    height:560px;
+    max-height:calc(100vh - 110px);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    background:var(--bha-bg);
+
+    border:1px solid rgba(255,122,24,.12);
+    border-radius:25px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.18),
+        0 10px 30px rgba(255,122,24,.08);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+        translateY(20px)
+        scale(.96);
+
+    transform-origin:
+        bottom right;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .3s cubic-bezier(.2,.8,.2,1);
+}
+
+#bholaAiPanel.active{
+    opacity:1;
+    visibility:visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+/* ================= HEADER ================= */
+
+.bhola-ai-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:17px 17px;
+
+    border-bottom:1px solid var(--bha-border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.95),
+            rgba(255,247,238,.92)
+        );
+}
+
+.bhola-ai-profile{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.bhola-ai-avatar{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff9a3c,
+            #ff6900
+        );
+
+    box-shadow:
+        0 7px 18px rgba(255,122,24,.22);
+}
+
+.bhola-ai-avatar i{
+    font-size:15px;
+}
+
+.bhola-ai-profile strong{
+    display:block;
+
+    color:var(--bha-text);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:13px;
+    font-weight:900;
+}
+
+.bhola-ai-profile span{
+    display:flex;
+    align-items:center;
+    gap:5px;
+
+    margin-top:3px;
+
+    color:#8a8a8a;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:9px;
+}
+
+.bhola-ai-profile span i{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#27a35e;
+
+    box-shadow:
+        0 0 0 3px rgba(39,163,94,.10);
+}
+
+#bholaAiClose{
+    width:31px;
+    height:31px;
+
+    border:0;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.045);
+
+    color:#777;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+#bholaAiClose:hover{
+    background:rgba(255,122,24,.11);
+    color:var(--bha-orange-dark);
+    transform:rotate(90deg);
+}
+
+/* ================= CHAT ================= */
+
+.bhola-ai-chat{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:20px 16px 14px;
+
+    scroll-behavior:smooth;
+}
+
+.bhola-ai-chat::-webkit-scrollbar{
+    width:4px;
+}
+
+.bhola-ai-chat::-webkit-scrollbar-thumb{
+    background:rgba(255,122,24,.20);
+    border-radius:20px;
+}
+
+/* ================= MESSAGE ================= */
+
+.bhola-ai-message{
+    display:flex;
+    align-items:flex-start;
+    gap:9px;
+
+    margin-bottom:17px;
+
+    animation:
+        bholaMessageIn .35s ease both;
+}
+
+@keyframes bholaMessageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.bhola-message-avatar{
+    width:27px;
+    height:27px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff9a3c,
+            #ff6900
+        );
+
+    font-size:10px;
+}
+
+.bhola-message-content{
+    max-width:calc(100% - 36px);
+}
+
+.bhola-message-name{
+    display:block;
+
+    margin:0 0 5px 2px;
+
+    color:#999;
+
+    font-size:8px;
+    font-weight:800;
+
+    letter-spacing:.5px;
+}
+
+.bhola-bubble{
+    display:inline-block;
+
+    padding:11px 13px;
+
+    border-radius:
+        5px 15px 15px 15px;
+
+    background:#fff;
+
+    border:1px solid rgba(0,0,0,.055);
+
+    color:#444;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:11px;
+    line-height:1.65;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.035);
+}
+
+/* USER MESSAGE */
+
+.bhola-ai-message.user{
+    justify-content:flex-end;
+}
+
+.bhola-ai-message.user .bhola-message-avatar{
+    display:none;
+}
+
+.bhola-ai-message.user .bhola-message-content{
+    max-width:82%;
+    text-align:right;
+}
+
+.bhola-ai-message.user .bhola-bubble{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8a27,
+            #f36b00
+        );
+
+    border:0;
+
+    border-radius:
+        15px 5px 15px 15px;
+
+    text-align:left;
+
+    box-shadow:
+        0 7px 18px rgba(255,122,24,.15);
+}
+
+/* ================= SUGGESTIONS ================= */
+
+.bhola-ai-suggestions{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin:4px 0 10px 36px;
+}
+
+.bhola-ai-suggestions button{
+    padding:8px 10px;
+
+    border:1px solid rgba(255,122,24,.13);
+    border-radius:20px;
+
+    background:#fff;
+
+    color:#777;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:9px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+.bhola-ai-suggestions button:hover{
+    transform:translateY(-2px);
+
+    background:#fff3e8;
+
+    color:var(--bha-orange-dark);
+}
+
+/* ================= TYPING ================= */
+
+.bhola-ai-typing{
+    display:none;
+
+    align-items:center;
+
+    gap:4px;
+
+    padding:0 17px 9px;
+}
+
+.bhola-ai-typing.active{
+    display:flex;
+}
+
+.bhola-ai-typing span{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#ff8a27;
+
+    animation:
+        bholaTyping 1.2s infinite;
+}
+
+.bhola-ai-typing span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.bhola-ai-typing span:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes bholaTyping{
+
+    0%,60%,100%{
+        transform:translateY(0);
+        opacity:.4;
+    }
+
+    30%{
+        transform:translateY(-4px);
+        opacity:1;
+    }
+}
+
+/* ================= INPUT ================= */
+
+.bhola-ai-input-area{
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    padding:11px;
+
+    border-top:1px solid var(--bha-border);
+
+    background:#fff;
+}
+
+#bholaAiInput{
+    flex:1;
+
+    min-width:0;
+
+    height:40px;
+
+    padding:0 13px;
+
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:13px;
+
+    outline:none;
+
+    background:#fafafa;
+
+    color:#333;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:11px;
+
+    transition:
+        border .25s ease,
+        box-shadow .25s ease;
+}
+
+#bholaAiInput:focus{
+    border-color:rgba(255,122,24,.35);
+
+    box-shadow:
+        0 0 0 3px rgba(255,122,24,.07);
+}
+
+.bhola-ai-input-area button{
+    width:40px;
+    height:40px;
+
+    flex-shrink:0;
+
+    border:0;
+    border-radius:13px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff922f,
+            #f26900
+        );
+
+    cursor:pointer;
+
+    box-shadow:
+        0 7px 18px rgba(255,122,24,.20);
+
+    transition:
+        transform .25s ease;
+}
+
+.bhola-ai-input-area button:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+
+.bhola-ai-footer{
+    padding:6px 13px 9px;
+
+    background:#fff;
+
+    color:#aaa;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:7px;
+
+    text-align:center;
+}
+
+.bhola-ai-footer i{
+    margin-right:3px;
+    color:#27a35e;
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .bhola-ai-header,
+body.dark-mode .bhola-ai-header,
+html.dark .bhola-ai-header{
+
+    background:#1a1714;
+}
+
+body.dark #bholaAiPanel,
+body.dark-mode #bholaAiPanel,
+html.dark #bholaAiPanel{
+
+    --bha-bg:#151311;
+    --bha-text:#f4eee8;
+    --bha-muted:#9a928b;
+
+    background:#151311;
+}
+
+body.dark .bhola-bubble,
+body.dark-mode .bhola-bubble,
+html.dark .bhola-bubble{
+
+    background:#211e1b;
+    color:#ddd;
+
+    border-color:rgba(255,255,255,.06);
+}
+
+body.dark .bhola-ai-input-area,
+body.dark-mode .bhola-ai-input-area,
+html.dark .bhola-ai-input-area,
+
+body.dark .bhola-ai-footer,
+body.dark-mode .bhola-ai-footer,
+html.dark .bhola-ai-footer{
+
+    background:#191715;
+}
+
+body.dark #bholaAiInput,
+body.dark-mode #bholaAiInput,
+html.dark #bholaAiInput{
+
+    background:#211e1b;
+    color:#eee;
+
+    border-color:rgba(255,255,255,.08);
+}
+
+body.dark #bholaAiLauncher,
+body.dark-mode #bholaAiLauncher,
+html.dark #bholaAiLauncher{
+
+    background:rgba(25,22,19,.94);
+}
+
+body.dark .bhola-ai-label,
+body.dark-mode .bhola-ai-label,
+html.dark .bhola-ai-label{
+
+    color:#eee;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    #bholaAiLauncher{
+        right:15px;
+        bottom:15px;
+    }
+
+    .bhola-ai-label{
+        display:none;
+    }
+
+    #bholaAiLauncher{
+        padding:5px;
+    }
+
+    .bhola-ai-orb{
+        width:45px;
+        height:45px;
+    }
+
+    #bholaAiPanel{
+
+        right:10px;
+        bottom:72px;
+
+        width:
+            calc(100vw - 20px);
+
+        height:
+            min(570px, calc(100vh - 90px));
+
+        border-radius:21px;
+    }
+}
+
+@media(max-width:380px){
+
+    #bholaAiPanel{
+        right:7px;
+        width:calc(100vw - 14px);
+    }
+
+    .bhola-ai-chat{
+        padding-left:12px;
+        padding-right:12px;
+    }
+}
+
+/* Reduced motion */
+
+@media(prefers-reduced-motion:reduce){
+
+    #bholaAssistant *,
+    #bholaAssistant *::before,
+    #bholaAssistant *::after{
+
+        animation:none !important;
+        transition:none !important;
+    }
+}
+</style>
+
+<script>
+    /* =========================================================
+   ASSISTANT — FULL UPDATED JS
+   English Conversational Assistant
+========================================================= */
+
+(function () {
+
+    "use strict";
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const launcher = document.getElementById("bholaAiLauncher");
+    const panel = document.getElementById("bholaAiPanel");
+    const closeBtn = document.getElementById("bholaAiClose");
+
+    const form = document.getElementById("bholaAiForm");
+    const input = document.getElementById("bholaAiInput");
+    const chat = document.getElementById("bholaAiChat");
+    const typing = document.getElementById("bholaAiTyping");
+
+    if (
+        !launcher ||
+        !panel ||
+        !closeBtn ||
+        !form ||
+        !input ||
+        !chat
+    ) {
+        console.warn("Bhola Assistant: Required elements not found.");
+        return;
+    }
+
+
+    /* =====================================================
+       CONVERSATION STATE
+    ===================================================== */
+
+    let conversationState = {
+        pendingAction: null,
+        lastTopic: null,
+        lastQuestion: "",
+        waitingForConfirmation: false
+    };
+
+
+    /* =====================================================
+       OPEN ASSISTANT
+    ===================================================== */
+
+    function openAssistant() {
+
+        panel.classList.add("active");
+
+        panel.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        setTimeout(function () {
+            input.focus();
+        }, 250);
+    }
+
+
+    /* =====================================================
+       CLOSE ASSISTANT
+    ===================================================== */
+
+    function closeAssistant() {
+
+        panel.classList.remove("active");
+
+        panel.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+    }
+
+
+    launcher.addEventListener(
+        "click",
+        openAssistant
+    );
+
+    closeBtn.addEventListener(
+        "click",
+        closeAssistant
+    );
+
+
+    /* =====================================================
+       ADD MESSAGE
+    ===================================================== */
+
+    function addMessage(text, type = "bot") {
+
+        const message =
+            document.createElement("div");
+
+        message.className =
+            "bhola-ai-message " + type;
+
+        if (type === "bot") {
+
+            message.innerHTML = `
+                <div class="bhola-message-avatar">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+
+                <div class="bhola-message-content">
+
+                    <span class="bhola-message-name">
+                        Bhola Assistant
+                    </span>
+
+                    <div class="bhola-bubble">
+                        ${text}
+                    </div>
+
+                </div>
+            `;
+
+        } else {
+
+            message.innerHTML = `
+                <div class="bhola-message-content">
+
+                    <div class="bhola-bubble">
+                        ${text}
+                    </div>
+
+                </div>
+            `;
+        }
+
+        chat.appendChild(message);
+
+        scrollChat();
+    }
+
+
+    /* =====================================================
+       SCROLL CHAT
+    ===================================================== */
+
+    function scrollChat() {
+
+        chat.scrollTo({
+            top: chat.scrollHeight,
+            behavior: "smooth"
+        });
+    }
+
+
+    /* =====================================================
+       TYPING
+    ===================================================== */
+
+    function showTyping() {
+
+        if (!typing) return;
+
+        typing.classList.add("active");
+
+        scrollChat();
+    }
+
+
+    function hideTyping() {
+
+        if (!typing) return;
+
+        typing.classList.remove("active");
+    }
+
+
+    /* =====================================================
+       ESCAPE USER TEXT
+    ===================================================== */
+
+    function escapeHTML(text) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent = text;
+
+        return div.innerHTML;
+    }
+
+
+    /* =====================================================
+       NAVIGATE TO SECTION
+    ===================================================== */
+
+    function goToSection(selector) {
+
+        const element =
+            document.querySelector(selector);
+
+        if (!element) {
+
+            return false;
+        }
+
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        return true;
+    }
+
+
+    /* =====================================================
+       OPEN CART
+    ===================================================== */
+
+    function openCart() {
+
+        const selectors = [
+
+            "#openCart",
+            "#cartBtn",
+            "#cartButton",
+            "#cartToggle",
+            "#footerCart",
+            "[data-cart]"
+        ];
+
+        for (const selector of selectors) {
+
+            const element =
+                document.querySelector(selector);
+
+            if (element) {
+
+                try {
+
+                    element.click();
+
+                    return true;
+
+                } catch (error) {
+
+                    console.warn(
+                        "Cart button error:",
+                        error
+                    );
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    /* =====================================================
+       OPEN LOGIN
+    ===================================================== */
+
+    function openLogin() {
+
+        const selectors = [
+
+            "#loginBtn",
+            "#loginButton",
+            "#accountBtn",
+            "#accountButton",
+            "#footerLogin",
+            "[data-login]"
+        ];
+
+        for (const selector of selectors) {
+
+            const element =
+                document.querySelector(selector);
+
+            if (element) {
+
+                try {
+
+                    element.click();
+
+                    return true;
+
+                } catch (error) {
+
+                    console.warn(
+                        "Login button error:",
+                        error
+                    );
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    /* =====================================================
+       OPEN CHECKOUT
+    ===================================================== */
+
+    function openCheckout() {
+
+        const selectors = [
+
+            "#checkoutBtn",
+            "#checkoutButton",
+            "#goCheckout",
+            "[data-checkout]"
+        ];
+
+        for (const selector of selectors) {
+
+            const element =
+                document.querySelector(selector);
+
+            if (element) {
+
+                try {
+
+                    element.click();
+
+                    return true;
+
+                } catch (error) {
+
+                    console.warn(
+                        "Checkout button error:",
+                        error
+                    );
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    /* =====================================================
+       GET CART TOTAL
+    ===================================================== */
+
+    function getCartTotal() {
+
+        const possibleCarts = [
+
+            window.cart,
+            window.cartItems,
+            window.shoppingCart,
+            window.bholaCart,
+            window.cartData,
+            window.items
+        ];
+
+        let cart = null;
+
+        for (
+            const possibleCart of possibleCarts
+        ) {
+
+            if (
+                Array.isArray(possibleCart)
+            ) {
+
+                cart = possibleCart;
+
+                break;
+            }
+        }
+
+        if (
+            !cart ||
+            !cart.length
+        ) {
+
+            return null;
+        }
+
+        let total = 0;
+
+        cart.forEach(function (item) {
+
+            const price =
+                Number(
+                    item.price ??
+                    item.productPrice ??
+                    item.amount ??
+                    0
+                );
+
+            const quantity =
+                Number(
+                    item.quantity ??
+                    item.qty ??
+                    item.count ??
+                    1
+                );
+
+            total +=
+                price * quantity;
+        });
+
+        return total;
+    }
+
+
+    /* =====================================================
+       COUNT CART ITEMS
+    ===================================================== */
+
+    function getCartItemCount() {
+
+        const possibleCarts = [
+
+            window.cart,
+            window.cartItems,
+            window.shoppingCart,
+            window.bholaCart,
+            window.cartData
+        ];
+
+        let cart = null;
+
+        for (
+            const possibleCart of possibleCarts
+        ) {
+
+            if (
+                Array.isArray(possibleCart)
+            ) {
+
+                cart = possibleCart;
+
+                break;
+            }
+        }
+
+        if (
+            !cart ||
+            !cart.length
+        ) {
+
+            return 0;
+        }
+
+        let count = 0;
+
+        cart.forEach(function (item) {
+
+            count += Number(
+                item.quantity ??
+                item.qty ??
+                item.count ??
+                1
+            );
+        });
+
+        return count;
+    }
+
+
+    /* =====================================================
+       PRODUCT SEARCH
+    ===================================================== */
+
+    function searchProduct(name) {
+
+        const searchName =
+            name
+                .toLowerCase()
+                .trim();
+
+        const cards =
+            document.querySelectorAll(
+                "[data-product], .product-card, .product-item, .product"
+            );
+
+        let foundCards = [];
+
+        cards.forEach(function (card) {
+
+            const text =
+                card.textContent
+                    .toLowerCase();
+
+            if (
+                text.includes(searchName)
+            ) {
+
+                foundCards.push(card);
+            }
+        });
+
+        if (!foundCards.length) {
+
+            return false;
+        }
+
+        foundCards[0].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        foundCards.forEach(function (card) {
+
+            card.style.outline =
+                "2px solid #ff7a18";
+
+            card.style.outlineOffset =
+                "5px";
+
+            card.style.borderRadius =
+                "12px";
+
+            setTimeout(function () {
+
+                card.style.outline = "";
+
+                card.style.outlineOffset = "";
+
+                card.style.borderRadius = "";
+
+            }, 2500);
+        });
+
+        return true;
+    }
+
+
+    /* =====================================================
+       PRODUCT NAMES
+    ===================================================== */
+
+    const knownProducts = [
+
+        "coke",
+        "coca cola",
+        "coca-cola",
+        "pepsi",
+        "sprite",
+        "fanta",
+        "mountain dew",
+        "thums up",
+        "thumbs up",
+        "sting",
+        "red bull",
+        "maaza",
+        "slice",
+        "limca",
+        "7up",
+        "mirinda",
+        "appy fizz",
+        "paper boat",
+        "real juice",
+        "energy drink",
+        "soft drink",
+        "juice"
+
+    ];
+
+
+    /* =====================================================
+       FIND PRODUCT FROM QUESTION
+    ===================================================== */
+
+    function findProductFromQuestion(question) {
+
+        for (
+            const product of knownProducts
+        ) {
+
+            if (
+                question.includes(product)
+            ) {
+
+                return product;
+            }
+        }
+
+        return null;
+    }
+
+
+    /* =====================================================
+       CONFIRMATION DETECTION
+    ===================================================== */
+
+    function isConfirmation(question) {
+
+        return /^(ok|okay|yes|yeah|yep|yup|sure|alright|all right|go ahead|do it|continue|proceed|please do|sounds good|that works)$/i
+            .test(question.trim());
+    }
+
+
+    /* =====================================================
+       NEGATIVE CONFIRMATION
+    ===================================================== */
+
+    function isNegativeConfirmation(question) {
+
+        return /^(no|nope|nah|not now|cancel|stop|never mind|nevermind|don't|do not)$/i
+            .test(question.trim());
+    }
+
+
+    /* =====================================================
+       HANDLE "OK"
+    ===================================================== */
+
+    function handleConfirmation() {
+
+        const action =
+            conversationState.pendingAction;
+
+        if (!action) {
+
+            return `
+                Sure! 👍<br><br>
+                What would you like me to help
+                you with?
+            `;
+        }
+
+
+        /* OFFERS */
+
+        if (
+            action === "open_offers"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            goToSection("#offers");
+
+            return `
+                Absolutely! 🏷️<br><br>
+                I'm opening the
+                <b>Offers</b> section for you.
+            `;
+        }
+
+
+        /* SHOP */
+
+        if (
+            action === "open_shop"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            goToSection("#shop");
+
+            return `
+                Sure! 🥤<br><br>
+                I'm taking you to the
+                <b>Shop</b> section now.
+            `;
+        }
+
+
+        /* CART */
+
+        if (
+            action === "open_cart"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            openCart();
+
+            return `
+                Done! 🛒<br><br>
+                I've opened your
+                <b>cart</b>.
+            `;
+        }
+
+
+        /* CHECKOUT */
+
+        if (
+            action === "checkout"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            const opened =
+                openCheckout();
+
+            if (opened) {
+
+                return `
+                    Done! 💳<br><br>
+                    I'm opening
+                    <b>Checkout</b> for you.
+                `;
+            }
+
+            return `
+                Sure! 💳<br><br>
+                Please open your cart and
+                continue to checkout.
+            `;
+        }
+
+
+        /* CONTACT */
+
+        if (
+            action === "open_contact"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            goToSection("#contact");
+
+            return `
+                Sure! 📞<br><br>
+                I'm opening the
+                <b>Contact</b> section.
+            `;
+        }
+
+
+        /* ABOUT */
+
+        if (
+            action === "open_about"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            goToSection("#about");
+
+            return `
+                Sure! ℹ️<br><br>
+                I'm taking you to the
+                <b>About</b> section.
+            `;
+        }
+
+
+        /* LOGIN */
+
+        if (
+            action === "login"
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            const opened =
+                openLogin();
+
+            if (opened) {
+
+                return `
+                    Sure! 🔐<br><br>
+                    I'm opening the
+                    <b>Login</b> window.
+                `;
+            }
+
+            return `
+                Sure! 🔐<br><br>
+                Please use the Login / Account
+                option on the website.
+            `;
+        }
+
+
+        /* DEFAULT */
+
+        conversationState.pendingAction =
+            null;
+
+        conversationState.waitingForConfirmation =
+            false;
+
+        return `
+            Great! 👍<br><br>
+            What would you like to do next?
+        `;
+    }
+
+
+    /* =====================================================
+       PROCESS QUESTION
+    ===================================================== */
+
+    function processQuestion(question) {
+
+        const q =
+            question
+                .toLowerCase()
+                .trim();
+
+
+        /* EMPTY */
+
+        if (!q) {
+
+            return `
+                I'm here to help. 😊<br><br>
+                What would you like to know?
+            `;
+        }
+
+
+        /* ================================================
+           YES / OK
+        ================================================= */
+
+        if (
+            isConfirmation(q)
+        ) {
+
+            return handleConfirmation();
+        }
+
+
+        /* ================================================
+           NO / CANCEL
+        ================================================= */
+
+        if (
+            isNegativeConfirmation(q)
+        ) {
+
+            conversationState.pendingAction =
+                null;
+
+            conversationState.waitingForConfirmation =
+                false;
+
+            return `
+                No problem! 👍<br><br>
+                I've cancelled that.
+                What would you like to do instead?
+            `;
+        }
+
+
+        /* Save question */
+
+        conversationState.lastQuestion =
+            q;
+
+
+        /* ================================================
+           GREETING
+        ================================================= */
+
+        if (
+            /^(hi|hello|hey|hii|helo|good morning|good afternoon|good evening)$/i
+                .test(q)
+        ) {
+
+            conversationState.lastTopic =
+                "greeting";
+
+            return `
+                Hello! 👋<br><br>
+
+                I'm <b>Bhola Assistant</b>.
+                I can help you explore products,
+                check offers, manage your cart,
+                and navigate the store.
+                <br><br>
+
+                What can I help you with?
+            `;
+        }
+
+
+        /* ================================================
+           WHO ARE YOU
+        ================================================= */
+
+        if (
+            q.includes("who are you") ||
+            q.includes("what are you") ||
+            q.includes("your name")
+        ) {
+
+            conversationState.lastTopic =
+                "assistant";
+
+            return `
+                I'm <b>Bhola Assistant</b> 🤖,
+                your virtual shopping assistant.
+                <br><br>
+
+                I can help you with:
+                <br><br>
+
+                🥤 Products<br>
+                🏷️ Offers<br>
+                🛒 Cart<br>
+                🔐 Account<br>
+                📞 Contact<br>
+                🧭 Website navigation
+            `;
+        }
+
+
+        /* ================================================
+           HELP
+        ================================================= */
+
+        if (
+            q.includes("help") ||
+            q.includes("what can you do") ||
+            q.includes("how can you help")
+        ) {
+
+            conversationState.lastTopic =
+                "help";
+
+            return `
+                Of course! 😊<br><br>
+
+                I can help you:
+                <br><br>
+
+                • Find products<br>
+                • Explore offers<br>
+                • Check your cart<br>
+                • Open your account<br>
+                • Start checkout<br>
+                • Find contact information<br>
+                • Navigate around the store
+            `;
+        }
+
+
+        /* ================================================
+           OFFERS
+        ================================================= */
+
+        if (
+            q.includes("offer") ||
+            q.includes("offers") ||
+            q.includes("discount") ||
+            q.includes("sale") ||
+            q.includes("deal") ||
+            q.includes("promotion")
+        ) {
+
+            conversationState.lastTopic =
+                "offers";
+
+            conversationState.pendingAction =
+                "open_offers";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            return `
+                I can show you the current
+                <b>offers and deals</b>. 🏷️
+                <br><br>
+
+                Would you like me to open
+                the Offers section?
+                <br><br>
+
+                <b>Say "OK"</b> and I'll open it.
+            `;
+        }
+
+
+        /* ================================================
+           SHOP / PRODUCTS
+        ================================================= */
+
+        if (
+            q.includes("products") ||
+            q.includes("product") ||
+            q.includes("drinks") ||
+            q.includes("drink") ||
+            q.includes("cold drink") ||
+            q.includes("shop") ||
+            q.includes("what do you sell")
+        ) {
+
+            conversationState.lastTopic =
+                "shop";
+
+            conversationState.pendingAction =
+                "open_shop";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            return `
+                We have a variety of drinks
+                available in the store. 🥤
+                <br><br>
+
+                Would you like me to take you
+                to the <b>Shop</b>?
+                <br><br>
+
+                <b>Say "OK"</b> and I'll take you there.
+            `;
+        }
+
+
+        /* ================================================
+           SPECIFIC PRODUCT
+        ================================================= */
+
+        const detectedProduct =
+            findProductFromQuestion(q);
+
+        if (detectedProduct) {
+
+            conversationState.lastTopic =
+                "product";
+
+            const found =
+                searchProduct(
+                    detectedProduct
+                );
+
+            if (found) {
+
+                return `
+                    I found
+                    <b>${escapeHTML(detectedProduct)}</b>. 🥤
+                    <br><br>
+
+                    I've highlighted it for you.
+                `;
+            }
+
+            goToSection("#shop");
+
+            return `
+                I couldn't locate that product
+                directly, but I'll take you to
+                the <b>Shop</b> so you can check it.
+                🥤
+            `;
+        }
+
+
+        /* ================================================
+           CART TOTAL
+        ================================================= */
+
+        if (
+            q.includes("cart total") ||
+            q.includes("total") ||
+            q.includes("how much is my cart") ||
+            q.includes("cart price") ||
+            q.includes("cart amount")
+        ) {
+
+            conversationState.lastTopic =
+                "cart";
+
+            const total =
+                getCartTotal();
+
+            const count =
+                getCartItemCount();
+
+            if (
+                total !== null
+            ) {
+
+                return `
+                    🛒 Your current cart total is
+                    <b>₹${total}</b>.
+                    <br><br>
+
+                    You have
+                    <b>${count}</b>
+                    item${count === 1 ? "" : "s"}
+                    in your cart.
+                `;
+            }
+
+            return `
+                I couldn't read the cart total
+                directly right now.
+                <br><br>
+
+                Would you like me to open
+                your cart?
+                <br><br>
+
+                <b>Say "OK"</b>.
+            `;
+        }
+
+
+        /* ================================================
+           CART
+        ================================================= */
+
+        if (
+            q.includes("my cart") ||
+            q.includes("open cart") ||
+            q.includes("show cart") ||
+            q.includes("cart") ||
+            q.includes("basket")
+        ) {
+
+            conversationState.lastTopic =
+                "cart";
+
+            conversationState.pendingAction =
+                "open_cart";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            const count =
+                getCartItemCount();
+
+            if (count > 0) {
+
+                return `
+                    You currently have
+                    <b>${count}</b>
+                    item${count === 1 ? "" : "s"}
+                    in your cart. 🛒
+                    <br><br>
+
+                    Would you like me to open it?
+                    <br><br>
+
+                    <b>Say "OK"</b>.
+                `;
+            }
+
+            return `
+                I can open your cart for you. 🛒
+                <br><br>
+
+                Would you like me to open it?
+                <br><br>
+
+                <b>Say "OK"</b>.
+            `;
+        }
+
+
+        /* ================================================
+           CHECKOUT
+        ================================================= */
+
+        if (
+            q.includes("checkout") ||
+            q.includes("check out") ||
+            q.includes("place order") ||
+            q.includes("place my order")
+        ) {
+
+            conversationState.lastTopic =
+                "checkout";
+
+            conversationState.pendingAction =
+                "checkout";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            return `
+                I can take you to
+                <b>Checkout</b>. 💳
+                <br><br>
+
+                Would you like to continue?
+                <br><br>
+
+                <b>Say "OK"</b> to continue.
+            `;
+        }
+
+
+        /* ================================================
+           LOGIN / ACCOUNT
+        ================================================= */
+
+        if (
+            q.includes("login") ||
+            q.includes("log in") ||
+            q.includes("sign in") ||
+            q.includes("account")
+        ) {
+
+            conversationState.lastTopic =
+                "login";
+
+            conversationState.pendingAction =
+                "login";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            return `
+                I can open the
+                <b>Login / Account</b> section
+                for you. 🔐
+                <br><br>
+
+                Would you like me to open it?
+                <br><br>
+
+                <b>Say "OK"</b>.
+            `;
+        }
+
+
+        /* ================================================
+           CONTACT
+        ================================================= */
+
+        if (
+            q.includes("contact") ||
+            q.includes("contact us") ||
+            q.includes("phone") ||
+            q.includes("support") ||
+            q.includes("how can i contact")
+        ) {
+
+            conversationState.lastTopic =
+                "contact";
+
+            conversationState.pendingAction =
+                "open_contact";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            return `
+                I can take you to the
+                <b>Contact</b> section. 📞
+                <br><br>
+
+                Would you like me to open it?
+                <br><br>
+
+                <b>Say "OK"</b>.
+            `;
+        }
+
+
+        /* ================================================
+           ABOUT
+        ================================================= */
+
+        if (
+            q.includes("about us") ||
+            q.includes("about the store") ||
+            q.includes("about bhola")
+        ) {
+
+            conversationState.lastTopic =
+                "about";
+
+            conversationState.pendingAction =
+                "open_about";
+
+            conversationState.waitingForConfirmation =
+                true;
+
+            return `
+                I can show you more about
+                <b>Bhola Cold Drinks</b>. ℹ️
+                <br><br>
+
+                Would you like me to open
+                the About section?
+                <br><br>
+
+                <b>Say "OK"</b>.
+            `;
+        }
+
+
+        /* ================================================
+           HOME
+        ================================================= */
+
+        if (
+            q === "home" ||
+            q.includes("home page") ||
+            q.includes("go home")
+        ) {
+
+            conversationState.lastTopic =
+                "home";
+
+            goToSection("#home");
+
+            return `
+                Done! 🏠<br><br>
+                I'm taking you back to
+                the <b>Home</b> section.
+            `;
+        }
+
+
+        /* ================================================
+           THANK YOU
+        ================================================= */
+
+        if (
+            q.includes("thank you") ||
+            q.includes("thanks") ||
+            q.includes("thank")
+        ) {
+
+            conversationState.lastTopic =
+                "thanks";
+
+            return `
+                You're very welcome! 😊🥤
+                <br><br>
+
+                I'm always here if you need
+                anything else.
+            `;
+        }
+
+
+        /* ================================================
+           GOODBYE
+        ================================================= */
+
+        if (
+            q === "bye" ||
+            q === "goodbye"
+        ) {
+
+            return `
+                Goodbye! 👋<br><br>
+
+                Have a refreshing day! 🥤
+            `;
+        }
+
+
+        /* ================================================
+           FALLBACK
+        ================================================= */
+
+        conversationState.lastTopic =
+            "unknown";
+
+        return `
+            I'm not completely sure what you mean. 🤔
+            <br><br>
+
+            You can ask me things like:
+            <br><br>
+
+            • <b>Show me the drinks</b><br>
+            • <b>What offers are available?</b><br>
+            • <b>What's in my cart?</b><br>
+            • <b>What is my cart total?</b><br>
+            • <b>Open checkout</b><br>
+            • <b>Take me to contact</b>
+            <br><br>
+
+            I'll do my best to help.
+        `;
+    }
+
+
+    /* =====================================================
+       ASK ASSISTANT
+    ===================================================== */
+
+    function askAssistant(question) {
+
+        const cleanQuestion =
+            question.trim();
+
+        if (!cleanQuestion) {
+
+            return;
+        }
+
+        /* USER MESSAGE */
+
+        addMessage(
+            escapeHTML(cleanQuestion),
+            "user"
+        );
+
+        input.value = "";
+
+        /* TYPING */
+
+        showTyping();
+
+
+        /* RESPONSE DELAY */
+
+        const delay =
+            500 +
+            Math.floor(
+                Math.random() * 600
+            );
+
+
+        setTimeout(function () {
+
+            hideTyping();
+
+            const response =
+                processQuestion(
+                    cleanQuestion
+                );
+
+            addMessage(
+                response,
+                "bot"
+            );
+
+        }, delay);
+    }
+
+
+    /* =====================================================
+       FORM SUBMIT
+    ===================================================== */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            askAssistant(
+                input.value
+            );
+        }
+    );
+
+
+    /* =====================================================
+       QUICK SUGGESTIONS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".bhola-ai-suggestions button"
+        )
+        .forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const question =
+                        this.dataset.question ||
+                        this.textContent.trim();
+
+                    askAssistant(
+                        question
+                    );
+                }
+            );
+        });
+
+
+    /* =====================================================
+       ENTER KEY
+    ===================================================== */
+
+    input.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter" &&
+                !event.shiftKey
+            ) {
+
+                event.preventDefault();
+
+                form.dispatchEvent(
+                    new Event("submit", {
+                        bubbles: true,
+                        cancelable: true
+                    })
+                );
+            }
+        }
+    );
+
+
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                panel.classList.contains("active")
+            ) {
+
+                closeAssistant();
+            }
+        }
+    );
+
+
+    /* =====================================================
+       OUTSIDE CLICK
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !panel.classList.contains("active")
+            ) {
+
+                return;
+            }
+
+            const clickedInside =
+                panel.contains(event.target);
+
+            const clickedLauncher =
+                launcher.contains(event.target);
+
+            if (
+                !clickedInside &&
+                !clickedLauncher
+            ) {
+
+                closeAssistant();
+            }
+        }
+    );
+
+
+    /* =====================================================
+       INITIAL STATE
+    ===================================================== */
+
+    panel.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    console.log(
+        "Bhola Assistant loaded successfully."
+    );
+
+})();
+</script>
+
+
+<!-- POS -->
+
+<div class="pos-notice-overlay" id="posNotice">
+    <div class="pos-notice-box">
+
+        <button class="pos-notice-close" onclick="closePosNotice()">
+            &times;
+        </button>
+
+        <div class="pos-notice-icon">
+            <i class="fa-solid fa-store"></i>
+        </div>
+
+        <span class="pos-notice-tag">SMALL SHOP TOOL</span>
+
+        <h3>Small Shop POS</h3>
+
+        <p>
+            This simple POS billing system is designed for
+            small cold-drinks shops.
+        </p>
+
+        <div class="pos-notice-info">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>
+                For small businesses • Cold drinks billing only
+            </span>
+        </div>
+
+        <small>
+            This POS is currently not updatable or actively maintained.
+            It was created for practice and demonstration purposes only.
+        </small>
+
+        <div class="pos-notice-actions">
+
+            <button onclick="closePosNotice()">
+                Cancel
+            </button>
+
+            <a href="pos.html">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Open POS
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* ================= SMALL SHOP POS ================= */
+
+
+
+
+.pos-notice-overlay{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(255,250,243,.72);
+    backdrop-filter:blur(8px);
+}
+
+.pos-notice-overlay.active{
+    display:flex;
+}
+
+.pos-notice-box{
+    width:min(420px,100%);
+    background:#fffdf9;
+    border:1px solid #f1dfcc;
+    border-radius:24px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(128,72,28,.16);
+    position:relative;
+    animation:posNoticeIn .35s ease;
+}
+
+@keyframes posNoticeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.pos-notice-close{
+    position:absolute;
+    right:15px;
+    top:12px;
+    border:0;
+    background:transparent;
+    font-size:27px;
+    color:#9b8b7d;
+    cursor:pointer;
+}
+
+.pos-notice-icon{
+    width:58px;
+    height:58px;
+    margin:0 auto 14px;
+    border-radius:18px;
+    display:grid;
+    place-items:center;
+    background:#fff0df;
+    color:#e76516;
+    font-size:23px;
+}
+
+.pos-notice-tag{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.4px;
+    color:#e76516;
+}
+
+.pos-notice-box h3{
+    margin:7px 0 9px;
+    font-size:25px;
+    color:#3f3329;
+}
+
+.pos-notice-box p{
+    margin:0 auto 15px;
+    max-width:340px;
+    line-height:1.6;
+    color:#75685d;
+    font-size:14px;
+}
+
+.pos-notice-info{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:11px;
+    border-radius:12px;
+    background:#fff7ed;
+    color:#b95716;
+    font-size:12px;
+    font-weight:700;
+}
+
+.pos-notice-box small{
+    display:block;
+    margin-top:13px;
+    color:#9a8d82;
+    font-size:11px;
+}
+
+.pos-notice-actions{
+    display:flex;
+    gap:10px;
+    margin-top:21px;
+}
+
+.pos-notice-actions button,
+.pos-notice-actions a{
+    flex:1;
+    border:0;
+    padding:12px 15px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.pos-notice-actions button{
+    background:#f5eee7;
+    color:#66584d;
+}
+
+.pos-notice-actions a{
+    background:#e96b1c;
+    color:#fff;
+    transition:.3s;
+}
+
+.pos-notice-actions a:hover{
+    transform:translateY(-2px);
+}
+
+@media(max-width:480px){
+    .pos-notice-box{
+        padding:24px 19px;
+        border-radius:20px;
+    }
+
+    .pos-notice-box h3{
+        font-size:22px;
+    }
+}
+</style>
+
+<script>
+function openPosNotice(){
+    document.getElementById("posNotice").classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closePosNotice(){
+    document.getElementById("posNotice").classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+document.getElementById("posNotice").addEventListener("click", function(e){
+    if(e.target === this){
+        closePosNotice();
+    }
+});
+</script>
+
+<!-- ================= BASIC WEBSITE PROTECTION ================= -->
+
+<script>
+(function(){
+
+    /* Disable right click */
+    document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+    });
+
+    /* Disable text selection */
+    document.addEventListener("selectstart", function(e){
+        if(
+            e.target.tagName !== "INPUT" &&
+            e.target.tagName !== "TEXTAREA"
+        ){
+            e.preventDefault();
+        }
+    });
+
+    /* Disable image dragging */
+    document.addEventListener("dragstart", function(e){
+        if(e.target.tagName === "IMG"){
+            e.preventDefault();
+        }
+    });
+
+    /* Block common inspect/save/print shortcuts */
+    document.addEventListener("keydown", function(e){
+
+        const key = e.key.toLowerCase();
+
+        if(e.key === "F12"){
+            e.preventDefault();
+            return false;
+        }
+
+        if(e.ctrlKey && key === "u"){
+            e.preventDefault();
+            return false;
+        }
+
+        if(e.ctrlKey && key === "s"){
+            e.preventDefault();
+            return false;
+        }
+
+        if(e.ctrlKey && e.shiftKey && key === "i"){
+            e.preventDefault();
+            return false;
+        }
+
+        if(e.ctrlKey && e.shiftKey && key === "j"){
+            e.preventDefault();
+            return false;
+        }
+
+        if(e.ctrlKey && e.shiftKey && key === "c"){
+            e.preventDefault();
+            return false;
+        }
+
+        if(e.ctrlKey && key === "p"){
+            e.preventDefault();
+            return false;
+        }
+
+    });
+
+})();
+</script>
+</body>
+</html>
