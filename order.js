@@ -336,7 +336,10 @@ const products = [
    STATE
 ========================================================= */
 
-let cart = JSON.parse(localStorage.getItem("bholaCart")) || {};
+let cart =
+    JSON.parse(
+        localStorage.getItem("bholaCart")
+    ) || {};
 
 let currentFilter = "All";
 
@@ -349,27 +352,32 @@ let toastTimer = null;
    HELPERS
 ========================================================= */
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+    document.getElementById(id);
 
 
 function money(value){
 
-    return "₹" + Number(value).toLocaleString("en-IN");
+    return "₹" +
+        Number(value).toLocaleString("en-IN");
 
 }
 
 
 function escapeHTML(value){
 
-    return String(value).replace(/[&<>"']/g, char => ({
+    return String(value).replace(
+        /[&<>"']/g,
+        char => ({
 
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
 
-    }[char]));
+        }[char])
+    );
 
 }
 
@@ -387,7 +395,11 @@ function saveCart(){
 function cartQuantity(){
 
     return Object.values(cart)
-        .reduce((sum,item) => sum + item.qty,0);
+        .reduce(
+            (sum,item) =>
+                sum + item.qty,
+            0
+        );
 
 }
 
@@ -397,7 +409,9 @@ function cartSubtotal(){
     return Object.entries(cart)
         .reduce(
             (sum,[id,item]) =>
-                sum + getProduct(Number(id)).price * item.qty,
+                sum +
+                getProduct(Number(id)).price *
+                item.qty,
             0
         );
 
@@ -406,7 +420,9 @@ function cartSubtotal(){
 
 function getProduct(id){
 
-    return products.find(p => p.id === id);
+    return products.find(
+        p => p.id === id
+    );
 
 }
 
@@ -417,48 +433,71 @@ function getProduct(id){
 
 function renderProducts(){
 
-    const grid = $("productGrid");
+    const grid =
+        $("productGrid");
 
-    let list = [...products];
+    let list =
+        [...products];
 
-    const query = searchValue.trim().toLowerCase();
+    const query =
+        searchValue
+            .trim()
+            .toLowerCase();
+
 
     if(currentFilter !== "All"){
 
-        list = list.filter(
-            p => p.category === currentFilter
-        );
+        list =
+            list.filter(
+                p =>
+                    p.category === currentFilter
+            );
 
     }
 
 
     if(query){
 
-        list = list.filter(p =>
-            p.name.toLowerCase().includes(query)
+        list =
+            list.filter(
+                p =>
+                    p.name
+                        .toLowerCase()
+                        .includes(query)
+            );
+
+    }
+
+
+    const sort =
+        $("sortProducts").value;
+
+
+    if(sort === "low"){
+
+        list.sort(
+            (a,b) =>
+                a.price - b.price
         );
 
     }
 
 
-    const sort = $("sortProducts").value;
-
-    if(sort === "low"){
-
-        list.sort((a,b) => a.price - b.price);
-
-    }
-
     if(sort === "high"){
 
-        list.sort((a,b) => b.price - a.price);
+        list.sort(
+            (a,b) =>
+                b.price - a.price
+        );
 
     }
+
 
     if(sort === "name"){
 
-        list.sort((a,b) =>
-            a.name.localeCompare(b.name)
+        list.sort(
+            (a,b) =>
+                a.name.localeCompare(b.name)
         );
 
     }
@@ -469,127 +508,137 @@ function renderProducts(){
 
     if(!list.length){
 
-        $("emptyProducts").classList.add("show");
+        $("emptyProducts")
+            .classList.add("show");
 
         return;
 
     }
 
 
-    $("emptyProducts").classList.remove("show");
+    $("emptyProducts")
+        .classList.remove("show");
 
 
-    list.forEach((product,index) => {
+    list.forEach(
+        (product,index) => {
 
-        const quantity =
-            cart[product.id]?.qty || 0;
-
-
-        const card =
-            document.createElement("article");
+            const quantity =
+                cart[product.id]?.qty || 0;
 
 
-        card.className = "product-card";
+            const card =
+                document.createElement(
+                    "article"
+                );
 
 
-        card.style.animationDelay =
-            Math.min(index * 35,300) + "ms";
+            card.className =
+                "product-card";
 
 
-        card.innerHTML = `
-
-            <div class="product-image">
-
-                ${
-                    product.price <= 20
-                    ?
-                    `<span class="product-badge">Popular</span>`
-                    :
-                    ""
-                }
-
-                <button
-                    class="product-heart"
-                    data-heart="${product.id}"
-                    aria-label="Wishlist"
-                >
-                    <i class="fa-regular fa-heart"></i>
-                </button>
+            card.style.animationDelay =
+                Math.min(
+                    index * 35,
+                    300
+                ) + "ms";
 
 
-                <img
-                    src="${product.img}"
-                    alt="${escapeHTML(product.name)}"
-                    loading="lazy"
-                    onerror="this.style.opacity='.3'"
-                >
+            card.innerHTML = `
 
-            </div>
-
-
-            <div class="product-content">
-
-                <span class="product-category">
-                    ${escapeHTML(product.category)}
-                </span>
-
-                <h3 class="product-name">
-                    ${escapeHTML(product.name)}
-                </h3>
-
-
-                <div class="product-bottom">
-
-                    <strong class="product-price">
-                        ${money(product.price)}
-                    </strong>
-
+                <div class="product-image">
 
                     ${
-                        quantity
+                        product.price <= 20
                         ?
-                        `
-                        <div class="product-quantity">
-
-                            <button
-                                data-minus="${product.id}"
-                                aria-label="Decrease"
-                            >
-                                <i class="fa-solid fa-minus"></i>
-                            </button>
-
-                            <span>${quantity}</span>
-
-                            <button
-                                data-plus="${product.id}"
-                                aria-label="Increase"
-                            >
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-
-                        </div>
-                        `
+                        `<span class="product-badge">
+                            Popular
+                        </span>`
                         :
-                        `
-                        <button
-                            class="add-product"
-                            data-add="${product.id}"
-                            aria-label="Add to cart"
-                        >
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                        `
+                        ""
                     }
+
+                    <button
+                        class="product-heart"
+                        data-heart="${product.id}"
+                        aria-label="Wishlist"
+                    >
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <img
+                        src="${product.img}"
+                        alt="${escapeHTML(product.name)}"
+                        loading="lazy"
+                        onerror="this.style.opacity='.3'"
+                    >
 
                 </div>
 
-            </div>
-        `;
+                <div class="product-content">
+
+                    <span class="product-category">
+                        ${escapeHTML(product.category)}
+                    </span>
+
+                    <h3 class="product-name">
+                        ${escapeHTML(product.name)}
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <strong class="product-price">
+                            ${money(product.price)}
+                        </strong>
+
+                        ${
+                            quantity
+                            ?
+                            `
+                            <div class="product-quantity">
+
+                                <button
+                                    data-minus="${product.id}"
+                                    aria-label="Decrease"
+                                >
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+
+                                <span>
+                                    ${quantity}
+                                </span>
+
+                                <button
+                                    data-plus="${product.id}"
+                                    aria-label="Increase"
+                                >
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+
+                            </div>
+                            `
+                            :
+                            `
+                            <button
+                                class="add-product"
+                                data-add="${product.id}"
+                                aria-label="Add to cart"
+                            >
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            `
+                        }
+
+                    </div>
+
+                </div>
+            `;
 
 
-        grid.appendChild(card);
+            grid.appendChild(card);
 
-    });
+        }
+    );
 
 }
 
@@ -604,7 +653,8 @@ function addToCart(id){
 
         cart[id].qty++;
 
-    }else{
+    }
+    else{
 
         cart[id] = {
             qty:1
@@ -619,8 +669,10 @@ function addToCart(id){
 
     renderCart();
 
+
     showToast(
-        getProduct(id).name + " added to cart"
+        getProduct(id).name +
+        " added to cart"
     );
 
 }
@@ -628,7 +680,8 @@ function addToCart(id){
 
 function decreaseCart(id){
 
-    if(!cart[id]) return;
+    if(!cart[id])
+        return;
 
 
     cart[id].qty--;
@@ -652,10 +705,12 @@ function decreaseCart(id){
 
 function removeCart(id){
 
-    if(!cart[id]) return;
+    if(!cart[id])
+        return;
 
 
-    const name = getProduct(id).name;
+    const name =
+        getProduct(id).name;
 
 
     delete cart[id];
@@ -667,8 +722,10 @@ function removeCart(id){
 
     renderCart();
 
+
     showToast(
-        name + " removed from cart"
+        name +
+        " removed from cart"
     );
 
 }
@@ -676,9 +733,11 @@ function removeCart(id){
 
 function renderCart(){
 
-    const container = $("cartItems");
+    const container =
+        $("cartItems");
 
-    const ids = Object.keys(cart);
+    const ids =
+        Object.keys(cart);
 
 
     $("cartCount").textContent =
@@ -687,105 +746,121 @@ function renderCart(){
 
     $("drawerItemCount").textContent =
         cartQuantity() +
-        (cartQuantity() === 1 ? " item" : " items");
+        (
+            cartQuantity() === 1
+            ? " item"
+            : " items"
+        );
 
 
     if(!ids.length){
 
         container.innerHTML = "";
 
-        $("emptyCart").style.display = "flex";
+        $("emptyCart").style.display =
+            "flex";
 
-        $("cartSummary").style.display = "none";
+        $("cartSummary").style.display =
+            "none";
 
         return;
 
     }
 
 
-    $("emptyCart").style.display = "none";
+    $("emptyCart").style.display =
+        "none";
 
-    $("cartSummary").style.display = "block";
+    $("cartSummary").style.display =
+        "block";
 
 
     container.innerHTML = "";
 
 
-    ids.forEach(id => {
+    ids.forEach(
+        id => {
 
-        const product =
-            getProduct(Number(id));
-
-
-        const qty =
-            cart[id].qty;
+            const product =
+                getProduct(Number(id));
 
 
-        const row =
-            document.createElement("div");
+            const qty =
+                cart[id].qty;
 
 
-        row.className = "cart-item";
+            const row =
+                document.createElement(
+                    "div"
+                );
 
 
-        row.innerHTML = `
+            row.className =
+                "cart-item";
 
-            <div class="cart-item-image">
 
-                <img
-                    src="${product.img}"
-                    alt="${escapeHTML(product.name)}"
+            row.innerHTML = `
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="${product.img}"
+                        alt="${escapeHTML(product.name)}"
+                    >
+
+                </div>
+
+                <div class="cart-item-info">
+
+                    <strong>
+                        ${escapeHTML(product.name)}
+                    </strong>
+
+                    <span>
+                        ${escapeHTML(product.category)}
+                    </span>
+
+                    <div class="cart-item-price">
+                        ${money(product.price * qty)}
+                    </div>
+
+                    <div class="cart-qty">
+
+                        <button
+                            data-cart-minus="${product.id}"
+                        >
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <span>
+                            ${qty}
+                        </span>
+
+                        <button
+                            data-cart-plus="${product.id}"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="cart-remove"
+                    data-remove="${product.id}"
+                    aria-label="Remove"
                 >
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
 
-            </div>
-
-
-            <div class="cart-item-info">
-
-                <strong>
-                    ${escapeHTML(product.name)}
-                </strong>
-
-                <span>
-                    ${escapeHTML(product.category)}
-                </span>
-
-                <div class="cart-item-price">
-                    ${money(product.price * qty)}
-                </div>
+            `;
 
 
-                <div class="cart-qty">
+            container.appendChild(row);
 
-                    <button data-cart-minus="${product.id}">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-
-                    <span>${qty}</span>
-
-                    <button data-cart-plus="${product.id}">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="cart-remove"
-                data-remove="${product.id}"
-                aria-label="Remove"
-            >
-                <i class="fa-solid fa-trash-can"></i>
-            </button>
-
-        `;
-
-
-        container.appendChild(row);
-
-    });
+        }
+    );
 
 
     const subtotal =
@@ -812,22 +887,28 @@ function renderCart(){
 
 function openCart(){
 
-    $("cartDrawer").classList.add("open");
+    $("cartDrawer")
+        .classList.add("open");
 
-    $("drawerBackdrop").classList.add("show");
+    $("drawerBackdrop")
+        .classList.add("show");
 
-    document.body.classList.add("no-scroll");
+    document.body
+        .classList.add("no-scroll");
 
 }
 
 
 function closeCart(){
 
-    $("cartDrawer").classList.remove("open");
+    $("cartDrawer")
+        .classList.remove("open");
 
-    $("drawerBackdrop").classList.remove("show");
+    $("drawerBackdrop")
+        .classList.remove("show");
 
-    document.body.classList.remove("no-scroll");
+    document.body
+        .classList.remove("no-scroll");
 
 }
 
@@ -858,7 +939,9 @@ function saveUsers(users){
 function getCurrentUser(){
 
     return JSON.parse(
-        localStorage.getItem("bholaCurrentUser")
+        localStorage.getItem(
+            "bholaCurrentUser"
+        )
     );
 
 }
@@ -874,24 +957,389 @@ function setCurrentUser(user){
 }
 
 
+/* =========================================================
+   FORMSUBMIT — ACCOUNT EMAIL NOTIFICATION
+   RELIABLE HIDDEN FORM METHOD
+========================================================= */
+
+function sendAccountNotification(
+    activity,
+    data = {}
+){
+
+    try{
+
+        /* =========================================
+           DEVICE / BROWSER DETAILS
+        ========================================= */
+
+        const ua =
+            navigator.userAgent;
+
+
+        let browser =
+            "Unknown Browser";
+
+
+        if(/Edg\//i.test(ua)){
+
+            browser =
+                "Microsoft Edge";
+
+        }
+        else if(/Chrome\//i.test(ua)){
+
+            browser =
+                "Google Chrome";
+
+        }
+        else if(/Firefox\//i.test(ua)){
+
+            browser =
+                "Mozilla Firefox";
+
+        }
+        else if(
+            /Safari\//i.test(ua) &&
+            !/Chrome\//i.test(ua)
+        ){
+
+            browser =
+                "Safari";
+
+        }
+
+
+        let platform =
+            "Unknown";
+
+
+        if(/Windows/i.test(ua)){
+
+            platform =
+                "Windows";
+
+        }
+        else if(/Android/i.test(ua)){
+
+            platform =
+                "Android";
+
+        }
+        else if(/iPhone/i.test(ua)){
+
+            platform =
+                "iPhone";
+
+        }
+        else if(/iPad/i.test(ua)){
+
+            platform =
+                "iPad";
+
+        }
+        else if(/Mac OS X/i.test(ua)){
+
+            platform =
+                "macOS";
+
+        }
+        else if(/Linux/i.test(ua)){
+
+            platform =
+                "Linux";
+
+        }
+
+
+        const isMobile =
+            /Mobi|Android|iPhone|iPad/i.test(
+                ua
+            );
+
+
+        const deviceType =
+            isMobile
+            ? "Mobile / Tablet"
+            : "Desktop / Laptop";
+
+
+        /* =========================================
+           HIDDEN IFRAME
+        ========================================= */
+
+        const iframeName =
+            "bholaFormSubmit_" +
+            Date.now();
+
+
+        const iframe =
+            document.createElement(
+                "iframe"
+            );
+
+
+        iframe.name =
+            iframeName;
+
+
+        iframe.style.display =
+            "none";
+
+
+        document.body.appendChild(
+            iframe
+        );
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        const form =
+            document.createElement(
+                "form"
+            );
+
+
+        form.method =
+            "POST";
+
+
+        form.action =
+            "https://formsubmit.co/ydvaman2326@gmail.com";
+
+
+        form.target =
+            iframeName;
+
+
+        form.style.display =
+            "none";
+
+
+        /* =========================================
+           HELPER
+        ========================================= */
+
+        function addField(
+            name,
+            value
+        ){
+
+            const input =
+                document.createElement(
+                    "input"
+                );
+
+
+            input.type =
+                "hidden";
+
+
+            input.name =
+                name;
+
+
+            input.value =
+                value == null
+                ? ""
+                : String(value);
+
+
+            form.appendChild(
+                input
+            );
+
+        }
+
+
+        /* =========================================
+           FORMSUBMIT SETTINGS
+        ========================================= */
+
+        addField(
+            "_subject",
+            "Bhola Cold Drinks — " +
+            activity
+        );
+
+
+        addField(
+            "_template",
+            "table"
+        );
+
+
+        addField(
+            "_captcha",
+            "false"
+        );
+
+
+        /* =========================================
+           ACTIVITY
+        ========================================= */
+
+        addField(
+            "Activity",
+            activity
+        );
+
+
+        /* =========================================
+           CUSTOMER
+        ========================================= */
+
+        addField(
+            "Customer Name",
+            data.name ||
+            "Not provided"
+        );
+
+
+        addField(
+            "Mobile Number",
+            data.mobile ||
+            "Not provided"
+        );
+
+
+        /* =========================================
+           WEBSITE
+        ========================================= */
+
+        addField(
+            "Website",
+            "Bhola Cold Drinks"
+        );
+
+
+        /* =========================================
+           DATE & TIME
+        ========================================= */
+
+        addField(
+            "Date & Time",
+            new Date().toLocaleString(
+                "en-IN",
+                {
+                    dateStyle:"medium",
+                    timeStyle:"medium"
+                }
+            )
+        );
+
+
+        /* =========================================
+           DEVICE
+        ========================================= */
+
+        addField(
+            "Device",
+            browser +
+            " • " +
+            platform
+        );
+
+
+        /* =========================================
+           DEVICE TYPE
+        ========================================= */
+
+        addField(
+            "Device Type",
+            deviceType
+        );
+
+
+        /* =========================================
+           SCREEN
+        ========================================= */
+
+        addField(
+            "Screen",
+            window.screen.width +
+            " × " +
+            window.screen.height
+        );
+
+
+        /* =========================================
+           LANGUAGE
+        ========================================= */
+
+        addField(
+            "Language",
+            navigator.language ||
+            "Unknown"
+        );
+
+
+        /* =========================================
+           SUBMIT
+        ========================================= */
+
+        document.body.appendChild(
+            form
+        );
+
+
+        form.submit();
+
+
+        /* =========================================
+           CLEANUP
+        ========================================= */
+
+        setTimeout(
+            () => {
+
+                form.remove();
+
+                iframe.remove();
+
+            },
+            8000
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "FormSubmit notification error:",
+            error
+        );
+
+    }
+
+}
+
+
 function logoutUser(){
 
     localStorage.removeItem(
         "bholaCurrentUser"
     );
 
+
     updateAccountUI();
 
     closeAccountModal();
 
-    showToast("You have been logged out");
+
+    showToast(
+        "You have been logged out"
+    );
 
 }
 
 
 function updateAccountUI(){
 
-    const user = getCurrentUser();
+    const user =
+        getCurrentUser();
+
 
     const accountText =
         $("accountText");
@@ -902,7 +1350,8 @@ function updateAccountUI(){
         accountText.textContent =
             user.name.split(" ")[0];
 
-    }else{
+    }
+    else{
 
         accountText.textContent =
             "Login";
@@ -918,83 +1367,108 @@ function updateAccountUI(){
 
 function openAccountModal(){
 
-    const user = getCurrentUser();
+    const user =
+        getCurrentUser();
 
 
     if(user){
 
-        $("loginForm").classList.add("hidden");
+        $("loginForm")
+            .classList.add("hidden");
 
-        $("signupForm").classList.add("hidden");
+        $("signupForm")
+            .classList.add("hidden");
 
-        $("profilePanel").classList.remove("hidden");
+        $("profilePanel")
+            .classList.remove("hidden");
 
 
-        $("accountEyebrow").textContent =
+        $("accountEyebrow")
+            .textContent =
             "YOUR ACCOUNT";
 
 
-        $("accountTitle").textContent =
+        $("accountTitle")
+            .textContent =
             "Welcome back";
 
 
-        $("accountSubtitle").textContent =
+        $("accountSubtitle")
+            .textContent =
             "Manage your account and orders.";
 
 
-        $("profileName").textContent =
+        $("profileName")
+            .textContent =
             user.name;
 
 
-        $("profileMobile").textContent =
-            "+91 " + user.mobile;
+        $("profileMobile")
+            .textContent =
+            "+91 " +
+            user.mobile;
 
 
-        $("profileAvatar").textContent =
-            user.name.charAt(0).toUpperCase();
+        $("profileAvatar")
+            .textContent =
+            user.name
+                .charAt(0)
+                .toUpperCase();
 
-
-    }else{
+    }
+    else{
 
         showLoginForm();
 
     }
 
 
-    $("accountModal").classList.add("open");
+    $("accountModal")
+        .classList.add("open");
 
-    document.body.classList.add("no-scroll");
+
+    document.body
+        .classList.add("no-scroll");
 
 }
 
 
 function closeAccountModal(){
 
-    $("accountModal").classList.remove("open");
+    $("accountModal")
+        .classList.remove("open");
 
-    document.body.classList.remove("no-scroll");
+
+    document.body
+        .classList.remove("no-scroll");
 
 }
 
 
 function showLoginForm(){
 
-    $("loginForm").classList.remove("hidden");
+    $("loginForm")
+        .classList.remove("hidden");
 
-    $("signupForm").classList.add("hidden");
+    $("signupForm")
+        .classList.add("hidden");
 
-    $("profilePanel").classList.add("hidden");
+    $("profilePanel")
+        .classList.add("hidden");
 
 
-    $("accountEyebrow").textContent =
+    $("accountEyebrow")
+        .textContent =
         "WELCOME BACK";
 
 
-    $("accountTitle").textContent =
+    $("accountTitle")
+        .textContent =
         "Sign in to your account";
 
 
-    $("accountSubtitle").textContent =
+    $("accountSubtitle")
+        .textContent =
         "Manage your orders and checkout faster.";
 
 }
@@ -1002,22 +1476,28 @@ function showLoginForm(){
 
 function showSignupForm(){
 
-    $("loginForm").classList.add("hidden");
+    $("loginForm")
+        .classList.add("hidden");
 
-    $("signupForm").classList.remove("hidden");
+    $("signupForm")
+        .classList.remove("hidden");
 
-    $("profilePanel").classList.add("hidden");
+    $("profilePanel")
+        .classList.add("hidden");
 
 
-    $("accountEyebrow").textContent =
+    $("accountEyebrow")
+        .textContent =
         "JOIN BHOLA";
 
 
-    $("accountTitle").textContent =
+    $("accountTitle")
+        .textContent =
         "Create your account";
 
 
-    $("accountSubtitle").textContent =
+    $("accountSubtitle")
+        .textContent =
         "Save your details and order faster.";
 
 }
@@ -1035,11 +1515,14 @@ $("loginForm").addEventListener(
 
 
         const mobile =
-            $("loginMobile").value.trim();
+            $("loginMobile")
+                .value
+                .trim();
 
 
         const password =
-            $("loginPassword").value;
+            $("loginPassword")
+                .value;
 
 
         if(!/^\d{10}$/.test(mobile)){
@@ -1060,7 +1543,8 @@ $("loginForm").addEventListener(
 
         const user =
             users.find(
-                item => item.mobile === mobile
+                item =>
+                    item.mobile === mobile
             );
 
 
@@ -1089,9 +1573,25 @@ $("loginForm").addEventListener(
 
 
         setCurrentUser({
+
             name:user.name,
+
             mobile:user.mobile
+
         });
+
+
+        /* =========================================
+           FORMSUBMIT — LOGIN
+        ========================================= */
+
+        sendAccountNotification(
+            "Customer Login",
+            {
+                name:user.name,
+                mobile:user.mobile
+            }
+        );
 
 
         updateAccountUI();
@@ -1100,11 +1600,13 @@ $("loginForm").addEventListener(
 
 
         showToast(
-            "Welcome back, " + user.name.split(" ")[0]
+            "Welcome back, " +
+            user.name.split(" ")[0]
         );
 
 
-        $("loginForm").reset();
+        $("loginForm")
+            .reset();
 
     }
 );
@@ -1122,19 +1624,25 @@ $("signupForm").addEventListener(
 
 
         const name =
-            $("signupName").value.trim();
+            $("signupName")
+                .value
+                .trim();
 
 
         const mobile =
-            $("signupMobile").value.trim();
+            $("signupMobile")
+                .value
+                .trim();
 
 
         const password =
-            $("signupPassword").value;
+            $("signupPassword")
+                .value;
 
 
         const confirm =
-            $("signupConfirm").value;
+            $("signupConfirm")
+                .value;
 
 
         if(name.length < 2){
@@ -1191,7 +1699,8 @@ $("signupForm").addEventListener(
 
         if(
             users.some(
-                user => user.mobile === mobile
+                user =>
+                    user.mobile === mobile
             )
         ){
 
@@ -1208,7 +1717,9 @@ $("signupForm").addEventListener(
         users.push({
 
             name,
+
             mobile,
+
             password
 
         });
@@ -1218,12 +1729,29 @@ $("signupForm").addEventListener(
 
 
         setCurrentUser({
+
             name,
+
             mobile
+
         });
 
 
-        $("signupForm").reset();
+        /* =========================================
+           FORMSUBMIT — NEW ACCOUNT
+        ========================================= */
+
+        sendAccountNotification(
+            "New Customer Account",
+            {
+                name:name,
+                mobile:mobile
+            }
+        );
+
+
+        $("signupForm")
+            .reset();
 
 
         updateAccountUI();
@@ -1267,6 +1795,7 @@ function openCheckout(){
 
         openAccountModal();
 
+
         showToast(
             "Please sign in before checkout"
         );
@@ -1287,9 +1816,12 @@ function openCheckout(){
     renderCheckout();
 
 
-    $("checkoutModal").classList.add("open");
+    $("checkoutModal")
+        .classList.add("open");
 
-    document.body.classList.add("no-scroll");
+
+    document.body
+        .classList.add("no-scroll");
 
 }
 
@@ -1311,7 +1843,9 @@ function renderCheckout(){
 
 
             const row =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             row.className =
@@ -1338,7 +1872,10 @@ function renderCheckout(){
                 </div>
 
                 <b>
-                    ${money(product.price * data.qty)}
+                    ${money(
+                        product.price *
+                        data.qty
+                    )}
                 </b>
 
             `;
@@ -1350,7 +1887,8 @@ function renderCheckout(){
     );
 
 
-    $("checkoutCount").textContent =
+    $("checkoutCount")
+        .textContent =
         cartQuantity() +
         (
             cartQuantity() === 1
@@ -1359,11 +1897,13 @@ function renderCheckout(){
         );
 
 
-    $("checkoutSubtotal").textContent =
+    $("checkoutSubtotal")
+        .textContent =
         money(cartSubtotal());
 
 
-    $("checkoutTotal").textContent =
+    $("checkoutTotal")
+        .textContent =
         money(cartSubtotal());
 
 }
@@ -1371,9 +1911,12 @@ function renderCheckout(){
 
 function closeCheckout(){
 
-    $("checkoutModal").classList.remove("open");
+    $("checkoutModal")
+        .classList.remove("open");
 
-    document.body.classList.remove("no-scroll");
+
+    document.body
+        .classList.remove("no-scroll");
 
 }
 
@@ -1390,19 +1933,27 @@ $("checkoutForm").addEventListener(
 
 
         const name =
-            $("checkoutName").value.trim();
+            $("checkoutName")
+                .value
+                .trim();
 
 
         const mobile =
-            $("checkoutMobile").value.trim();
+            $("checkoutMobile")
+                .value
+                .trim();
 
 
         const address =
-            $("checkoutAddress").value.trim();
+            $("checkoutAddress")
+                .value
+                .trim();
 
 
         const landmark =
-            $("checkoutLandmark").value.trim();
+            $("checkoutLandmark")
+                .value
+                .trim();
 
 
         const payment =
@@ -1449,7 +2000,9 @@ $("checkoutForm").addEventListener(
 
         const orderId =
             "BHD-" +
-            Date.now().toString().slice(-8);
+            Date.now()
+                .toString()
+                .slice(-8);
 
 
         const order = {
@@ -1459,33 +2012,45 @@ $("checkoutForm").addEventListener(
             date:new Date().toISOString(),
 
             customer:{
+
                 name,
+
                 mobile,
+
                 address,
+
                 landmark
+
             },
 
             payment,
 
-            items:Object.entries(cart).map(
-                ([id,data]) => {
+            items:
+                Object.entries(cart).map(
+                    ([id,data]) => {
 
-                    const product =
-                        getProduct(Number(id));
+                        const product =
+                            getProduct(
+                                Number(id)
+                            );
 
 
-                    return {
+                        return {
 
-                        id:product.id,
-                        name:product.name,
-                        price:product.price,
-                        qty:data.qty,
-                        img:product.img
+                            id:product.id,
 
-                    };
+                            name:product.name,
 
-                }
-            ),
+                            price:product.price,
+
+                            qty:data.qty,
+
+                            img:product.img
+
+                        };
+
+                    }
+                ),
 
             total:cartSubtotal(),
 
@@ -1497,19 +2062,23 @@ $("checkoutForm").addEventListener(
         saveOrder(order);
 
 
-        $("successName").textContent =
+        $("successName")
+            .textContent =
             name.split(" ")[0];
 
 
-        $("successOrderId").textContent =
+        $("successOrderId")
+            .textContent =
             orderId;
 
 
-        $("successTotal").textContent =
+        $("successTotal")
+            .textContent =
             money(order.total);
 
 
-        $("successPayment").textContent =
+        $("successPayment")
+            .textContent =
             payment;
 
 
@@ -1527,12 +2096,16 @@ $("checkoutForm").addEventListener(
         closeCart();
 
 
-        $("checkoutForm").reset();
+        $("checkoutForm")
+            .reset();
 
 
-        $("successModal").classList.add("open");
+        $("successModal")
+            .classList.add("open");
 
-        document.body.classList.add("no-scroll");
+
+        document.body
+            .classList.add("no-scroll");
 
     }
 );
@@ -1545,7 +2118,9 @@ $("checkoutForm").addEventListener(
 function getOrders(){
 
     return JSON.parse(
-        localStorage.getItem("bholaOrders")
+        localStorage.getItem(
+            "bholaOrders"
+        )
     ) || [];
 
 }
@@ -1586,9 +2161,12 @@ function openOrders(){
     renderOrders();
 
 
-    $("ordersModal").classList.add("open");
+    $("ordersModal")
+        .classList.add("open");
 
-    document.body.classList.add("no-scroll");
+
+    document.body
+        .classList.add("no-scroll");
 
 }
 
@@ -1602,7 +2180,8 @@ function renderOrders(){
     const orders =
         getOrders().filter(
             order =>
-                order.customer.mobile === user.mobile
+                order.customer.mobile ===
+                user.mobile
         );
 
 
@@ -1616,8 +2195,14 @@ function renderOrders(){
 
             <div class="no-orders">
 
-                <i class="fa-solid fa-box-open"
-                   style="font-size:32px;color:#ff6b1a;margin-bottom:14px;">
+                <i
+                    class="fa-solid fa-box-open"
+                    style="
+                        font-size:32px;
+                        color:#ff6b1a;
+                        margin-bottom:14px;
+                    "
+                >
                 </i>
 
                 <p>
@@ -1636,68 +2221,76 @@ function renderOrders(){
     container.innerHTML = "";
 
 
-    orders.forEach(order => {
+    orders.forEach(
+        order => {
 
-        const date =
-            new Date(order.date);
-
-
-        const card =
-            document.createElement("div");
+            const date =
+                new Date(order.date);
 
 
-        card.className =
-            "order-card";
+            const card =
+                document.createElement(
+                    "div"
+                );
 
 
-        card.innerHTML = `
+            card.className =
+                "order-card";
 
-            <div class="order-card-top">
 
-                <div>
+            card.innerHTML = `
 
-                    <div class="order-card-id">
-                        ${order.id}
+                <div class="order-card-top">
+
+                    <div>
+
+                        <div class="order-card-id">
+                            ${order.id}
+                        </div>
+
+                        <div class="order-card-date">
+
+                            ${date.toLocaleDateString(
+                                "en-IN",
+                                {
+                                    day:"numeric",
+                                    month:"short",
+                                    year:"numeric"
+                                }
+                            )}
+
+                        </div>
+
                     </div>
 
-                    <div class="order-card-date">
-                        ${date.toLocaleDateString(
-                            "en-IN",
-                            {
-                                day:"numeric",
-                                month:"short",
-                                year:"numeric"
-                            }
+                    <span class="order-status">
+                        ${escapeHTML(
+                            order.status
                         )}
-                    </div>
+                    </span>
 
                 </div>
 
-                <span class="order-status">
-                    ${escapeHTML(order.status)}
-                </span>
+                <div class="order-card-bottom">
 
-            </div>
+                    <span>
+                        ${order.items.length}
+                        product(s)
+                    </span>
 
+                    <strong>
+                        ${money(order.total)}
+                    </strong>
 
-            <div class="order-card-bottom">
+                </div>
 
-                <span>
-                    ${order.items.length} product(s)
-                </span>
-
-                <strong>
-                    ${money(order.total)}
-                </strong>
-
-            </div>
-
-        `;
+            `;
 
 
-        container.appendChild(card);
+            container.appendChild(card);
 
-    });
+        }
+    );
 
 }
 
@@ -1713,7 +2306,9 @@ function renderSearchResults(value){
 
 
     const q =
-        value.trim().toLowerCase();
+        value
+            .trim()
+            .toLowerCase();
 
 
     if(!q){
@@ -1727,13 +2322,13 @@ function renderSearchResults(value){
 
     const results =
         products
-        .filter(
-            p =>
-                p.name
-                    .toLowerCase()
-                    .includes(q)
-        )
-        .slice(0,7);
+            .filter(
+                p =>
+                    p.name
+                        .toLowerCase()
+                        .includes(q)
+            )
+            .slice(0,7);
 
 
     if(!results.length){
@@ -1759,94 +2354,124 @@ function renderSearchResults(value){
     container.innerHTML = "";
 
 
-    results.forEach(product => {
+    results.forEach(
+        product => {
 
-        const item =
-            document.createElement("button");
-
-
-        item.className =
-            "search-result";
-
-
-        item.innerHTML = `
-
-            <img
-                src="${product.img}"
-                alt="${escapeHTML(product.name)}"
-            >
-
-            <div style="text-align:left;flex:1;">
-
-                <strong>
-                    ${escapeHTML(product.name)}
-                </strong>
-
-                <span>
-                    ${money(product.price)}
-                </span>
-
-            </div>
-
-            <i class="fa-solid fa-arrow-right"
-               style="font-size:10px;color:#aaa;">
-            </i>
-
-        `;
+            const item =
+                document.createElement(
+                    "button"
+                );
 
 
-        item.addEventListener(
-            "click",
-            () => {
-
-                closeSearch();
-
-                $("productSearch").value =
-                    product.name;
-
-                searchValue =
-                    product.name;
-
-                currentFilter =
-                    "All";
-
-                document
-                    .querySelectorAll(".filter-btn")
-                    .forEach(
-                        btn =>
-                            btn.classList.toggle(
-                                "active",
-                                btn.dataset.filter === "All"
-                            )
-                    );
+            item.className =
+                "search-result";
 
 
-                renderProducts();
+            item.innerHTML = `
+
+                <img
+                    src="${product.img}"
+                    alt="${escapeHTML(product.name)}"
+                >
+
+                <div
+                    style="
+                        text-align:left;
+                        flex:1;
+                    "
+                >
+
+                    <strong>
+                        ${escapeHTML(
+                            product.name
+                        )}
+                    </strong>
+
+                    <span>
+                        ${money(product.price)}
+                    </span>
+
+                </div>
+
+                <i
+                    class="fa-solid fa-arrow-right"
+                    style="
+                        font-size:10px;
+                        color:#aaa;
+                    "
+                >
+                </i>
+
+            `;
 
 
-                $("shop").scrollIntoView({
-                    behavior:"smooth"
-                });
+            item.addEventListener(
+                "click",
+                () => {
 
-            }
-        );
+                    closeSearch();
 
 
-        container.appendChild(item);
+                    $("productSearch")
+                        .value =
+                        product.name;
 
-    });
+
+                    searchValue =
+                        product.name;
+
+
+                    currentFilter =
+                        "All";
+
+
+                    document
+                        .querySelectorAll(
+                            ".filter-btn"
+                        )
+                        .forEach(
+                            btn =>
+                                btn.classList.toggle(
+                                    "active",
+                                    btn.dataset.filter ===
+                                    "All"
+                                )
+                        );
+
+
+                    renderProducts();
+
+
+                    $("shop")
+                        .scrollIntoView({
+                            behavior:"smooth"
+                        });
+
+                }
+            );
+
+
+            container.appendChild(item);
+
+        }
+    );
 
 }
 
 
 function openSearch(){
 
-    $("searchOverlay").classList.add("open");
+    $("searchOverlay")
+        .classList.add("open");
 
-    document.body.classList.add("no-scroll");
+
+    document.body
+        .classList.add("no-scroll");
+
 
     setTimeout(
-        () => $("globalSearch").focus(),
+        () =>
+            $("globalSearch").focus(),
         250
     );
 
@@ -1855,9 +2480,12 @@ function openSearch(){
 
 function closeSearch(){
 
-    $("searchOverlay").classList.remove("open");
+    $("searchOverlay")
+        .classList.remove("open");
 
-    document.body.classList.remove("no-scroll");
+
+    document.body
+        .classList.remove("no-scroll");
 
 }
 
@@ -1866,13 +2494,17 @@ function closeSearch(){
    TOAST
 ========================================================= */
 
-function showToast(message,error=false){
+function showToast(
+    message,
+    error = false
+){
 
     const toast =
         $("storeToast");
 
 
-    $("toastMessage").textContent =
+    $("toastMessage")
+        .textContent =
         message;
 
 
@@ -1882,14 +2514,18 @@ function showToast(message,error=false){
 
     icon.className =
         error
-        ? "fa-solid fa-circle-exclamation"
-        : "fa-solid fa-circle-check";
+        ?
+        "fa-solid fa-circle-exclamation"
+        :
+        "fa-solid fa-circle-check";
 
 
     icon.style.color =
         error
-        ? "#ff6262"
-        : "#55d981";
+        ?
+        "#ff6262"
+        :
+        "#55d981";
 
 
     toast.classList.add("show");
@@ -1900,7 +2536,10 @@ function showToast(message,error=false){
 
     toastTimer =
         setTimeout(
-            () => toast.classList.remove("show"),
+            () =>
+                toast.classList.remove(
+                    "show"
+                ),
             2500
         );
 
@@ -1915,21 +2554,26 @@ const revealObserver =
     new IntersectionObserver(
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if(entry.isIntersecting){
+                    if(entry.isIntersecting){
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                    revealObserver.unobserve(
                         entry.target
-                    );
+                            .classList.add(
+                                "visible"
+                            );
+
+
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
 
                 }
-
-            });
+            );
 
         },
         {
@@ -1982,132 +2626,168 @@ window.addEventListener(
    PRODUCT EVENTS
 ========================================================= */
 
-$("productGrid").addEventListener(
-    "click",
-    event => {
+$("productGrid")
+    .addEventListener(
+        "click",
+        event => {
 
-        const add =
-            event.target.closest("[data-add]");
-
-
-        const plus =
-            event.target.closest("[data-plus]");
-
-
-        const minus =
-            event.target.closest("[data-minus]");
+            const add =
+                event.target.closest(
+                    "[data-add]"
+                );
 
 
-        const heart =
-            event.target.closest("[data-heart]");
+            const plus =
+                event.target.closest(
+                    "[data-plus]"
+                );
 
 
-        if(add){
+            const minus =
+                event.target.closest(
+                    "[data-minus]"
+                );
 
-            addToCart(
-                Number(add.dataset.add)
-            );
 
-            return;
+            const heart =
+                event.target.closest(
+                    "[data-heart]"
+                );
+
+
+            if(add){
+
+                addToCart(
+                    Number(
+                        add.dataset.add
+                    )
+                );
+
+                return;
+
+            }
+
+
+            if(plus){
+
+                addToCart(
+                    Number(
+                        plus.dataset.plus
+                    )
+                );
+
+                return;
+
+            }
+
+
+            if(minus){
+
+                decreaseCart(
+                    Number(
+                        minus.dataset.minus
+                    )
+                );
+
+                return;
+
+            }
+
+
+            if(heart){
+
+                heart.classList.toggle(
+                    "active"
+                );
+
+
+                heart.innerHTML =
+                    heart.classList.contains(
+                        "active"
+                    )
+                    ?
+                    `<i class="fa-solid fa-heart"></i>`
+                    :
+                    `<i class="fa-regular fa-heart"></i>`;
+
+
+                showToast(
+                    heart.classList.contains(
+                        "active"
+                    )
+                    ?
+                    "Added to wishlist"
+                    :
+                    "Removed from wishlist"
+                );
+
+            }
 
         }
-
-
-        if(plus){
-
-            addToCart(
-                Number(plus.dataset.plus)
-            );
-
-            return;
-
-        }
-
-
-        if(minus){
-
-            decreaseCart(
-                Number(minus.dataset.minus)
-            );
-
-            return;
-
-        }
-
-
-        if(heart){
-
-            heart.classList.toggle("active");
-
-
-            heart.innerHTML =
-                heart.classList.contains("active")
-                ?
-                `<i class="fa-solid fa-heart"></i>`
-                :
-                `<i class="fa-regular fa-heart"></i>`;
-
-
-            showToast(
-                heart.classList.contains("active")
-                ? "Added to wishlist"
-                : "Removed from wishlist"
-            );
-
-        }
-
-    }
-);
+    );
 
 
 /* =========================================================
    CART EVENTS
 ========================================================= */
 
-$("cartItems").addEventListener(
-    "click",
-    event => {
+$("cartItems")
+    .addEventListener(
+        "click",
+        event => {
 
-        const plus =
-            event.target.closest("[data-cart-plus]");
-
-
-        const minus =
-            event.target.closest("[data-cart-minus]");
-
-
-        const remove =
-            event.target.closest("[data-remove]");
+            const plus =
+                event.target.closest(
+                    "[data-cart-plus]"
+                );
 
 
-        if(plus){
+            const minus =
+                event.target.closest(
+                    "[data-cart-minus]"
+                );
 
-            addToCart(
-                Number(plus.dataset.cartPlus)
-            );
+
+            const remove =
+                event.target.closest(
+                    "[data-remove]"
+                );
+
+
+            if(plus){
+
+                addToCart(
+                    Number(
+                        plus.dataset.cartPlus
+                    )
+                );
+
+            }
+
+
+            if(minus){
+
+                decreaseCart(
+                    Number(
+                        minus.dataset.cartMinus
+                    )
+                );
+
+            }
+
+
+            if(remove){
+
+                removeCart(
+                    Number(
+                        remove.dataset.remove
+                    )
+                );
+
+            }
 
         }
-
-
-        if(minus){
-
-            decreaseCart(
-                Number(minus.dataset.cartMinus)
-            );
-
-        }
-
-
-        if(remove){
-
-            removeCart(
-                Number(remove.dataset.remove)
-            );
-
-        }
-
-    }
-);
+    );
 
 
 /* =========================================================
@@ -2116,65 +2796,72 @@ $("cartItems").addEventListener(
 
 document
     .querySelectorAll(".filter-btn")
-    .forEach(button => {
+    .forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                currentFilter =
-                    button.dataset.filter;
-
-
-                document
-                    .querySelectorAll(".filter-btn")
-                    .forEach(
-                        btn =>
-                            btn.classList.toggle(
-                                "active",
-                                btn === button
-                            )
-                    );
+                    currentFilter =
+                        button.dataset.filter;
 
 
-                renderProducts();
+                    document
+                        .querySelectorAll(
+                            ".filter-btn"
+                        )
+                        .forEach(
+                            btn =>
+                                btn.classList.toggle(
+                                    "active",
+                                    btn === button
+                                )
+                        );
 
-            }
-        );
 
-    });
+                    renderProducts();
+
+                }
+            );
+
+        }
+    );
 
 
 /* =========================================================
    SEARCH INPUT
 ========================================================= */
 
-$("productSearch").addEventListener(
-    "input",
-    event => {
+$("productSearch")
+    .addEventListener(
+        "input",
+        event => {
 
-        searchValue =
-            event.target.value;
+            searchValue =
+                event.target.value;
 
-        renderProducts();
+            renderProducts();
 
-    }
-);
-
-
-$("sortProducts").addEventListener(
-    "change",
-    renderProducts
-);
+        }
+    );
 
 
-$("globalSearch").addEventListener(
-    "input",
-    event =>
-        renderSearchResults(
-            event.target.value
-        )
-);
+$("sortProducts")
+    .addEventListener(
+        "change",
+        renderProducts
+    );
+
+
+$("globalSearch")
+    .addEventListener(
+        "input",
+        event =>
+            renderSearchResults(
+                event.target.value
+            )
+    );
 
 
 /* =========================================================
@@ -2183,110 +2870,138 @@ $("globalSearch").addEventListener(
 
 document
     .querySelectorAll(".category-card")
-    .forEach(card => {
+    .forEach(
+        card => {
 
-        card.addEventListener(
-            "click",
-            () => {
+            card.addEventListener(
+                "click",
+                () => {
 
-                currentFilter =
-                    card.dataset.category;
-
-
-                document
-                    .querySelectorAll(".filter-btn")
-                    .forEach(
-                        btn =>
-                            btn.classList.toggle(
-                                "active",
-                                btn.dataset.filter === currentFilter
-                            )
-                    );
+                    currentFilter =
+                        card.dataset.category;
 
 
-                renderProducts();
+                    document
+                        .querySelectorAll(
+                            ".filter-btn"
+                        )
+                        .forEach(
+                            btn =>
+                                btn.classList.toggle(
+                                    "active",
+                                    btn.dataset.filter ===
+                                    currentFilter
+                                )
+                        );
 
 
-                $("shop").scrollIntoView({
-                    behavior:"smooth"
-                });
+                    renderProducts();
 
-            }
-        );
 
-    });
+                    $("shop")
+                        .scrollIntoView({
+                            behavior:"smooth"
+                        });
+
+                }
+            );
+
+        }
+    );
 
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
-$("mobileMenuBtn").addEventListener(
-    "click",
-    () => {
+$("mobileMenuBtn")
+    .addEventListener(
+        "click",
+        () => {
 
-        $("mobileMenu")
-            .classList.add("open");
-
-        document.body.classList.add(
-            "no-scroll"
-        );
-
-    }
-);
+            $("mobileMenu")
+                .classList.add("open");
 
 
-$("closeMobileMenu").addEventListener(
-    "click",
-    () => {
-
-        $("mobileMenu")
-            .classList.remove("open");
-
-        document.body.classList.remove(
-            "no-scroll"
-        );
-
-    }
-);
-
-
-document
-    .querySelectorAll("#mobileMenu a")
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                $("mobileMenu")
-                    .classList.remove("open");
-
-                document.body.classList.remove(
+            document.body
+                .classList.add(
                     "no-scroll"
                 );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
-$("mobileLogin").addEventListener(
-    "click",
-    () => {
+$("closeMobileMenu")
+    .addEventListener(
+        "click",
+        () => {
 
-        $("mobileMenu")
-            .classList.remove("open");
+            $("mobileMenu")
+                .classList.remove(
+                    "open"
+                );
 
-        document.body.classList.remove(
-            "no-scroll"
-        );
 
-        openAccountModal();
+            document.body
+                .classList.remove(
+                    "no-scroll"
+                );
 
-    }
-);
+        }
+    );
+
+
+document
+    .querySelectorAll(
+        "#mobileMenu a"
+    )
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    $("mobileMenu")
+                        .classList.remove(
+                            "open"
+                        );
+
+
+                    document.body
+                        .classList.remove(
+                            "no-scroll"
+                        );
+
+                }
+            );
+
+        }
+    );
+
+
+$("mobileLogin")
+    .addEventListener(
+        "click",
+        () => {
+
+            $("mobileMenu")
+                .classList.remove(
+                    "open"
+                );
+
+
+            document.body
+                .classList.remove(
+                    "no-scroll"
+                );
+
+
+            openAccountModal();
+
+        }
+    );
 
 
 /* =========================================================
@@ -2321,9 +3036,11 @@ $("startShopping")
 
             closeCart();
 
-            $("shop").scrollIntoView({
-                behavior:"smooth"
-            });
+
+            $("shop")
+                .scrollIntoView({
+                    behavior:"smooth"
+                });
 
         }
     );
@@ -2361,9 +3078,10 @@ $("offerShopBtn")
     .addEventListener(
         "click",
         () =>
-            $("shop").scrollIntoView({
-                behavior:"smooth"
-            })
+            $("shop")
+                .scrollIntoView({
+                    behavior:"smooth"
+                })
     );
 
 
@@ -2372,22 +3090,34 @@ $("resetProducts")
         "click",
         () => {
 
-            currentFilter = "All";
+            currentFilter =
+                "All";
 
-            searchValue = "";
 
-            $("productSearch").value = "";
+            searchValue =
+                "";
 
-            $("sortProducts").value = "default";
+
+            $("productSearch")
+                .value =
+                "";
+
+
+            $("sortProducts")
+                .value =
+                "default";
 
 
             document
-                .querySelectorAll(".filter-btn")
+                .querySelectorAll(
+                    ".filter-btn"
+                )
                 .forEach(
                     btn =>
                         btn.classList.toggle(
                             "active",
-                            btn.dataset.filter === "All"
+                            btn.dataset.filter ===
+                            "All"
                         )
                 );
 
@@ -2487,37 +3217,61 @@ $("forgotPassword")
 ========================================================= */
 
 document
-    .querySelectorAll(".password-toggle")
-    .forEach(button => {
+    .querySelectorAll(
+        ".password-toggle"
+    )
+    .forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const input =
-                    $(button.dataset.target);
+                    const input =
+                        $(
+                            button.dataset.target
+                        );
 
 
-                if(input.type === "password"){
+                    if(
+                        input.type ===
+                        "password"
+                    ){
 
-                    input.type = "text";
+                        input.type =
+                            "text";
 
-                    button.innerHTML =
-                        `<i class="fa-regular fa-eye-slash"></i>`;
 
-                }else{
+                        button.innerHTML =
+                            `
+                            <i class="
+                                fa-regular
+                                fa-eye-slash
+                            "></i>
+                            `;
 
-                    input.type = "password";
+                    }
+                    else{
 
-                    button.innerHTML =
-                        `<i class="fa-regular fa-eye"></i>`;
+                        input.type =
+                            "password";
+
+
+                        button.innerHTML =
+                            `
+                            <i class="
+                                fa-regular
+                                fa-eye
+                            "></i>
+                            `;
+
+                    }
 
                 }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
 /* =========================================================
@@ -2525,7 +3279,9 @@ document
 ========================================================= */
 
 document
-    .querySelectorAll("[data-close-account]")
+    .querySelectorAll(
+        "[data-close-account]"
+    )
     .forEach(
         button =>
             button.addEventListener(
@@ -2536,7 +3292,9 @@ document
 
 
 document
-    .querySelectorAll("[data-close-checkout]")
+    .querySelectorAll(
+        "[data-close-checkout]"
+    )
     .forEach(
         button =>
             button.addEventListener(
@@ -2547,7 +3305,9 @@ document
 
 
 document
-    .querySelectorAll("[data-close-success]")
+    .querySelectorAll(
+        "[data-close-success]"
+    )
     .forEach(
         button =>
             button.addEventListener(
@@ -2555,7 +3315,10 @@ document
                 () => {
 
                     $("successModal")
-                        .classList.remove("open");
+                        .classList.remove(
+                            "open"
+                        );
+
 
                     document.body
                         .classList.remove(
@@ -2568,7 +3331,9 @@ document
 
 
 document
-    .querySelectorAll("[data-close-orders]")
+    .querySelectorAll(
+        "[data-close-orders]"
+    )
     .forEach(
         button =>
             button.addEventListener(
@@ -2576,7 +3341,10 @@ document
                 () => {
 
                     $("ordersModal")
-                        .classList.remove("open");
+                        .classList.remove(
+                            "open"
+                        );
+
 
                     document.body
                         .classList.remove(
@@ -2598,7 +3366,10 @@ $("continueShopping")
         () => {
 
             $("successModal")
-                .classList.remove("open");
+                .classList.remove(
+                    "open"
+                );
+
 
             document.body
                 .classList.remove(
@@ -2606,9 +3377,10 @@ $("continueShopping")
                 );
 
 
-            $("shop").scrollIntoView({
-                behavior:"smooth"
-            });
+            $("shop")
+                .scrollIntoView({
+                    behavior:"smooth"
+                });
 
         }
     );
@@ -2620,7 +3392,10 @@ $("viewOrders")
         () => {
 
             $("successModal")
-                .classList.remove("open");
+                .classList.remove(
+                    "open"
+                );
+
 
             openOrders();
 
@@ -2634,21 +3409,26 @@ $("copyOrderId")
         async () => {
 
             const id =
-                $("successOrderId").textContent;
+                $("successOrderId")
+                    .textContent;
 
 
             try{
 
-                await navigator.clipboard.writeText(id);
+                await navigator.clipboard
+                    .writeText(id);
+
 
                 showToast(
                     "Order ID copied"
                 );
 
-            }catch{
+            }
+            catch{
 
                 showToast(
-                    "Order ID: " + id
+                    "Order ID: " +
+                    id
                 );
 
             }
@@ -2679,19 +3459,27 @@ document.addEventListener(
 
 
         $("successModal")
-            .classList.remove("open");
+            .classList.remove(
+                "open"
+            );
 
 
         $("ordersModal")
-            .classList.remove("open");
+            .classList.remove(
+                "open"
+            );
 
 
         $("mobileMenu")
-            .classList.remove("open");
+            .classList.remove(
+                "open"
+            );
 
 
         document.body
-            .classList.remove("no-scroll");
+            .classList.remove(
+                "no-scroll"
+            );
 
     }
 );
@@ -2709,7 +3497,9 @@ window.addEventListener(
             () => {
 
                 $("siteLoader")
-                    .classList.add("hide");
+                    .classList.add(
+                        "hide"
+                    );
 
             },
             700
@@ -2767,4 +3557,10 @@ productObserver.observe(
     }
 );
 
-// wishlist
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+// Wishlist functionality is handled
+// through the product heart buttons above.
