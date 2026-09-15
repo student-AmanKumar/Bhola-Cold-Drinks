@@ -2063,10 +2063,6 @@ if(contactForm){
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
     </span>
 </a>
-<!-- =========================================================
-     BCOLA — LET'S TALK POPUP
-     FINAL WORKING VERSION
-========================================================= -->
 
 <div id="bcolaTalkPopup" class="bcola-talk-popup">
 
@@ -2075,7 +2071,6 @@ if(contactForm){
         class="bcola-talk-backdrop"
         onclick="bcolaCloseTalkPopup()"
     ></div>
-
 
     <!-- POPUP -->
     <div class="bcola-talk-box">
@@ -2090,11 +2085,9 @@ if(contactForm){
             <i class="fa-solid fa-xmark"></i>
         </button>
 
-
         <!-- =================================================
              LEFT IMAGE
         ================================================== -->
-
         <div class="bcola-talk-visual">
 
             <img
@@ -2109,11 +2102,9 @@ if(contactForm){
 
         </div>
 
-
         <!-- =================================================
              RIGHT FORM
         ================================================== -->
-
         <div class="bcola-talk-form-area">
 
             <!-- HEADER -->
@@ -2137,7 +2128,6 @@ if(contactForm){
                 </div>
 
             </div>
-
 
             <!-- SCROLL AREA -->
             <div class="bcola-talk-form-scroll">
@@ -2256,12 +2246,150 @@ if(contactForm){
                     </div>
 
 
+                    <!-- =================================================
+                         PROFILE
+                    ================================================== -->
+                    <div class="bcola-talk-field">
+
+                        <label for="bcolaTalkProfile">
+                            <span>04</span>
+                            YOUR PROFILE
+                        </label>
+
+                        <div class="bcola-talk-input-wrap bcola-talk-select-wrap">
+
+                            <i class="fa-solid fa-link"></i>
+
+                            <select
+                                id="bcolaTalkProfile"
+                                name="Profile"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    disabled
+                                    selected
+                                >
+                                    Choose your profile
+                                </option>
+
+                                <option value="GitHub">
+                                    GitHub
+                                </option>
+
+                                <option value="LinkedIn">
+                                    LinkedIn
+                                </option>
+
+                                <option value="Both GitHub & LinkedIn">
+                                    Both GitHub & LinkedIn
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down bcola-select-arrow"></i>
+
+                        </div>
+
+
+                        <!-- SINGLE PROFILE LINK -->
+                        <div
+                            class="bcola-profile-single"
+                            style="display:none;"
+                        >
+
+                            <div class="bcola-talk-input-wrap">
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                                <input
+                                    type="url"
+                                    id="bcolaTalkProfileLink"
+                                    name="Profile Link"
+                                    placeholder="Paste your original profile link"
+                                    autocomplete="url"
+                                    maxlength="300"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BOTH PROFILE LINKS -->
+                        <div
+                            class="bcola-profile-both"
+                            style="display:none;"
+                        >
+
+                            <!-- GITHUB -->
+                            <div
+                                class="bcola-talk-input-wrap"
+                                style="margin-top:10px;"
+                            >
+
+                                <i class="fa-brands fa-github"></i>
+
+                                <input
+                                    type="url"
+                                    id="bcolaTalkGithubLink"
+                                    name="GitHub Link"
+                                    placeholder="Paste your original GitHub link"
+                                    autocomplete="url"
+                                    maxlength="300"
+                                >
+
+                            </div>
+
+
+                            <!-- LINKEDIN -->
+                            <div
+                                class="bcola-talk-input-wrap"
+                                style="margin-top:10px;"
+                            >
+
+                                <i class="fa-brands fa-linkedin-in"></i>
+
+                                <input
+                                    type="url"
+                                    id="bcolaTalkLinkedinLink"
+                                    name="LinkedIn Link"
+                                    placeholder="Paste your original LinkedIn link"
+                                    autocomplete="url"
+                                    maxlength="300"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PROFILE NOTICE -->
+                        <div class="bcola-profile-notice">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <span>
+                                Please provide your
+                                <strong>original profile link</strong>.
+                                Do not submit fake, copied or unrelated links.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
                     <!-- MESSAGE -->
                     <div class="bcola-talk-field">
 
                         <label for="bcolaTalkMessage">
-                            <span>04</span>
+
+                            <span>05</span>
+
                             YOUR MESSAGE
+
                         </label>
 
                         <div class="bcola-talk-input-wrap bcola-talk-textarea-wrap">
@@ -2279,8 +2407,11 @@ if(contactForm){
                         </div>
 
                         <div class="bcola-message-counter">
+
                             <span id="bcolaMessageCount">0</span>
+
                             / 1500
+
                         </div>
 
                     </div>
@@ -2336,22 +2467,17 @@ if(contactForm){
     position:fixed;
     inset:0;
     z-index:9999999;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding:20px;
-
     opacity:0;
     visibility:hidden;
     pointer-events:none;
-
     transition:
         opacity .35s ease,
         visibility .35s ease;
 }
-
 
 #bcolaTalkPopup.bcola-talk-open{
     opacity:1;
@@ -2367,9 +2493,7 @@ if(contactForm){
 #bcolaTalkPopup .bcola-talk-backdrop{
     position:absolute;
     inset:0;
-
     background:rgba(24,18,12,.72);
-
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
 }
@@ -2382,42 +2506,30 @@ if(contactForm){
 #bcolaTalkPopup .bcola-talk-box{
     position:relative;
     z-index:5;
-
     width:min(1080px,100%);
     height:min(650px,88vh);
-
     display:grid;
     grid-template-columns:minmax(0,1fr) 470px;
-
     overflow:hidden;
-
     background:#f7eddb;
-
     border-radius:26px;
-
     border:1px solid rgba(255,255,255,.35);
-
     box-shadow:
         0 35px 100px rgba(0,0,0,.48),
         0 10px 35px rgba(0,0,0,.2);
-
     transform:
         translateY(35px)
         scale(.94);
-
     opacity:0;
-
     transition:
         transform .55s cubic-bezier(.22,1,.36,1),
         opacity .35s ease;
 }
 
-
 #bcolaTalkPopup.bcola-talk-open .bcola-talk-box{
     transform:
         translateY(0)
         scale(1);
-
     opacity:1;
 }
 
@@ -2428,43 +2540,29 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-close{
     position:absolute;
-
     top:14px;
     right:14px;
-
     z-index:100;
-
     width:40px;
     height:40px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border:1px solid rgba(255,255,255,.4);
-
     border-radius:50%;
-
     background:rgba(25,18,12,.62);
-
     color:#fff;
-
     cursor:pointer;
-
     font-size:15px;
-
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
-
     transition:
         transform .3s ease,
         background .3s ease;
 }
 
-
 #bcolaTalkPopup .bcola-talk-close:hover{
     background:#df7c0b;
-
     transform:
         rotate(90deg)
         scale(1.08);
@@ -2477,42 +2575,28 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-visual{
     position:relative;
-
     min-width:0;
     min-height:0;
-
     overflow:hidden;
-
     background:#151515;
 }
 
 
 /* =========================================================
    ACTUAL IMAGE
-   NO BLUR
-   NO OVERLAY
 ========================================================= */
 
 #bcolaTalkPopup .bcola-talk-image{
     position:absolute;
-
     inset:0;
-
     width:100%;
     height:100%;
-
     display:block;
-
     object-fit:cover;
-
     object-position:center center;
-
     filter:none;
-
     opacity:1;
-
     transform:none;
-
     transition:none;
 }
 
@@ -2523,29 +2607,18 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-visual-brand{
     position:absolute;
-
     right:20px;
     bottom:17px;
-
     z-index:10;
-
     padding:6px 9px;
-
     background:rgba(20,15,10,.48);
-
     border:1px solid rgba(255,255,255,.22);
-
     border-radius:5px;
-
     color:rgba(255,255,255,.9);
-
     font-family:Arial,sans-serif;
-
     font-size:7px;
     font-weight:900;
-
     letter-spacing:1.5px;
-
     backdrop-filter:blur(4px);
     -webkit-backdrop-filter:blur(4px);
 }
@@ -2558,18 +2631,12 @@ if(contactForm){
 #bcolaTalkPopup .bcola-talk-form-area{
     min-width:0;
     min-height:0;
-
     height:100%;
-
     display:flex;
     flex-direction:column;
-
     overflow:hidden;
-
     background:#f7eddb;
-
     color:#241a11;
-
     border-left:
         1px solid
         rgba(60,40,20,.08);
@@ -2582,60 +2649,42 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-form-header{
     flex-shrink:0;
-
     display:flex;
     align-items:flex-start;
     justify-content:space-between;
-
     gap:20px;
-
     padding:
         38px 32px 20px;
-
     border-bottom:
         1px solid
         rgba(65,44,25,.1);
 }
 
-
 #bcolaTalkPopup .bcola-talk-form-heading span{
     display:block;
-
     margin-bottom:5px;
-
     color:#d8790a;
-
     font-size:8px;
     font-weight:900;
-
     letter-spacing:1.8px;
 }
 
-
 #bcolaTalkPopup .bcola-talk-form-heading h3{
     margin:0;
-
     font-family:
         Georgia,
         "Times New Roman",
         serif;
-
     font-size:35px;
     line-height:1;
-
     font-weight:500;
-
     letter-spacing:-1px;
 }
 
-
 #bcolaTalkPopup .bcola-talk-form-heading p{
     margin:8px 0 0;
-
     color:#8c7963;
-
     font-size:10px;
-
     line-height:1.5;
 }
 
@@ -2646,25 +2695,17 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-form-icon{
     flex-shrink:0;
-
     width:45px;
     height:45px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:50%;
-
     background:#e98512;
-
     color:#fff;
-
     box-shadow:
         4px 4px 0 #38291c;
-
     transform:rotate(-8deg);
-
     animation:
         bcolaFloat
         3.5s
@@ -2679,38 +2720,28 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-form-scroll{
     flex:1;
-
     min-height:0;
-
     overflow-y:auto;
     overflow-x:hidden;
-
     padding:
         23px 32px 28px;
-
     scrollbar-width:thin;
-
     scrollbar-color:
         #d98a24
         #eadcc8;
 }
 
-
 #bcolaTalkPopup .bcola-talk-form-scroll::-webkit-scrollbar{
     width:6px;
 }
 
-
 #bcolaTalkPopup .bcola-talk-form-scroll::-webkit-scrollbar-track{
     background:#eadcc8;
-
     border-radius:20px;
 }
 
-
 #bcolaTalkPopup .bcola-talk-form-scroll::-webkit-scrollbar-thumb{
     background:#d98a24;
-
     border-radius:20px;
 }
 
@@ -2722,7 +2753,6 @@ if(contactForm){
 #bcolaTalkPopup #bcolaTalkForm{
     display:flex;
     flex-direction:column;
-
     gap:16px;
 }
 
@@ -2733,28 +2763,20 @@ if(contactForm){
 
 #bcolaTalkPopup .bcola-talk-field{
     position:relative;
-
     display:flex;
     flex-direction:column;
-
     gap:7px;
 }
-
 
 #bcolaTalkPopup .bcola-talk-field label{
     display:flex;
     align-items:center;
-
     gap:7px;
-
     color:#675541;
-
     font-size:8px;
     font-weight:900;
-
     letter-spacing:1.4px;
 }
-
 
 #bcolaTalkPopup .bcola-talk-field label span{
     color:#dc7d0b;
@@ -2769,22 +2791,14 @@ if(contactForm){
     position:relative;
 }
 
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap > i:first-child{
+#bcolaTalkPopup .bcola-talk-input-wrap > i:first-child{
     position:absolute;
-
     top:50%;
     left:13px;
-
     z-index:2;
-
     transform:translateY(-50%);
-
     color:#c48a4a;
-
     font-size:12px;
-
     pointer-events:none;
 }
 
@@ -2793,35 +2807,20 @@ if(contactForm){
    INPUTS
 ========================================================= */
 
-#bcolaTalkPopup
-.bcola-talk-input-wrap input,
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap select,
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap textarea{
-
+#bcolaTalkPopup .bcola-talk-input-wrap input,
+#bcolaTalkPopup .bcola-talk-input-wrap select,
+#bcolaTalkPopup .bcola-talk-input-wrap textarea{
     width:100%;
-
     box-sizing:border-box;
-
     border:
         1px solid
         #d8c8b2;
-
     border-radius:9px;
-
     outline:none;
-
     background:#fffdf8;
-
     color:#2b2118;
-
     font-family:inherit;
-
     font-size:12px;
-
     transition:
         border-color .25s ease,
         box-shadow .25s ease,
@@ -2829,15 +2828,9 @@ if(contactForm){
         background .25s ease;
 }
 
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap input,
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap select{
-
+#bcolaTalkPopup .bcola-talk-input-wrap input,
+#bcolaTalkPopup .bcola-talk-input-wrap select{
     height:45px;
-
     padding:
         0
         13px
@@ -2845,50 +2838,30 @@ if(contactForm){
         39px;
 }
 
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap textarea{
-
+#bcolaTalkPopup .bcola-talk-input-wrap textarea{
     min-height:115px;
-
     padding:
         13px
         13px
         13px
         39px;
-
     resize:vertical;
-
     line-height:1.55;
 }
 
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap input::placeholder,
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap textarea::placeholder{
+#bcolaTalkPopup .bcola-talk-input-wrap input::placeholder,
+#bcolaTalkPopup .bcola-talk-input-wrap textarea::placeholder{
     color:#a69582;
 }
 
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap input:focus,
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap select:focus,
-
-#bcolaTalkPopup
-.bcola-talk-input-wrap textarea:focus{
-
+#bcolaTalkPopup .bcola-talk-input-wrap input:focus,
+#bcolaTalkPopup .bcola-talk-input-wrap select:focus,
+#bcolaTalkPopup .bcola-talk-input-wrap textarea:focus{
     border-color:#df8614;
-
     background:#fff;
-
     box-shadow:
         0 0 0 3px
         rgba(223,134,20,.12);
-
     transform:translateY(-1px);
 }
 
@@ -2897,32 +2870,20 @@ if(contactForm){
    SELECT
 ========================================================= */
 
-#bcolaTalkPopup
-.bcola-talk-select-wrap select{
-
+#bcolaTalkPopup .bcola-talk-select-wrap select{
     appearance:none;
     -webkit-appearance:none;
-
     cursor:pointer;
-
     padding-right:38px;
 }
 
-
-#bcolaTalkPopup
-.bcola-select-arrow{
-
+#bcolaTalkPopup .bcola-select-arrow{
     position:absolute;
-
     top:50%;
     right:14px;
-
     transform:translateY(-50%);
-
     color:#d57a0b;
-
     font-size:9px;
-
     pointer-events:none;
 }
 
@@ -2931,12 +2892,39 @@ if(contactForm){
    TEXTAREA ICON
 ========================================================= */
 
-#bcolaTalkPopup
-.bcola-talk-textarea-wrap > i:first-child{
-
+#bcolaTalkPopup .bcola-talk-textarea-wrap > i:first-child{
     top:17px;
-
     transform:none;
+}
+
+
+/* =========================================================
+   PROFILE NOTICE
+========================================================= */
+
+#bcolaTalkPopup .bcola-profile-notice{
+    display:flex;
+    align-items:flex-start;
+    gap:7px;
+    margin-top:8px;
+    padding:8px 10px;
+    border-left:3px solid #df7c0b;
+    background:rgba(223,124,11,.07);
+    color:#806d58;
+    font-size:9px;
+    line-height:1.45;
+}
+
+#bcolaTalkPopup .bcola-profile-notice i{
+    flex-shrink:0;
+    margin-top:1px;
+    color:#df7c0b;
+    font-size:10px;
+}
+
+#bcolaTalkPopup .bcola-profile-notice strong{
+    color:#5d4935;
+    font-weight:800;
 }
 
 
@@ -2945,21 +2933,14 @@ if(contactForm){
 ========================================================= */
 
 #bcolaTalkPopup .bcola-message-counter{
-
     align-self:flex-end;
-
     margin-top:-3px;
-
     color:#a08d77;
-
     font-size:8px;
 }
 
-
 #bcolaTalkPopup .bcola-message-counter span{
-
     color:#d7790b;
-
     font-weight:900;
 }
 
@@ -2969,104 +2950,68 @@ if(contactForm){
 ========================================================= */
 
 #bcolaTalkPopup #bcolaTalkSubmit{
-
     position:relative;
-
     width:100%;
-
     min-height:52px;
-
     display:flex;
-
     align-items:center;
     justify-content:space-between;
-
     padding:
         0 16px
         0 19px;
-
     margin-top:1px;
-
     border:
         1.5px solid
         #32251a;
-
     border-radius:10px;
-
     background:#e78310;
-
     color:#fff;
-
     cursor:pointer;
-
     font-size:9px;
-
     font-weight:900;
-
     letter-spacing:1.4px;
-
     box-shadow:
         4px 4px 0 #32251a;
-
     overflow:hidden;
-
     transition:
         transform .25s ease,
         box-shadow .25s ease,
         background .25s ease;
 }
 
-
 #bcolaTalkPopup #bcolaTalkSubmit:hover{
-
     background:#d77407;
-
     transform:
         translate(-2px,-2px);
-
     box-shadow:
         6px 6px 0 #32251a;
 }
 
-
 #bcolaTalkPopup #bcolaTalkSubmit:disabled{
-
     cursor:not-allowed;
-
     opacity:.75;
-
     transform:none;
 }
 
-
 #bcolaTalkPopup .bcola-submit-icon{
-
     width:30px;
     height:30px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     border:
         1px solid
         rgba(255,255,255,.3);
-
     border-radius:50%;
 }
 
-
 #bcolaTalkPopup .bcola-submit-icon i{
-
     transition:
         transform .3s ease;
 }
 
-
 #bcolaTalkPopup #bcolaTalkSubmit:hover
 .bcola-submit-icon i{
-
     transform:
         translate(2px,-2px);
 }
@@ -3078,11 +3023,8 @@ if(contactForm){
 
 #bcolaTalkPopup
 #bcolaTalkSubmit.bcola-submit-success{
-
     background:#3d743d;
-
     border-color:#244624;
-
     box-shadow:
         4px 4px 0 #244624;
 }
@@ -3093,26 +3035,17 @@ if(contactForm){
 ========================================================= */
 
 #bcolaTalkPopup .bcola-talk-note{
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     gap:7px;
-
     color:#998671;
-
     font-size:8px;
-
     text-align:center;
 }
 
-
 #bcolaTalkPopup .bcola-talk-note i{
-
     color:#d47b0c;
-
     font-size:9px;
 }
 
@@ -3145,28 +3078,21 @@ if(contactForm){
 @media(max-width:900px){
 
     #bcolaTalkPopup .bcola-talk-box{
-
         width:min(760px,100%);
-
         height:min(680px,90vh);
-
         grid-template-columns:
             .9fr
             1fr;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-header{
-
         padding:
             35px 24px 18px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-scroll{
-
         padding:
             20px 24px 25px;
     }
@@ -3181,24 +3107,16 @@ if(contactForm){
 @media(max-width:700px){
 
     #bcolaTalkPopup{
-
         align-items:flex-end;
-
         padding:0;
     }
 
-
     #bcolaTalkPopup .bcola-talk-box{
-
         width:100%;
-
         height:90vh;
         max-height:90vh;
-
         display:flex;
-
         flex-direction:column;
-
         border-radius:
             24px
             24px
@@ -3206,106 +3124,78 @@ if(contactForm){
             0;
     }
 
-
     /* IMAGE */
 
     #bcolaTalkPopup
     .bcola-talk-visual{
-
         flex-shrink:0;
-
         height:210px;
         min-height:210px;
         max-height:210px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-image{
-
         object-fit:cover;
-
         object-position:center;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-visual-brand{
-
         right:14px;
         bottom:13px;
-
         font-size:6px;
-
         padding:5px 7px;
     }
-
 
     /* FORM */
 
     #bcolaTalkPopup
     .bcola-talk-form-area{
-
         flex:1;
-
         min-height:0;
-
         border-left:0;
-
         border-top:
             1px solid
             rgba(60,40,20,.08);
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-header{
-
         padding:
             18px
             19px
             14px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-heading h3{
-
         font-size:28px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-heading p{
-
         font-size:9px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-icon{
-
         width:39px;
         height:39px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-scroll{
-
         padding:
             17px
             19px
             25px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-close{
-
         top:10px;
         right:10px;
-
         width:36px;
         height:36px;
     }
@@ -3320,136 +3210,148 @@ if(contactForm){
 @media(max-width:430px){
 
     #bcolaTalkPopup .bcola-talk-box{
-
         height:91vh;
         max-height:91vh;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-visual{
-
         height:190px;
         min-height:190px;
         max-height:190px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-heading h3{
-
         font-size:26px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-form-scroll{
-
         padding:
             15px
             17px
             23px;
     }
 
-
     #bcolaTalkPopup
     #bcolaTalkForm{
-
         gap:14px;
     }
-
 
     #bcolaTalkPopup
     .bcola-talk-input-wrap input,
 
     #bcolaTalkPopup
     .bcola-talk-input-wrap select{
-
         height:43px;
     }
 
-
     #bcolaTalkPopup
     .bcola-talk-input-wrap textarea{
-
         min-height:105px;
     }
 
 }
 
-/* =========================================================
-   LET'S TALK POPUP — MOBILE IMAGE FRAME
-   ========================================================= */
 
-@media (max-width: 768px){
+/* =========================================================
+   MOBILE — LET'S TALK IMAGE FRAME
+========================================================= */
+
+@media(max-width:768px){
 
     .bcola-talk-visual{
-        height: 245px !important;
-        min-height: 245px !important;
-
-        padding: 14px !important;
-        margin: 0 !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        overflow: hidden !important;
-        background: #f3e7d5 !important;
-        box-sizing: border-box !important;
+        height:245px !important;
+        min-height:245px !important;
+        padding:14px !important;
+        margin:0 !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        overflow:hidden !important;
+        background:#f3e7d5 !important;
+        box-sizing:border-box !important;
     }
 
     .bcola-talk-image{
-        width: 100% !important;
-        height: 100% !important;
-
-        display: block !important;
-
-        object-fit: contain !important;
-        object-position: center center !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        border-radius: 12px !important;
-
-        /* actual photo ko bilkul clear rakhega */
-        filter: none !important;
-        transform: none !important;
-        opacity: 1 !important;
-
-        /* subtle premium frame */
-        border: 1px solid rgba(80, 55, 30, .18) !important;
-        box-shadow: 0 5px 18px rgba(70, 45, 20, .14) !important;
-
-        box-sizing: border-box !important;
+        width:100% !important;
+        height:100% !important;
+        display:block !important;
+        object-fit:contain !important;
+        object-position:center center !important;
+        margin:0 !important;
+        padding:0 !important;
+        border-radius:12px !important;
+        filter:none !important;
+        transform:none !important;
+        opacity:1 !important;
+        border:1px solid rgba(80,55,30,.18) !important;
+        box-shadow:
+            0 5px 18px
+            rgba(70,45,20,.14) !important;
+        box-sizing:border-box !important;
     }
+
 }
-@media (max-width: 768px){
 
-    #bcolaTalkImage{
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-        object-position: center !important;
 
-        display: block !important;
-        border-radius: 12px !important;
-        border: 1px solid rgba(80,55,30,.18) !important;
+/* =========================================================
+   MOBILE — LET'S TALK BUTTON
+========================================================= */
 
-        filter: none !important;
-        transform: none !important;
-        opacity: 1 !important;
+@media(max-width:768px){
 
-        box-shadow: 0 5px 18px rgba(70,45,20,.14) !important;
+    .cd-header-cta{
+        display:inline-flex !important;
+        align-items:center;
+        justify-content:center;
+        gap:7px;
+        visibility:visible !important;
+        opacity:1 !important;
+        width:auto !important;
+        height:40px !important;
+        padding:0 13px !important;
+        flex-shrink:0 !important;
+        white-space:nowrap !important;
+        font-size:12px !important;
+        line-height:1 !important;
+        position:relative !important;
+        z-index:20 !important;
     }
-}</style>
+
+    .cd-header-cta i{
+        display:inline-block !important;
+        font-size:11px !important;
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .cd-header-cta{
+        display:inline-flex !important;
+        padding:0 10px !important;
+        height:36px !important;
+        font-size:11px !important;
+        gap:5px !important;
+    }
+
+    .cd-header-cta i{
+        font-size:10px !important;
+    }
+
+}
+
+</style>
 
 
 <script>
 
 /* =========================================================
    BCOLA — FINAL TALK POPUP JS
+   PROFESSIONAL FIELD VALIDATION + FORMSUBMIT
 ========================================================= */
 
 (function(){
@@ -3462,35 +3364,23 @@ if(contactForm){
     ===================================================== */
 
     const popup =
-        document.getElementById(
-            "bcolaTalkPopup"
-        );
+        document.getElementById("bcolaTalkPopup");
 
     const talkForm =
-        document.getElementById(
-            "bcolaTalkForm"
-        );
+        document.getElementById("bcolaTalkForm");
 
     const messageField =
-        document.getElementById(
-            "bcolaTalkMessage"
-        );
+        document.getElementById("bcolaTalkMessage");
 
     const messageCount =
-        document.getElementById(
-            "bcolaMessageCount"
-        );
+        document.getElementById("bcolaMessageCount");
 
     const submitButton =
-        document.getElementById(
-            "bcolaTalkSubmit"
-        );
+        document.getElementById("bcolaTalkSubmit");
 
     const submitText =
         submitButton
-            ? submitButton.querySelector(
-                ".bcola-submit-text"
-            )
+            ? submitButton.querySelector(".bcola-submit-text")
             : null;
 
 
@@ -3505,78 +3395,242 @@ if(contactForm){
 
 
     /* =====================================================
-       OPEN
+       PROFILE ELEMENTS
     ===================================================== */
 
-    window.bcolaOpenTalkPopup = function(){
-
-        popup.classList.add(
-            "bcola-talk-open"
+    const profileSelect =
+        document.getElementById(
+            "bcolaTalkProfile"
         );
 
-        document.body.style.overflow =
-            "hidden";
+    const singleProfileBox =
+        document.querySelector(
+            ".bcola-profile-single"
+        );
+
+    const bothProfileBox =
+        document.querySelector(
+            ".bcola-profile-both"
+        );
+
+    const profileLink =
+        document.getElementById(
+            "bcolaTalkProfileLink"
+        );
+
+    const githubLink =
+        document.getElementById(
+            "bcolaTalkGithubLink"
+        );
+
+    const linkedinLink =
+        document.getElementById(
+            "bcolaTalkLinkedinLink"
+        );
 
 
-        setTimeout(function(){
+    /* =====================================================
+       PROFILE SELECTION
+    ===================================================== */
 
-            const input =
-                document.getElementById(
-                    "bcolaTalkName"
-                );
+    if(profileSelect){
 
-            if(input){
+        profileSelect.addEventListener(
+            "change",
+            function(){
 
-                input.focus();
+                const selected =
+                    this.value.trim();
+
+
+                /* -----------------------------------------
+                   HIDE PROFILE BOXES
+                ----------------------------------------- */
+
+                if(singleProfileBox){
+
+                    singleProfileBox.style.display =
+                        "none";
+
+                }
+
+                if(bothProfileBox){
+
+                    bothProfileBox.style.display =
+                        "none";
+
+                }
+
+
+                /* -----------------------------------------
+                   REMOVE REQUIRED
+                ----------------------------------------- */
+
+                if(profileLink){
+
+                    profileLink.required =
+                        false;
+
+                }
+
+                if(githubLink){
+
+                    githubLink.required =
+                        false;
+
+                }
+
+                if(linkedinLink){
+
+                    linkedinLink.required =
+                        false;
+
+                }
+
+
+                /* -----------------------------------------
+                   GITHUB / LINKEDIN
+                ----------------------------------------- */
+
+                if(
+                    selected === "GitHub" ||
+                    selected === "LinkedIn"
+                ){
+
+                    if(singleProfileBox){
+
+                        singleProfileBox.style.display =
+                            "block";
+
+                    }
+
+                    if(profileLink){
+
+                        profileLink.required =
+                            true;
+
+                    }
+
+                }
+
+
+                /* -----------------------------------------
+                   BOTH
+                ----------------------------------------- */
+
+                if(
+                    selected ===
+                    "Both GitHub & LinkedIn"
+                ){
+
+                    if(bothProfileBox){
+
+                        bothProfileBox.style.display =
+                            "block";
+
+                    }
+
+                    if(githubLink){
+
+                        githubLink.required =
+                            true;
+
+                    }
+
+                    if(linkedinLink){
+
+                        linkedinLink.required =
+                            true;
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       OPEN POPUP
+    ===================================================== */
+
+    window.bcolaOpenTalkPopup =
+        function(){
+
+            popup.classList.add(
+                "bcola-talk-open"
+            );
+
+            document.body.style.overflow =
+                "hidden";
+
+
+            setTimeout(
+                function(){
+
+                    const input =
+                        document.getElementById(
+                            "bcolaTalkName"
+                        );
+
+                    if(input){
+
+                        input.focus();
+
+                    }
+
+                },
+                450
+            );
+
+        };
+
+
+    /* =====================================================
+       CLOSE POPUP
+    ===================================================== */
+
+    window.bcolaCloseTalkPopup =
+        function(){
+
+            popup.classList.remove(
+                "bcola-talk-open"
+            );
+
+            document.body.style.overflow =
+                "";
+
+        };
+
+
+    /* =====================================================
+       TOGGLE POPUP
+    ===================================================== */
+
+    window.bcolaToggleTalkPopup =
+        function(){
+
+            if(
+                popup.classList.contains(
+                    "bcola-talk-open"
+                )
+            ){
+
+                bcolaCloseTalkPopup();
+
+            }else{
+
+                bcolaOpenTalkPopup();
 
             }
 
-        },450);
-
-    };
+        };
 
 
     /* =====================================================
-       CLOSE
-    ===================================================== */
-
-    window.bcolaCloseTalkPopup = function(){
-
-        popup.classList.remove(
-            "bcola-talk-open"
-        );
-
-        document.body.style.overflow =
-            "";
-
-    };
-
-
-    /* =====================================================
-       TOGGLE
-    ===================================================== */
-
-    window.bcolaToggleTalkPopup = function(){
-
-        if(
-            popup.classList.contains(
-                "bcola-talk-open"
-            )
-        ){
-
-            bcolaCloseTalkPopup();
-
-        }else{
-
-            bcolaOpenTalkPopup();
-
-        }
-
-    };
-
-
-    /* =====================================================
-       ESCAPE
+       ESCAPE KEY
     ===================================================== */
 
     document.addEventListener(
@@ -3621,7 +3675,7 @@ if(contactForm){
 
 
     /* =====================================================
-       TOAST
+       TOAST / ALERT
     ===================================================== */
 
     function bcolaShowMessage(message){
@@ -3645,7 +3699,122 @@ if(contactForm){
 
 
     /* =====================================================
-       SUBMIT
+       GENERAL URL VALIDATION
+    ===================================================== */
+
+    function bcolaIsValidURL(value){
+
+        try{
+
+            const url =
+                new URL(value);
+
+            return(
+                url.protocol === "http:" ||
+                url.protocol === "https:"
+            );
+
+        }catch(error){
+
+            return false;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       GITHUB URL VALIDATION
+    ===================================================== */
+
+    function bcolaIsGithubURL(value){
+
+        if(
+            !bcolaIsValidURL(value)
+        ){
+
+            return false;
+
+        }
+
+
+        try{
+
+            const url =
+                new URL(value);
+
+            const host =
+                url.hostname.toLowerCase();
+
+
+            return(
+                host === "github.com" ||
+                host === "www.github.com"
+            );
+
+        }catch(error){
+
+            return false;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       LINKEDIN URL VALIDATION
+    ===================================================== */
+
+    function bcolaIsLinkedinURL(value){
+
+        if(
+            !bcolaIsValidURL(value)
+        ){
+
+            return false;
+
+        }
+
+
+        try{
+
+            const url =
+                new URL(value);
+
+            const host =
+                url.hostname.toLowerCase();
+
+
+            return(
+                host === "linkedin.com" ||
+                host === "www.linkedin.com"
+            );
+
+        }catch(error){
+
+            return false;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       EMAIL VALIDATION
+    ===================================================== */
+
+    function bcolaIsValidEmail(value){
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        return emailPattern.test(value);
+
+    }
+
+
+    /* =====================================================
+       FORM SUBMIT
     ===================================================== */
 
     talkForm.addEventListener(
@@ -3656,59 +3825,110 @@ if(contactForm){
 
 
             /* =============================================
-               VALUES
+               BASIC VALUES
             ============================================= */
 
             const name =
-                document
-                .getElementById(
-                    "bcolaTalkName"
-                )
-                .value
-                .trim();
+                (
+                    document.getElementById(
+                        "bcolaTalkName"
+                    )?.value || ""
+                ).trim();
 
 
             const email =
-                document
-                .getElementById(
-                    "bcolaTalkEmail"
-                )
-                .value
-                .trim();
+                (
+                    document.getElementById(
+                        "bcolaTalkEmail"
+                    )?.value || ""
+                ).trim();
 
 
             const topic =
-                document
-                .getElementById(
-                    "bcolaTalkTopic"
-                )
-                .value
-                .trim();
+                (
+                    document.getElementById(
+                        "bcolaTalkTopic"
+                    )?.value || ""
+                ).trim();
+
+
+            const profile =
+                profileSelect
+                    ? profileSelect.value.trim()
+                    : "";
 
 
             const message =
-                document
-                .getElementById(
-                    "bcolaTalkMessage"
-                )
-                .value
-                .trim();
+                (
+                    document.getElementById(
+                        "bcolaTalkMessage"
+                    )?.value || ""
+                ).trim();
 
 
             /* =============================================
-               REQUIRED
+               PROFILE LINKS
             ============================================= */
 
+            let selectedProfileLink = "";
+            let selectedGithubLink = "";
+            let selectedLinkedinLink = "";
+
+
             if(
-                !name ||
-                !email ||
-                !topic ||
-                !message
+                profile === "GitHub" ||
+                profile === "LinkedIn"
             ){
 
+                selectedProfileLink =
+                    profileLink
+                        ? profileLink.value.trim()
+                        : "";
+
+            }
+
+
+            if(
+                profile ===
+                "Both GitHub & LinkedIn"
+            ){
+
+                selectedGithubLink =
+                    githubLink
+                        ? githubLink.value.trim()
+                        : "";
+
+                selectedLinkedinLink =
+                    linkedinLink
+                        ? linkedinLink.value.trim()
+                        : "";
+
+            }
+
+
+            /* =============================================
+               01 — NAME
+            ============================================= */
+
+            if(!name){
+
                 bcolaShowMessage(
-                    "Please complete all fields."
+                    "Please provide your name."
                 );
+
+
+                const field =
+                    document.getElementById(
+                        "bcolaTalkName"
+                    );
+
+
+                if(field){
+
+                    field.focus();
+
+                }
+
 
                 return;
 
@@ -3716,47 +3936,398 @@ if(contactForm){
 
 
             /* =============================================
-               CORRECT EMAIL REGEX
+               02 — EMAIL EMPTY
             ============================================= */
 
-            const emailPattern =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(!email){
 
+                bcolaShowMessage(
+                    "Please provide your email address."
+                );
+
+
+                const field =
+                    document.getElementById(
+                        "bcolaTalkEmail"
+                    );
+
+
+                if(field){
+
+                    field.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =============================================
+               03 — EMAIL INVALID
+            ============================================= */
 
             if(
-                !emailPattern.test(email)
+                !bcolaIsValidEmail(email)
             ){
 
                 bcolaShowMessage(
                     "Please enter a valid email address."
                 );
 
+
+                const field =
+                    document.getElementById(
+                        "bcolaTalkEmail"
+                    );
+
+
+                if(field){
+
+                    field.focus();
+
+                }
+
+
                 return;
 
             }
 
 
             /* =============================================
-               MESSAGE
+               04 — CONVERSATION TYPE
             ============================================= */
 
-            if(message.length < 5){
+            if(!topic){
+
+                bcolaShowMessage(
+                    "Please select a conversation type."
+                );
+
+
+                const field =
+                    document.getElementById(
+                        "bcolaTalkTopic"
+                    );
+
+
+                if(field){
+
+                    field.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =============================================
+               05 — PROFILE
+            ============================================= */
+
+            if(!profile){
+
+                bcolaShowMessage(
+                    "Please select your profile."
+                );
+
+
+                if(profileSelect){
+
+                    profileSelect.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =============================================
+               06 — GITHUB PROFILE
+            ============================================= */
+
+            if(
+                profile === "GitHub"
+            ){
+
+                /* EMPTY */
+
+                if(!selectedProfileLink){
+
+                    bcolaShowMessage(
+                        "Please provide your GitHub profile link."
+                    );
+
+
+                    if(profileLink){
+
+                        profileLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                /* WRONG / INVALID LINK */
+
+                if(
+                    !bcolaIsGithubURL(
+                        selectedProfileLink
+                    )
+                ){
+
+                    bcolaShowMessage(
+                        "Please provide a valid GitHub profile link."
+                    );
+
+
+                    if(profileLink){
+
+                        profileLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+            }
+
+
+            /* =============================================
+               07 — LINKEDIN PROFILE
+            ============================================= */
+
+            if(
+                profile === "LinkedIn"
+            ){
+
+                /* EMPTY */
+
+                if(!selectedProfileLink){
+
+                    bcolaShowMessage(
+                        "Please provide your LinkedIn profile link."
+                    );
+
+
+                    if(profileLink){
+
+                        profileLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                /* WRONG / INVALID LINK */
+
+                if(
+                    !bcolaIsLinkedinURL(
+                        selectedProfileLink
+                    )
+                ){
+
+                    bcolaShowMessage(
+                        "Please provide a valid LinkedIn profile link."
+                    );
+
+
+                    if(profileLink){
+
+                        profileLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+            }
+
+
+            /* =============================================
+               08 — BOTH PROFILES
+            ============================================= */
+
+            if(
+                profile ===
+                "Both GitHub & LinkedIn"
+            ){
+
+                /* -----------------------------------------
+                   GITHUB EMPTY
+                ----------------------------------------- */
+
+                if(!selectedGithubLink){
+
+                    bcolaShowMessage(
+                        "Please provide your GitHub profile link."
+                    );
+
+
+                    if(githubLink){
+
+                        githubLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   GITHUB INVALID
+                ----------------------------------------- */
+
+                if(
+                    !bcolaIsGithubURL(
+                        selectedGithubLink
+                    )
+                ){
+
+                    bcolaShowMessage(
+                        "Please provide a valid GitHub profile link."
+                    );
+
+
+                    if(githubLink){
+
+                        githubLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   LINKEDIN EMPTY
+                ----------------------------------------- */
+
+                if(!selectedLinkedinLink){
+
+                    bcolaShowMessage(
+                        "Please provide your LinkedIn profile link."
+                    );
+
+
+                    if(linkedinLink){
+
+                        linkedinLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   LINKEDIN INVALID
+                ----------------------------------------- */
+
+                if(
+                    !bcolaIsLinkedinURL(
+                        selectedLinkedinLink
+                    )
+                ){
+
+                    bcolaShowMessage(
+                        "Please provide a valid LinkedIn profile link."
+                    );
+
+
+                    if(linkedinLink){
+
+                        linkedinLink.focus();
+
+                    }
+
+
+                    return;
+
+                }
+
+            }
+
+
+            /* =============================================
+               09 — MESSAGE EMPTY
+            ============================================= */
+
+            if(!message){
+
+                bcolaShowMessage(
+                    "Please provide your message."
+                );
+
+
+                if(messageField){
+
+                    messageField.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =============================================
+               10 — MESSAGE TOO SHORT
+            ============================================= */
+
+            if(
+                message.length < 5
+            ){
 
                 bcolaShowMessage(
                     "Please write a little more in your message."
                 );
 
+
+                if(messageField){
+
+                    messageField.focus();
+
+                }
+
+
                 return;
 
             }
 
 
             /* =============================================
-               LOADING
+               LOADING STATE
             ============================================= */
 
-            submitButton.disabled =
-                true;
+            if(submitButton){
+
+                submitButton.disabled =
+                    true;
+
+            }
 
 
             if(submitText){
@@ -3768,12 +4339,16 @@ if(contactForm){
 
 
             /* =============================================
-               DEVICE DATA
+               USER AGENT
             ============================================= */
 
             const userAgent =
                 navigator.userAgent;
 
+
+            /* =============================================
+               BROWSER
+            ============================================= */
 
             let browser =
                 "Unknown Browser";
@@ -3826,6 +4401,10 @@ if(contactForm){
 
             }
 
+
+            /* =============================================
+               PLATFORM
+            ============================================= */
 
             let platform =
                 "Unknown";
@@ -3898,6 +4477,10 @@ if(contactForm){
             }
 
 
+            /* =============================================
+               DEVICE TYPE
+            ============================================= */
+
             const device =
                 /Mobi|Android|iPhone|iPad/i.test(
                     userAgent
@@ -3948,11 +4531,6 @@ if(contactForm){
                 "POST";
 
 
-            /*
-             * IMPORTANT:
-             * Direct URL — no markdown
-             */
-
             hiddenForm.action =
                 "https://formsubmit.co/ydvaman2326@gmail.com";
 
@@ -3966,7 +4544,7 @@ if(contactForm){
 
 
             /* =============================================
-               ADD FIELD
+               ADD FIELD HELPER
             ============================================= */
 
             function addField(
@@ -4028,7 +4606,7 @@ if(contactForm){
 
 
             /* =============================================
-               CUSTOMER DATA
+               CUSTOMER INFORMATION
             ============================================= */
 
             addField(
@@ -4050,13 +4628,59 @@ if(contactForm){
 
 
             addField(
+                "Profile",
+                profile
+            );
+
+
+            /* =============================================
+               PROFILE INFORMATION
+            ============================================= */
+
+            if(
+                profile === "GitHub" ||
+                profile === "LinkedIn"
+            ){
+
+                addField(
+                    "Profile Link",
+                    selectedProfileLink
+                );
+
+            }
+
+
+            if(
+                profile ===
+                "Both GitHub & LinkedIn"
+            ){
+
+                addField(
+                    "GitHub Link",
+                    selectedGithubLink
+                );
+
+
+                addField(
+                    "LinkedIn Link",
+                    selectedLinkedinLink
+                );
+
+            }
+
+
+            /* =============================================
+               MESSAGE
+            ============================================= */
+
+            addField(
                 "Message",
                 message
             );
 
 
             /* =============================================
-               SOURCE DATA
+               SOURCE / WEBSITE INFORMATION
             ============================================= */
 
             addField(
@@ -4076,8 +4700,8 @@ if(contactForm){
                 new Date().toLocaleString(
                     "en-IN",
                     {
-                        dateStyle:"medium",
-                        timeStyle:"medium"
+                        dateStyle: "medium",
+                        timeStyle: "medium"
                     }
                 )
             );
@@ -4123,7 +4747,7 @@ if(contactForm){
 
 
             /* =============================================
-               APPEND
+               APPEND FORM
             ============================================= */
 
             document.body.appendChild(
@@ -4132,7 +4756,7 @@ if(contactForm){
 
 
             /* =============================================
-               SEND
+               SEND FORM
             ============================================= */
 
             try{
@@ -4141,7 +4765,7 @@ if(contactForm){
 
 
                 /* =========================================
-                   SUCCESS
+                   SUCCESS STATE
                 ========================================= */
 
                 if(submitText){
@@ -4152,9 +4776,13 @@ if(contactForm){
                 }
 
 
-                submitButton.classList.add(
-                    "bcola-submit-success"
-                );
+                if(submitButton){
+
+                    submitButton.classList.add(
+                        "bcola-submit-success"
+                    );
+
+                }
 
 
                 bcolaShowMessage(
@@ -4172,6 +4800,8 @@ if(contactForm){
                         talkForm.reset();
 
 
+                        /* MESSAGE COUNTER */
+
                         if(messageCount){
 
                             messageCount.textContent =
@@ -4179,6 +4809,52 @@ if(contactForm){
 
                         }
 
+
+                        /* PROFILE BOXES */
+
+                        if(singleProfileBox){
+
+                            singleProfileBox.style.display =
+                                "none";
+
+                        }
+
+
+                        if(bothProfileBox){
+
+                            bothProfileBox.style.display =
+                                "none";
+
+                        }
+
+
+                        /* REQUIRED RESET */
+
+                        if(profileLink){
+
+                            profileLink.required =
+                                false;
+
+                        }
+
+
+                        if(githubLink){
+
+                            githubLink.required =
+                                false;
+
+                        }
+
+
+                        if(linkedinLink){
+
+                            linkedinLink.required =
+                                false;
+
+                        }
+
+
+                        /* BUTTON RESET */
 
                         if(submitText){
 
@@ -4188,26 +4864,32 @@ if(contactForm){
                         }
 
 
-                        submitButton.disabled =
-                            false;
+                        if(submitButton){
+
+                            submitButton.disabled =
+                                false;
+
+                            submitButton.classList.remove(
+                                "bcola-submit-success"
+                            );
+
+                        }
 
 
-                        submitButton.classList.remove(
-                            "bcola-submit-success"
-                        );
-
+                        /* REMOVE TEMP ELEMENTS */
 
                         hiddenForm.remove();
 
                         iframe.remove();
 
 
+                        /* CLOSE POPUP */
+
                         bcolaCloseTalkPopup();
 
                     },
                     1800
                 );
-
 
             }
             catch(error){
@@ -4218,6 +4900,8 @@ if(contactForm){
                 );
 
 
+                /* BUTTON RESET */
+
                 if(submitText){
 
                     submitText.textContent =
@@ -4226,17 +4910,25 @@ if(contactForm){
                 }
 
 
-                submitButton.disabled =
-                    false;
+                if(submitButton){
 
+                    submitButton.disabled =
+                        false;
+
+                }
+
+
+                /* REMOVE TEMP ELEMENTS */
 
                 hiddenForm.remove();
 
                 iframe.remove();
 
 
+                /* ERROR */
+
                 bcolaShowMessage(
-                    "Unable to send message. Please try again."
+                    "Unable to send your message. Please try again."
                 );
 
             }
@@ -4247,56 +4939,7 @@ if(contactForm){
 })();
 
 </script>
-<style> /* =========================================================
-   MOBILE — LET'S TALK BUTTON
-   ========================================================= */
-
-@media (max-width: 768px){
-
-    .cd-header-cta{
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        gap: 7px;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        width: auto !important;
-        height: 40px !important;
-        padding: 0 13px !important;
-
-        flex-shrink: 0 !important;
-        white-space: nowrap !important;
-
-        font-size: 12px !important;
-        line-height: 1 !important;
-
-        position: relative !important;
-        z-index: 20 !important;
-    }
-
-    .cd-header-cta i{
-        display: inline-block !important;
-        font-size: 11px !important;
-    }
-}
 
 
-/* Smaller phones */
-@media (max-width: 480px){
-
-    .cd-header-cta{
-        display: inline-flex !important;
-        padding: 0 10px !important;
-        height: 36px !important;
-        font-size: 11px !important;
-        gap: 5px !important;
-    }
-
-    .cd-header-cta i{
-        font-size: 10px !important;
-    }
-}</style>
 </body>
 </html>
