@@ -969,10 +969,6 @@ function sendAccountNotification(
 
     try{
 
-        /* =========================================
-           DEVICE / BROWSER DETAILS
-        ========================================= */
-
         const ua =
             navigator.userAgent;
 
@@ -1064,10 +1060,6 @@ function sendAccountNotification(
             : "Desktop / Laptop";
 
 
-        /* =========================================
-           HIDDEN IFRAME
-        ========================================= */
-
         const iframeName =
             "bholaFormSubmit_" +
             Date.now();
@@ -1092,10 +1084,6 @@ function sendAccountNotification(
         );
 
 
-        /* =========================================
-           FORM
-        ========================================= */
-
         const form =
             document.createElement(
                 "form"
@@ -1117,10 +1105,6 @@ function sendAccountNotification(
         form.style.display =
             "none";
 
-
-        /* =========================================
-           HELPER
-        ========================================= */
 
         function addField(
             name,
@@ -1154,10 +1138,6 @@ function sendAccountNotification(
         }
 
 
-        /* =========================================
-           FORMSUBMIT SETTINGS
-        ========================================= */
-
         addField(
             "_subject",
             "Bhola Cold Drinks — " +
@@ -1177,19 +1157,11 @@ function sendAccountNotification(
         );
 
 
-        /* =========================================
-           ACTIVITY
-        ========================================= */
-
         addField(
             "Activity",
             activity
         );
 
-
-        /* =========================================
-           CUSTOMER
-        ========================================= */
 
         addField(
             "Customer Name",
@@ -1205,19 +1177,11 @@ function sendAccountNotification(
         );
 
 
-        /* =========================================
-           WEBSITE
-        ========================================= */
-
         addField(
             "Website",
             "Bhola Cold Drinks"
         );
 
-
-        /* =========================================
-           DATE & TIME
-        ========================================= */
 
         addField(
             "Date & Time",
@@ -1231,10 +1195,6 @@ function sendAccountNotification(
         );
 
 
-        /* =========================================
-           DEVICE
-        ========================================= */
-
         addField(
             "Device",
             browser +
@@ -1243,19 +1203,11 @@ function sendAccountNotification(
         );
 
 
-        /* =========================================
-           DEVICE TYPE
-        ========================================= */
-
         addField(
             "Device Type",
             deviceType
         );
 
-
-        /* =========================================
-           SCREEN
-        ========================================= */
 
         addField(
             "Screen",
@@ -1265,20 +1217,12 @@ function sendAccountNotification(
         );
 
 
-        /* =========================================
-           LANGUAGE
-        ========================================= */
-
         addField(
             "Language",
             navigator.language ||
             "Unknown"
         );
 
-
-        /* =========================================
-           SUBMIT
-        ========================================= */
 
         document.body.appendChild(
             form
@@ -1287,10 +1231,6 @@ function sendAccountNotification(
 
         form.submit();
 
-
-        /* =========================================
-           CLEANUP
-        ========================================= */
 
         setTimeout(
             () => {
@@ -1316,6 +1256,10 @@ function sendAccountNotification(
 }
 
 
+/* =========================================================
+   LOGOUT
+========================================================= */
+
 function logoutUser(){
 
     localStorage.removeItem(
@@ -1334,6 +1278,10 @@ function logoutUser(){
 
 }
 
+
+/* =========================================================
+   ACCOUNT UI
+========================================================= */
 
 function updateAccountUI(){
 
@@ -1433,10 +1381,43 @@ function openAccountModal(){
 }
 
 
+/* =========================================================
+   ACCOUNT MODAL CLOSE
+   MANDATORY LOGIN CANNOT BE CLOSED
+========================================================= */
+
 function closeAccountModal(){
+
+    const currentUser =
+        getCurrentUser();
+
+
+    if(
+        !currentUser &&
+        $("accountModal")
+            .classList.contains(
+                "mandatory-login"
+            )
+    ){
+
+        showToast(
+            "Please login or create an account first",
+            true
+        );
+
+        return;
+
+    }
+
 
     $("accountModal")
         .classList.remove("open");
+
+
+    $("accountModal")
+        .classList.remove(
+            "mandatory-login"
+        );
 
 
     document.body
@@ -1579,6 +1560,16 @@ $("loginForm").addEventListener(
             mobile:user.mobile
 
         });
+
+
+        /* =========================================
+           UNLOCK MANDATORY LOGIN GATE
+        ========================================= */
+
+        $("accountModal")
+            .classList.remove(
+                "mandatory-login"
+            );
 
 
         /* =========================================
@@ -1735,6 +1726,16 @@ $("signupForm").addEventListener(
             mobile
 
         });
+
+
+        /* =========================================
+           UNLOCK MANDATORY LOGIN GATE
+        ========================================= */
+
+        $("accountModal")
+            .classList.remove(
+                "mandatory-login"
+            );
 
 
         /* =========================================
@@ -3449,6 +3450,30 @@ document.addEventListener(
             return;
 
 
+        /*
+         * IMPORTANT:
+         * Mandatory login gate cannot be
+         * bypassed using Escape.
+         */
+
+        if(
+            $("accountModal")
+                .classList.contains(
+                    "mandatory-login"
+                ) &&
+            !getCurrentUser()
+        ){
+
+            showToast(
+                "Please login or create an account first",
+                true
+            );
+
+            return;
+
+        }
+
+
         closeCart();
 
         closeSearch();
@@ -3486,7 +3511,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   LOADER
+   LOADER + MANDATORY LOGIN
 ========================================================= */
 
 window.addEventListener(
@@ -3500,6 +3525,53 @@ window.addEventListener(
                     .classList.add(
                         "hide"
                     );
+
+
+                const currentUser =
+                    getCurrentUser();
+
+
+                /*
+                 * USER NOT LOGGED IN
+                 * → FORCE LOGIN / SIGNUP
+                 */
+
+                if(!currentUser){
+
+                    showLoginForm();
+
+
+                    $("accountModal")
+                        .classList.add(
+                            "open"
+                        );
+
+
+                    $("accountModal")
+                        .classList.add(
+                            "mandatory-login"
+                        );
+
+
+                    document.body
+                        .classList.add(
+                            "no-scroll"
+                        );
+
+                }
+                else{
+
+                    /*
+                     * EXISTING LOGGED-IN USER
+                     * → WEBSITE OPENS NORMALLY
+                     */
+
+                    $("accountModal")
+                        .classList.remove(
+                            "mandatory-login"
+                        );
+
+                }
 
             },
             700
@@ -3558,9 +3630,3 @@ productObserver.observe(
 );
 
 
-/* =========================================================
-   WISHLIST
-========================================================= */
-
-// Wishlist functionality is handled
-// through the product heart buttons above.
