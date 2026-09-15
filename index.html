@@ -3378,52 +3378,51 @@ if(contactForm){
 }
 
 /* =========================================================
-   LET'S TALK POPUP — MOBILE IMAGE FIX
+   LET'S TALK POPUP — MOBILE IMAGE FRAME
    ========================================================= */
 
 @media (max-width: 768px){
 
-    .bcola-talk-image{
-        width: 100% !important;
-        height: 230px !important;
-
-        object-fit: contain !important;
-        object-position: center center !important;
-
-        display: block !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        transform: none !important;
-        filter: none !important;
-
-        background: #f5ead8 !important;
-    }
-
     .bcola-talk-visual{
-        height: 230px !important;
-        min-height: 230px !important;
+        height: 245px !important;
+        min-height: 245px !important;
 
-        padding: 0 !important;
+        padding: 14px !important;
         margin: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
 
         overflow: hidden !important;
-        background: #f5ead8 !important;
+        background: #f3e7d5 !important;
+        box-sizing: border-box !important;
     }
-}
-@media (max-width: 768px){
 
-    #bcolaTalkImage{
+    .bcola-talk-image{
         width: 100% !important;
-        height: 230px !important;
+        height: 100% !important;
+
+        display: block !important;
+
         object-fit: contain !important;
         object-position: center center !important;
-        display: block !important;
+
         margin: 0 !important;
         padding: 0 !important;
-        transform: none !important;
+
+        border-radius: 12px !important;
+
+        /* actual photo ko bilkul clear rakhega */
         filter: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+
+        /* subtle premium frame */
+        border: 1px solid rgba(80, 55, 30, .18) !important;
+        box-shadow: 0 5px 18px rgba(70, 45, 20, .14) !important;
+
+        box-sizing: border-box !important;
     }
 }</style>
 
