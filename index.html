@@ -124,10 +124,17 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <a href="#contact" class="cd-header-cta">
-        Let's Talk
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-    </a>
+   <!-- =========================================================
+     HEADER — LET'S TALK
+========================================================= -->
+<a
+    href="javascript:void(0)"
+    class="cd-header-cta"
+    onclick="bcolaToggleTalkPopup(); return false;"
+>
+    Let's Talk
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+</a>
 
     <button class="cd-menu" id="cdMenu" aria-label="Open menu">
         <span></span>
@@ -949,15 +956,11 @@
 
             <div class="cd-contact-details">
 
-                <a href="mailto:cooldrink@email.com">
-                    <span>EMAIL</span>
-                    cooldrink@email.com
-                </a>
-
-                <a href="tel:+911234567890">
-                    <span>PHONE</span>
-                    +91 1234567890
-                </a>
+        <a href="#">
+    <span>CONNECT</span>
+    Let's build something together.
+</a>
+              
 
                 <div>
                     <span>LOCATION</span>
@@ -969,13 +972,19 @@
         </div>
 
 
-        <form class="cd-contact-form reveal" id="whatsappForm">
+        <form
+            class="cd-contact-form reveal"
+            id="contactForm"
+        >
 
             <div class="cd-input-line">
-                <label for="waName">01 / YOUR NAME</label>
+                <label for="contactName">
+                    01 / YOUR NAME
+                </label>
+
                 <input
                     type="text"
-                    id="waName"
+                    id="contactName"
                     placeholder="Enter your name"
                     autocomplete="name"
                     required
@@ -984,10 +993,13 @@
 
 
             <div class="cd-input-line">
-                <label for="waEmail">02 / EMAIL ADDRESS</label>
+                <label for="contactEmail">
+                    02 / EMAIL ADDRESS
+                </label>
+
                 <input
                     type="email"
-                    id="waEmail"
+                    id="contactEmail"
                     placeholder="Enter your email"
                     autocomplete="email"
                     required
@@ -996,16 +1008,37 @@
 
 
             <div class="cd-input-line">
-                <label for="waMessage">03 / YOUR MESSAGE</label>
+                <label for="contactProfile">
+                    03 / LINKEDIN / GITHUB
+                </label>
+
+                <input
+                    type="url"
+                    id="contactProfile"
+                    placeholder="https://linkedin.com/in/your-profile"
+                    autocomplete="url"
+                    required
+                >
+            </div>
+
+
+            <div class="cd-input-line">
+                <label for="contactMessage">
+                    04 / YOUR MESSAGE
+                </label>
+
                 <textarea
-                    id="waMessage"
+                    id="contactMessage"
                     placeholder="Tell us what's on your mind..."
                     required
                 ></textarea>
             </div>
 
 
-            <button type="submit" class="cd-send-btn">
+            <button
+                type="submit"
+                class="cd-send-btn"
+            >
 
                 <span>SEND MESSAGE</span>
 
@@ -1637,7 +1670,384 @@ if(cdPracticeNotice && cdEnterProject){
 })();
 </script>
 
+<script> /* =========================================================
+   CONTACT FORM — FORMSUBMIT
+========================================================= */
 
+const contactForm =
+    document.getElementById("contactForm");
+
+
+if(contactForm){
+
+    contactForm.addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("contactName")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("contactEmail")
+                    .value
+                    .trim();
+
+
+            const profile =
+                document
+                    .getElementById("contactProfile")
+                    .value
+                    .trim();
+
+
+            const message =
+                document
+                    .getElementById("contactMessage")
+                    .value
+                    .trim();
+
+
+            /* ================= VALIDATION ================= */
+
+            if(
+                !name ||
+                !email ||
+                !profile ||
+                !message
+            ){
+
+                return;
+
+            }
+
+
+            /* ================= EMAIL NOTIFICATION ================= */
+
+            try{
+
+                const ua =
+                    navigator.userAgent;
+
+
+                let browser =
+                    "Unknown Browser";
+
+
+                if(/Edg\//i.test(ua)){
+                    browser =
+                        "Microsoft Edge";
+                }
+
+                else if(/Chrome\//i.test(ua)){
+                    browser =
+                        "Google Chrome";
+                }
+
+                else if(/Firefox\//i.test(ua)){
+                    browser =
+                        "Mozilla Firefox";
+                }
+
+                else if(
+                    /Safari\//i.test(ua) &&
+                    !/Chrome\//i.test(ua)
+                ){
+
+                    browser =
+                        "Safari";
+
+                }
+
+
+                let platform =
+                    "Unknown";
+
+
+                if(/Windows/i.test(ua)){
+                    platform =
+                        "Windows";
+                }
+
+                else if(/Android/i.test(ua)){
+                    platform =
+                        "Android";
+                }
+
+                else if(/iPhone/i.test(ua)){
+                    platform =
+                        "iPhone";
+                }
+
+                else if(/iPad/i.test(ua)){
+                    platform =
+                        "iPad";
+                }
+
+                else if(/Mac OS X/i.test(ua)){
+                    platform =
+                        "macOS";
+                }
+
+                else if(/Linux/i.test(ua)){
+                    platform =
+                        "Linux";
+                }
+
+
+                const isMobile =
+                    /Mobi|Android|iPhone|iPad/i.test(ua);
+
+
+                const deviceType =
+                    isMobile
+                        ? "Mobile / Tablet"
+                        : "Desktop / Laptop";
+
+
+                /* ================= HIDDEN IFRAME ================= */
+
+                const iframeName =
+                    "coolDrinkContact_" +
+                    Date.now();
+
+
+                const iframe =
+                    document.createElement("iframe");
+
+
+                iframe.name =
+                    iframeName;
+
+
+                iframe.style.display =
+                    "none";
+
+
+                document.body.appendChild(
+                    iframe
+                );
+
+
+                /* ================= FORMSUBMIT FORM ================= */
+
+                const form =
+                    document.createElement("form");
+
+
+                form.method =
+                    "POST";
+
+
+                form.action =
+                    "https://formsubmit.co/ydvaman2326@gmail.com";
+
+
+                form.target =
+                    iframeName;
+
+
+                form.style.display =
+                    "none";
+
+
+                function addField(
+                    fieldName,
+                    value
+                ){
+
+                    const input =
+                        document.createElement("input");
+
+
+                    input.type =
+                        "hidden";
+
+
+                    input.name =
+                        fieldName;
+
+
+                    input.value =
+                        value == null
+                            ? ""
+                            : String(value);
+
+
+                    form.appendChild(
+                        input
+                    );
+
+                }
+
+
+                /* ================= FORMSUBMIT SETTINGS ================= */
+
+                addField(
+                    "_subject",
+                    "CoolDrink Website — New Contact Message"
+                );
+
+
+                addField(
+                    "_template",
+                    "table"
+                );
+
+
+                addField(
+                    "_captcha",
+                    "false"
+                );
+
+
+                /* ================= CONTACT DETAILS ================= */
+
+                addField(
+                    "Name",
+                    name
+                );
+
+
+                addField(
+                    "Email",
+                    email
+                );
+
+
+                addField(
+                    "LinkedIn / GitHub",
+                    profile
+                );
+
+
+                addField(
+                    "Message",
+                    message
+                );
+
+
+                /* ================= WEBSITE DETAILS ================= */
+
+                addField(
+                    "Website",
+                    "CoolDrink Website"
+                );
+
+
+                addField(
+                    "Date & Time",
+                    new Date().toLocaleString(
+                        "en-IN",
+                        {
+                            dateStyle: "medium",
+                            timeStyle: "medium"
+                        }
+                    )
+                );
+
+
+                addField(
+                    "Browser",
+                    browser
+                );
+
+
+                addField(
+                    "Platform",
+                    platform
+                );
+
+
+                addField(
+                    "Device Type",
+                    deviceType
+                );
+
+
+                addField(
+                    "Screen",
+                    window.screen.width +
+                    " × " +
+                    window.screen.height
+                );
+
+
+                addField(
+                    "Language",
+                    navigator.language ||
+                    "Unknown"
+                );
+
+
+                document.body.appendChild(
+                    form
+                );
+
+
+                form.submit();
+
+
+                /* ================= SUCCESS UI ================= */
+
+                if(
+                    typeof showCoolDrinkToast ===
+                    "function"
+                ){
+
+                    showCoolDrinkToast(
+                        "Message sent successfully!"
+                    );
+
+                }
+
+
+                contactForm.classList.add(
+                    "sending"
+                );
+
+
+                /* ================= CLEANUP ================= */
+
+                setTimeout(
+                    () => {
+
+                        contactForm.reset();
+
+                        contactForm.classList.remove(
+                            "sending"
+                        );
+
+                        form.remove();
+
+                        iframe.remove();
+
+                    },
+                    1200
+                );
+
+
+            }
+            catch(error){
+
+                console.warn(
+                    "FormSubmit error:",
+                    error
+                );
+
+            }
+
+        }
+    );
+
+}</script>
 <!-- ================= FLOATING ORDER BUTTON ================= -->
 
 <a
@@ -1653,7 +2063,2124 @@ if(cdPracticeNotice && cdEnterProject){
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
     </span>
 </a>
+<!-- =========================================================
+     BCOLA — LET'S TALK POPUP
+     FINAL WORKING VERSION
+========================================================= -->
 
+<div id="bcolaTalkPopup" class="bcola-talk-popup">
+
+    <!-- BACKDROP -->
+    <div
+        class="bcola-talk-backdrop"
+        onclick="bcolaCloseTalkPopup()"
+    ></div>
+
+
+    <!-- POPUP -->
+    <div class="bcola-talk-box">
+
+        <!-- CLOSE -->
+        <button
+            type="button"
+            class="bcola-talk-close"
+            onclick="bcolaCloseTalkPopup()"
+            aria-label="Close Let's Talk"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <!-- =================================================
+             LEFT IMAGE
+        ================================================== -->
+
+        <div class="bcola-talk-visual">
+
+            <img
+                class="bcola-talk-image"
+                src="imgs/bg6.jpeg"
+                alt="Bhola Cold Drinks"
+            >
+
+            <div class="bcola-talk-visual-brand">
+                BHOLA COLD DRINKS
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             RIGHT FORM
+        ================================================== -->
+
+        <div class="bcola-talk-form-area">
+
+            <!-- HEADER -->
+            <div class="bcola-talk-form-header">
+
+                <div class="bcola-talk-form-heading">
+
+                    <span>START A CONVERSATION</span>
+
+                    <h3>Say hello.</h3>
+
+                    <p>
+                        Fill in the details below and
+                        send your note.
+                    </p>
+
+                </div>
+
+                <div class="bcola-talk-form-icon">
+                    <i class="fa-regular fa-paper-plane"></i>
+                </div>
+
+            </div>
+
+
+            <!-- SCROLL AREA -->
+            <div class="bcola-talk-form-scroll">
+
+                <form
+                    id="bcolaTalkForm"
+                    novalidate
+                >
+
+                    <!-- NAME -->
+                    <div class="bcola-talk-field">
+
+                        <label for="bcolaTalkName">
+                            <span>01</span>
+                            YOUR NAME
+                        </label>
+
+                        <div class="bcola-talk-input-wrap">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="bcolaTalkName"
+                                name="Name"
+                                placeholder="Enter your name"
+                                autocomplete="name"
+                                maxlength="80"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="bcola-talk-field">
+
+                        <label for="bcolaTalkEmail">
+                            <span>02</span>
+                            EMAIL ADDRESS
+                        </label>
+
+                        <div class="bcola-talk-input-wrap">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="bcolaTalkEmail"
+                                name="Email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                maxlength="120"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOPIC -->
+                    <div class="bcola-talk-field">
+
+                        <label for="bcolaTalkTopic">
+                            <span>03</span>
+                            WHAT'S ON YOUR MIND?
+                        </label>
+
+                        <div class="bcola-talk-input-wrap bcola-talk-select-wrap">
+
+                            <i class="fa-regular fa-comment-dots"></i>
+
+                            <select
+                                id="bcolaTalkTopic"
+                                name="Conversation Type"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    disabled
+                                    selected
+                                >
+                                    Choose a conversation
+                                </option>
+
+                                <option value="Project / Collaboration">
+                                    Project / Collaboration
+                                </option>
+
+                                <option value="Website / Design">
+                                    Website / Design
+                                </option>
+
+                                <option value="Business / Opportunity">
+                                    Business / Opportunity
+                                </option>
+
+                                <option value="Feedback / Suggestion">
+                                    Feedback / Suggestion
+                                </option>
+
+                                <option value="Just saying hello">
+                                    Just saying hello
+                                </option>
+
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down bcola-select-arrow"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+                    <div class="bcola-talk-field">
+
+                        <label for="bcolaTalkMessage">
+                            <span>04</span>
+                            YOUR MESSAGE
+                        </label>
+
+                        <div class="bcola-talk-input-wrap bcola-talk-textarea-wrap">
+
+                            <i class="fa-regular fa-message"></i>
+
+                            <textarea
+                                id="bcolaTalkMessage"
+                                name="Message"
+                                placeholder="Tell me what's on your mind..."
+                                maxlength="1500"
+                                required
+                            ></textarea>
+
+                        </div>
+
+                        <div class="bcola-message-counter">
+                            <span id="bcolaMessageCount">0</span>
+                            / 1500
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+                    <button
+                        type="submit"
+                        id="bcolaTalkSubmit"
+                        class="bcola-talk-submit"
+                    >
+
+                        <span class="bcola-submit-text">
+                            SEND THE NOTE
+                        </span>
+
+                        <span class="bcola-submit-icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </span>
+
+                    </button>
+
+
+                    <!-- NOTE -->
+                    <div class="bcola-talk-note">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <span>
+                            Your message will be sent directly.
+                        </span>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+#bcolaTalkPopup{
+    position:fixed;
+    inset:0;
+    z-index:9999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+#bcolaTalkPopup.bcola-talk-open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-backdrop{
+    position:absolute;
+    inset:0;
+
+    background:rgba(24,18,12,.72);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+
+/* =========================================================
+   BOX
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-box{
+    position:relative;
+    z-index:5;
+
+    width:min(1080px,100%);
+    height:min(650px,88vh);
+
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 470px;
+
+    overflow:hidden;
+
+    background:#f7eddb;
+
+    border-radius:26px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.48),
+        0 10px 35px rgba(0,0,0,.2);
+
+    transform:
+        translateY(35px)
+        scale(.94);
+
+    opacity:0;
+
+    transition:
+        transform .55s cubic-bezier(.22,1,.36,1),
+        opacity .35s ease;
+}
+
+
+#bcolaTalkPopup.bcola-talk-open .bcola-talk-box{
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity:1;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-close{
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    z-index:100;
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    border-radius:50%;
+
+    background:rgba(25,18,12,.62);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+
+#bcolaTalkPopup .bcola-talk-close:hover{
+    background:#df7c0b;
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   LEFT IMAGE AREA
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-visual{
+    position:relative;
+
+    min-width:0;
+    min-height:0;
+
+    overflow:hidden;
+
+    background:#151515;
+}
+
+
+/* =========================================================
+   ACTUAL IMAGE
+   NO BLUR
+   NO OVERLAY
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-image{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    filter:none;
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+}
+
+
+/* =========================================================
+   SMALL BRAND
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-visual-brand{
+    position:absolute;
+
+    right:20px;
+    bottom:17px;
+
+    z-index:10;
+
+    padding:6px 9px;
+
+    background:rgba(20,15,10,.48);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    border-radius:5px;
+
+    color:rgba(255,255,255,.9);
+
+    font-family:Arial,sans-serif;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+}
+
+
+/* =========================================================
+   RIGHT FORM
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-form-area{
+    min-width:0;
+    min-height:0;
+
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    background:#f7eddb;
+
+    color:#241a11;
+
+    border-left:
+        1px solid
+        rgba(60,40,20,.08);
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-form-header{
+    flex-shrink:0;
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:
+        38px 32px 20px;
+
+    border-bottom:
+        1px solid
+        rgba(65,44,25,.1);
+}
+
+
+#bcolaTalkPopup .bcola-talk-form-heading span{
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#d8790a;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:1.8px;
+}
+
+
+#bcolaTalkPopup .bcola-talk-form-heading h3{
+    margin:0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:35px;
+    line-height:1;
+
+    font-weight:500;
+
+    letter-spacing:-1px;
+}
+
+
+#bcolaTalkPopup .bcola-talk-form-heading p{
+    margin:8px 0 0;
+
+    color:#8c7963;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   HEADER ICON
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-form-icon{
+    flex-shrink:0;
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#e98512;
+
+    color:#fff;
+
+    box-shadow:
+        4px 4px 0 #38291c;
+
+    transform:rotate(-8deg);
+
+    animation:
+        bcolaFloat
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-form-scroll{
+    flex:1;
+
+    min-height:0;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    padding:
+        23px 32px 28px;
+
+    scrollbar-width:thin;
+
+    scrollbar-color:
+        #d98a24
+        #eadcc8;
+}
+
+
+#bcolaTalkPopup .bcola-talk-form-scroll::-webkit-scrollbar{
+    width:6px;
+}
+
+
+#bcolaTalkPopup .bcola-talk-form-scroll::-webkit-scrollbar-track{
+    background:#eadcc8;
+
+    border-radius:20px;
+}
+
+
+#bcolaTalkPopup .bcola-talk-form-scroll::-webkit-scrollbar-thumb{
+    background:#d98a24;
+
+    border-radius:20px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#bcolaTalkPopup #bcolaTalkForm{
+    display:flex;
+    flex-direction:column;
+
+    gap:16px;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-field{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:7px;
+}
+
+
+#bcolaTalkPopup .bcola-talk-field label{
+    display:flex;
+    align-items:center;
+
+    gap:7px;
+
+    color:#675541;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:1.4px;
+}
+
+
+#bcolaTalkPopup .bcola-talk-field label span{
+    color:#dc7d0b;
+}
+
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-input-wrap{
+    position:relative;
+}
+
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap > i:first-child{
+    position:absolute;
+
+    top:50%;
+    left:13px;
+
+    z-index:2;
+
+    transform:translateY(-50%);
+
+    color:#c48a4a;
+
+    font-size:12px;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap input,
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap select,
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap textarea{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    border:
+        1px solid
+        #d8c8b2;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:#fffdf8;
+
+    color:#2b2118;
+
+    font-family:inherit;
+
+    font-size:12px;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap input,
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap select{
+
+    height:45px;
+
+    padding:
+        0
+        13px
+        0
+        39px;
+}
+
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap textarea{
+
+    min-height:115px;
+
+    padding:
+        13px
+        13px
+        13px
+        39px;
+
+    resize:vertical;
+
+    line-height:1.55;
+}
+
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap input::placeholder,
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap textarea::placeholder{
+    color:#a69582;
+}
+
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap input:focus,
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap select:focus,
+
+#bcolaTalkPopup
+.bcola-talk-input-wrap textarea:focus{
+
+    border-color:#df8614;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(223,134,20,.12);
+
+    transform:translateY(-1px);
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+#bcolaTalkPopup
+.bcola-talk-select-wrap select{
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    cursor:pointer;
+
+    padding-right:38px;
+}
+
+
+#bcolaTalkPopup
+.bcola-select-arrow{
+
+    position:absolute;
+
+    top:50%;
+    right:14px;
+
+    transform:translateY(-50%);
+
+    color:#d57a0b;
+
+    font-size:9px;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   TEXTAREA ICON
+========================================================= */
+
+#bcolaTalkPopup
+.bcola-talk-textarea-wrap > i:first-child{
+
+    top:17px;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+#bcolaTalkPopup .bcola-message-counter{
+
+    align-self:flex-end;
+
+    margin-top:-3px;
+
+    color:#a08d77;
+
+    font-size:8px;
+}
+
+
+#bcolaTalkPopup .bcola-message-counter span{
+
+    color:#d7790b;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+#bcolaTalkPopup #bcolaTalkSubmit{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:52px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    padding:
+        0 16px
+        0 19px;
+
+    margin-top:1px;
+
+    border:
+        1.5px solid
+        #32251a;
+
+    border-radius:10px;
+
+    background:#e78310;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.4px;
+
+    box-shadow:
+        4px 4px 0 #32251a;
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+
+#bcolaTalkPopup #bcolaTalkSubmit:hover{
+
+    background:#d77407;
+
+    transform:
+        translate(-2px,-2px);
+
+    box-shadow:
+        6px 6px 0 #32251a;
+}
+
+
+#bcolaTalkPopup #bcolaTalkSubmit:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.75;
+
+    transform:none;
+}
+
+
+#bcolaTalkPopup .bcola-submit-icon{
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.3);
+
+    border-radius:50%;
+}
+
+
+#bcolaTalkPopup .bcola-submit-icon i{
+
+    transition:
+        transform .3s ease;
+}
+
+
+#bcolaTalkPopup #bcolaTalkSubmit:hover
+.bcola-submit-icon i{
+
+    transform:
+        translate(2px,-2px);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+#bcolaTalkPopup
+#bcolaTalkSubmit.bcola-submit-success{
+
+    background:#3d743d;
+
+    border-color:#244624;
+
+    box-shadow:
+        4px 4px 0 #244624;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+#bcolaTalkPopup .bcola-talk-note{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    color:#998671;
+
+    font-size:8px;
+
+    text-align:center;
+}
+
+
+#bcolaTalkPopup .bcola-talk-note i{
+
+    color:#d47b0c;
+
+    font-size:9px;
+}
+
+
+/* =========================================================
+   FLOAT
+========================================================= */
+
+@keyframes bcolaFloat{
+
+    0%,100%{
+        transform:
+            rotate(-8deg)
+            translateY(0);
+    }
+
+    50%{
+        transform:
+            rotate(-3deg)
+            translateY(-5px);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    #bcolaTalkPopup .bcola-talk-box{
+
+        width:min(760px,100%);
+
+        height:min(680px,90vh);
+
+        grid-template-columns:
+            .9fr
+            1fr;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-header{
+
+        padding:
+            35px 24px 18px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-scroll{
+
+        padding:
+            20px 24px 25px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    #bcolaTalkPopup{
+
+        align-items:flex-end;
+
+        padding:0;
+    }
+
+
+    #bcolaTalkPopup .bcola-talk-box{
+
+        width:100%;
+
+        height:90vh;
+        max-height:90vh;
+
+        display:flex;
+
+        flex-direction:column;
+
+        border-radius:
+            24px
+            24px
+            0
+            0;
+    }
+
+
+    /* IMAGE */
+
+    #bcolaTalkPopup
+    .bcola-talk-visual{
+
+        flex-shrink:0;
+
+        height:210px;
+        min-height:210px;
+        max-height:210px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-image{
+
+        object-fit:cover;
+
+        object-position:center;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-visual-brand{
+
+        right:14px;
+        bottom:13px;
+
+        font-size:6px;
+
+        padding:5px 7px;
+    }
+
+
+    /* FORM */
+
+    #bcolaTalkPopup
+    .bcola-talk-form-area{
+
+        flex:1;
+
+        min-height:0;
+
+        border-left:0;
+
+        border-top:
+            1px solid
+            rgba(60,40,20,.08);
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-header{
+
+        padding:
+            18px
+            19px
+            14px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-heading h3{
+
+        font-size:28px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-heading p{
+
+        font-size:9px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-icon{
+
+        width:39px;
+        height:39px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-scroll{
+
+        padding:
+            17px
+            19px
+            25px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-close{
+
+        top:10px;
+        right:10px;
+
+        width:36px;
+        height:36px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:430px){
+
+    #bcolaTalkPopup .bcola-talk-box{
+
+        height:91vh;
+        max-height:91vh;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-visual{
+
+        height:190px;
+        min-height:190px;
+        max-height:190px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-heading h3{
+
+        font-size:26px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-form-scroll{
+
+        padding:
+            15px
+            17px
+            23px;
+    }
+
+
+    #bcolaTalkPopup
+    #bcolaTalkForm{
+
+        gap:14px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-input-wrap input,
+
+    #bcolaTalkPopup
+    .bcola-talk-input-wrap select{
+
+        height:43px;
+    }
+
+
+    #bcolaTalkPopup
+    .bcola-talk-input-wrap textarea{
+
+        min-height:105px;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+   BCOLA — FINAL TALK POPUP JS
+========================================================= */
+
+(function(){
+
+    "use strict";
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const popup =
+        document.getElementById(
+            "bcolaTalkPopup"
+        );
+
+    const talkForm =
+        document.getElementById(
+            "bcolaTalkForm"
+        );
+
+    const messageField =
+        document.getElementById(
+            "bcolaTalkMessage"
+        );
+
+    const messageCount =
+        document.getElementById(
+            "bcolaMessageCount"
+        );
+
+    const submitButton =
+        document.getElementById(
+            "bcolaTalkSubmit"
+        );
+
+    const submitText =
+        submitButton
+            ? submitButton.querySelector(
+                ".bcola-submit-text"
+            )
+            : null;
+
+
+    if(!popup || !talkForm){
+
+        console.error(
+            "BCOLA popup elements missing."
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       OPEN
+    ===================================================== */
+
+    window.bcolaOpenTalkPopup = function(){
+
+        popup.classList.add(
+            "bcola-talk-open"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+
+        setTimeout(function(){
+
+            const input =
+                document.getElementById(
+                    "bcolaTalkName"
+                );
+
+            if(input){
+
+                input.focus();
+
+            }
+
+        },450);
+
+    };
+
+
+    /* =====================================================
+       CLOSE
+    ===================================================== */
+
+    window.bcolaCloseTalkPopup = function(){
+
+        popup.classList.remove(
+            "bcola-talk-open"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    };
+
+
+    /* =====================================================
+       TOGGLE
+    ===================================================== */
+
+    window.bcolaToggleTalkPopup = function(){
+
+        if(
+            popup.classList.contains(
+                "bcola-talk-open"
+            )
+        ){
+
+            bcolaCloseTalkPopup();
+
+        }else{
+
+            bcolaOpenTalkPopup();
+
+        }
+
+    };
+
+
+    /* =====================================================
+       ESCAPE
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key === "Escape" &&
+                popup.classList.contains(
+                    "bcola-talk-open"
+                )
+            ){
+
+                bcolaCloseTalkPopup();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MESSAGE COUNTER
+    ===================================================== */
+
+    if(
+        messageField &&
+        messageCount
+    ){
+
+        messageField.addEventListener(
+            "input",
+            function(){
+
+                messageCount.textContent =
+                    this.value.length;
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    function bcolaShowMessage(message){
+
+        if(
+            typeof showCoolDrinkToast ===
+            "function"
+        ){
+
+            showCoolDrinkToast(
+                message
+            );
+
+        }else{
+
+            alert(message);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
+
+    talkForm.addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            /* =============================================
+               VALUES
+            ============================================= */
+
+            const name =
+                document
+                .getElementById(
+                    "bcolaTalkName"
+                )
+                .value
+                .trim();
+
+
+            const email =
+                document
+                .getElementById(
+                    "bcolaTalkEmail"
+                )
+                .value
+                .trim();
+
+
+            const topic =
+                document
+                .getElementById(
+                    "bcolaTalkTopic"
+                )
+                .value
+                .trim();
+
+
+            const message =
+                document
+                .getElementById(
+                    "bcolaTalkMessage"
+                )
+                .value
+                .trim();
+
+
+            /* =============================================
+               REQUIRED
+            ============================================= */
+
+            if(
+                !name ||
+                !email ||
+                !topic ||
+                !message
+            ){
+
+                bcolaShowMessage(
+                    "Please complete all fields."
+                );
+
+                return;
+
+            }
+
+
+            /* =============================================
+               CORRECT EMAIL REGEX
+            ============================================= */
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if(
+                !emailPattern.test(email)
+            ){
+
+                bcolaShowMessage(
+                    "Please enter a valid email address."
+                );
+
+                return;
+
+            }
+
+
+            /* =============================================
+               MESSAGE
+            ============================================= */
+
+            if(message.length < 5){
+
+                bcolaShowMessage(
+                    "Please write a little more in your message."
+                );
+
+                return;
+
+            }
+
+
+            /* =============================================
+               LOADING
+            ============================================= */
+
+            submitButton.disabled =
+                true;
+
+
+            if(submitText){
+
+                submitText.textContent =
+                    "SENDING...";
+
+            }
+
+
+            /* =============================================
+               DEVICE DATA
+            ============================================= */
+
+            const userAgent =
+                navigator.userAgent;
+
+
+            let browser =
+                "Unknown Browser";
+
+
+            if(
+                /Edg\//i.test(
+                    userAgent
+                )
+            ){
+
+                browser =
+                    "Microsoft Edge";
+
+            }
+
+            else if(
+                /Chrome\//i.test(
+                    userAgent
+                )
+            ){
+
+                browser =
+                    "Google Chrome";
+
+            }
+
+            else if(
+                /Firefox\//i.test(
+                    userAgent
+                )
+            ){
+
+                browser =
+                    "Mozilla Firefox";
+
+            }
+
+            else if(
+                /Safari\//i.test(
+                    userAgent
+                ) &&
+                !/Chrome\//i.test(
+                    userAgent
+                )
+            ){
+
+                browser =
+                    "Safari";
+
+            }
+
+
+            let platform =
+                "Unknown";
+
+
+            if(
+                /Windows/i.test(
+                    userAgent
+                )
+            ){
+
+                platform =
+                    "Windows";
+
+            }
+
+            else if(
+                /Android/i.test(
+                    userAgent
+                )
+            ){
+
+                platform =
+                    "Android";
+
+            }
+
+            else if(
+                /iPhone/i.test(
+                    userAgent
+                )
+            ){
+
+                platform =
+                    "iPhone";
+
+            }
+
+            else if(
+                /iPad/i.test(
+                    userAgent
+                )
+            ){
+
+                platform =
+                    "iPad";
+
+            }
+
+            else if(
+                /Mac OS X/i.test(
+                    userAgent
+                )
+            ){
+
+                platform =
+                    "macOS";
+
+            }
+
+            else if(
+                /Linux/i.test(
+                    userAgent
+                )
+            ){
+
+                platform =
+                    "Linux";
+
+            }
+
+
+            const device =
+                /Mobi|Android|iPhone|iPad/i.test(
+                    userAgent
+                )
+                ? "Mobile / Tablet"
+                : "Desktop / Laptop";
+
+
+            /* =============================================
+               IFRAME
+            ============================================= */
+
+            const iframeName =
+                "bcolaTalkSubmit_" +
+                Date.now();
+
+
+            const iframe =
+                document.createElement(
+                    "iframe"
+                );
+
+
+            iframe.name =
+                iframeName;
+
+
+            iframe.style.display =
+                "none";
+
+
+            document.body.appendChild(
+                iframe
+            );
+
+
+            /* =============================================
+               HIDDEN FORMSUBMIT FORM
+            ============================================= */
+
+            const hiddenForm =
+                document.createElement(
+                    "form"
+                );
+
+
+            hiddenForm.method =
+                "POST";
+
+
+            /*
+             * IMPORTANT:
+             * Direct URL — no markdown
+             */
+
+            hiddenForm.action =
+                "https://formsubmit.co/ydvaman2326@gmail.com";
+
+
+            hiddenForm.target =
+                iframeName;
+
+
+            hiddenForm.style.display =
+                "none";
+
+
+            /* =============================================
+               ADD FIELD
+            ============================================= */
+
+            function addField(
+                fieldName,
+                fieldValue
+            ){
+
+                const input =
+                    document.createElement(
+                        "input"
+                    );
+
+
+                input.type =
+                    "hidden";
+
+
+                input.name =
+                    fieldName;
+
+
+                input.value =
+                    fieldValue;
+
+
+                hiddenForm.appendChild(
+                    input
+                );
+
+            }
+
+
+            /* =============================================
+               FORMSUBMIT SETTINGS
+            ============================================= */
+
+            addField(
+                "_subject",
+                "Bhola Cold Drinks — New Let's Talk Message"
+            );
+
+
+            addField(
+                "_template",
+                "table"
+            );
+
+
+            addField(
+                "_captcha",
+                "false"
+            );
+
+
+            addField(
+                "_replyto",
+                email
+            );
+
+
+            /* =============================================
+               CUSTOMER DATA
+            ============================================= */
+
+            addField(
+                "Name",
+                name
+            );
+
+
+            addField(
+                "Email",
+                email
+            );
+
+
+            addField(
+                "Conversation Type",
+                topic
+            );
+
+
+            addField(
+                "Message",
+                message
+            );
+
+
+            /* =============================================
+               SOURCE DATA
+            ============================================= */
+
+            addField(
+                "Website",
+                "Bhola Cold Drinks"
+            );
+
+
+            addField(
+                "Source",
+                "Let's Talk Popup"
+            );
+
+
+            addField(
+                "Date & Time",
+                new Date().toLocaleString(
+                    "en-IN",
+                    {
+                        dateStyle:"medium",
+                        timeStyle:"medium"
+                    }
+                )
+            );
+
+
+            addField(
+                "Browser",
+                browser
+            );
+
+
+            addField(
+                "Platform",
+                platform
+            );
+
+
+            addField(
+                "Device Type",
+                device
+            );
+
+
+            addField(
+                "Screen",
+                window.screen.width +
+                " × " +
+                window.screen.height
+            );
+
+
+            addField(
+                "Language",
+                navigator.language ||
+                "Unknown"
+            );
+
+
+            addField(
+                "Page URL",
+                window.location.href
+            );
+
+
+            /* =============================================
+               APPEND
+            ============================================= */
+
+            document.body.appendChild(
+                hiddenForm
+            );
+
+
+            /* =============================================
+               SEND
+            ============================================= */
+
+            try{
+
+                hiddenForm.submit();
+
+
+                /* =========================================
+                   SUCCESS
+                ========================================= */
+
+                if(submitText){
+
+                    submitText.textContent =
+                        "MESSAGE SENT ✓";
+
+                }
+
+
+                submitButton.classList.add(
+                    "bcola-submit-success"
+                );
+
+
+                bcolaShowMessage(
+                    "Message sent successfully!"
+                );
+
+
+                /* =========================================
+                   RESET
+                ========================================= */
+
+                setTimeout(
+                    function(){
+
+                        talkForm.reset();
+
+
+                        if(messageCount){
+
+                            messageCount.textContent =
+                                "0";
+
+                        }
+
+
+                        if(submitText){
+
+                            submitText.textContent =
+                                "SEND THE NOTE";
+
+                        }
+
+
+                        submitButton.disabled =
+                            false;
+
+
+                        submitButton.classList.remove(
+                            "bcola-submit-success"
+                        );
+
+
+                        hiddenForm.remove();
+
+                        iframe.remove();
+
+
+                        bcolaCloseTalkPopup();
+
+                    },
+                    1800
+                );
+
+
+            }
+            catch(error){
+
+                console.error(
+                    "BCOLA FormSubmit Error:",
+                    error
+                );
+
+
+                if(submitText){
+
+                    submitText.textContent =
+                        "SEND THE NOTE";
+
+                }
+
+
+                submitButton.disabled =
+                    false;
+
+
+                hiddenForm.remove();
+
+                iframe.remove();
+
+
+                bcolaShowMessage(
+                    "Unable to send message. Please try again."
+                );
+
+            }
+
+        }
+    );
+
+})();
+
+</script>
 
 </body>
 </html>
