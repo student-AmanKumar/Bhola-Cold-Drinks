@@ -4263,13 +4263,18 @@ background: #fffaf2;
     }
 } </style>
 
+
+
+<!-- =========================================================
+     BHOLA COLD DRINKS — CONTACT / SUPPORT
+========================================================= -->
+
 <section class="contact-section bhola-contact" id="contact">
 
     <div class="section-container">
 
         <div class="contact-editorial reveal">
 
-            <!-- LEFT CONTENT -->
             <div class="contact-copy">
 
                 <span class="eyebrow">
@@ -4289,33 +4294,33 @@ background: #fffaf2;
             </div>
 
 
-            <!-- RIGHT ACTION -->
             <div class="contact-action">
 
                 <span class="contact-action-label">
                     QUICK SUPPORT
                 </span>
 
-                <a
-                    href="tel:+917247835971"
+                <button
+                    type="button"
                     class="contact-btn"
-                    aria-label="Call Bhola Cold Drinks"
+                    id="bholaContactOpen"
+                    aria-label="Open Bhola Cold Drinks contact form"
                 >
 
                     <span class="contact-btn-icon">
-                        <i class="fa-solid fa-phone"></i>
+                        <i class="fa-solid fa-message"></i>
                     </span>
 
                     <span class="contact-btn-text">
-                        <strong>Call us</strong>
-                        <small>We're here to help</small>
+                        <strong>Contact us</strong>
+                        <small>Send us a message</small>
                     </span>
 
                     <span class="contact-btn-arrow">
                         <i class="fa-solid fa-arrow-right"></i>
                     </span>
 
-                </a>
+                </button>
 
             </div>
 
@@ -4324,11 +4329,640 @@ background: #fffaf2;
     </div>
 
 </section>
+
+
+<!-- =========================================================
+     BHOLA NEW ADVERTISEMENT CONTACT POPUP
+========================================================= -->
+
+<div
+    class="bhola-contact-modal"
+    id="bholaContactModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="bhola-contact-overlay"
+        id="bholaContactBackdrop"
+    ></div>
+
+
+    <div
+        class="bhola-contact-window"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bholaAdTitle"
+    >
+
+
+        <!-- =================================================
+             CLOSE
+        ================================================== -->
+
+        <button
+            type="button"
+            class="bhola-contact-close"
+            id="bholaContactClose"
+            aria-label="Close contact form"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <!-- =================================================
+             ADVERTISEMENT SIDE
+        ================================================== -->
+
+        <aside class="bhola-ad-poster">
+
+
+            <div class="bhola-poster-brand">
+
+                <strong>
+                    BHOLA
+                </strong>
+
+                <span>
+                    COLD DRINKS
+                </span>
+
+            </div>
+
+
+            <div class="bhola-poster-badge">
+                QUICK SUPPORT
+            </div>
+
+
+            <!-- Decorative circles -->
+
+            <div class="bhola-poster-circle circle-one"></div>
+
+            <div class="bhola-poster-circle circle-two"></div>
+
+
+            <!-- Product -->
+
+            <div class="bhola-product-stage">
+
+                <div class="bhola-product-shadow"></div>
+
+                <!-- CHANGE ONLY THIS IMAGE -->
+                <img
+                    src="imgs/orderpopup.png"
+                    alt="Bhola Cold Drinks"
+                    class="bhola-product-image"
+                >
+
+            </div>
+
+
+            <!-- Poster text -->
+
+            <div class="bhola-poster-copy">
+
+                <span>
+                    FRESH • COOL • REFRESHING
+                </span>
+
+                <strong>
+                    HAVE A
+                    <em>QUESTION?</em>
+                </strong>
+
+                <p>
+                    We're here to help.
+                </p>
+
+            </div>
+
+
+            <div class="bhola-poster-footer">
+                BHOLA COLD DRINKS
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             FORM SIDE
+        ================================================== -->
+
+        <section class="bhola-form-side">
+
+
+            <!-- FORM HEADER -->
+
+            <header class="bhola-form-header">
+
+                <div>
+
+                    <span class="bhola-form-kicker">
+                        CUSTOMER SUPPORT
+                    </span>
+
+                    <h3 id="bholaAdTitle">
+                        Let's talk<span>.</span>
+                    </h3>
+
+                    <p>
+                        Tell us what you need and
+                        we'll get back to you.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 SCROLLABLE AREA
+            ================================================== -->
+
+            <div class="bhola-form-scroll">
+
+
+                <form
+                    id="bholaContactForm"
+                    method="POST"
+                    autocomplete="on"
+                    novalidate
+                >
+
+
+                    <!-- =================================================
+                         FORMSUBMIT SETTINGS
+                    ================================================= -->
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Bhola Cold Drinks Contact Message"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_template"
+                        value="table"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_captcha"
+                        value="false"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="_replyto"
+                        id="bholaReplyTo"
+                    >
+
+
+                    <!-- =================================================
+                         WEBSITE / SOURCE
+                    ================================================= -->
+
+                    <input
+                        type="hidden"
+                        name="Website Name"
+                        value="Bhola Cold Drinks — Smart Billing"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Source"
+                        value="Bhola Cold Drinks Contact Popup"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Source URL"
+                        id="bholaSourceURL"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Page"
+                        id="bholaPage"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Submitted To"
+                        value="ydvaman2326@gmail.com"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Form Type"
+                        value="Customer Contact / Support"
+                    >
+
+
+                    <!-- =================================================
+                         DATE / TIME
+                    ================================================== -->
+
+                    <input
+                        type="hidden"
+                        name="Date"
+                        id="bholaDate"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Time"
+                        id="bholaTime"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Timezone"
+                        id="bholaTimezone"
+                    >
+
+
+                    <!-- =================================================
+                         DEVICE
+                    ================================================== -->
+
+                    <input
+                        type="hidden"
+                        name="Device"
+                        id="bholaDevice"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Browser"
+                        id="bholaBrowser"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Platform"
+                        id="bholaPlatform"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Language"
+                        id="bholaLanguage"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Screen"
+                        id="bholaScreen"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Viewport"
+                        id="bholaViewport"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Referrer"
+                        id="bholaReferrer"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="User Agent"
+                        id="bholaUserAgent"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Online Status"
+                        id="bholaOnlineStatus"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Connection"
+                        id="bholaConnection"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="Subscribe"
+                        value="No"
+                    >
+
+
+                    <!-- FORM LABEL -->
+
+                    <div class="bhola-form-number">
+
+                        <span>
+                            SUPPORT FORM
+                        </span>
+
+                        <b>
+                            01
+                        </b>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         NAME
+                    ================================================== -->
+
+                    <div class="bhola-input-block">
+
+                        <label for="bholaName">
+                            YOUR NAME
+                            <span>*</span>
+                        </label>
+
+                        <div class="bhola-input-wrap">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="bholaName"
+                                name="Name"
+                                placeholder="Enter your name"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+                        <small>
+                            Please use your original/current name.
+                        </small>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EMAIL
+                    ================================================== -->
+
+                    <div class="bhola-input-block">
+
+                        <label for="bholaEmail">
+                            EMAIL ADDRESS
+                            <span>*</span>
+                        </label>
+
+                        <div class="bhola-input-wrap">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="bholaEmail"
+                                name="Email"
+                                placeholder="you@example.com"
+                                maxlength="150"
+                                required
+                            >
+
+                        </div>
+
+                        <small>
+                            Use a working email so we can reply.
+                        </small>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ORDER + TOPIC
+                    ================================================== -->
+
+                    <div class="bhola-two-fields">
+
+
+                        <div class="bhola-input-block">
+
+                            <label for="bholaOrder">
+                                ORDER / PRODUCT
+                            </label>
+
+                            <div class="bhola-input-wrap">
+
+                                <i class="fa-solid fa-bottle-water"></i>
+
+                                <input
+                                    type="text"
+                                    id="bholaOrder"
+                                    name="Order / Product"
+                                    placeholder="Optional"
+                                    maxlength="150"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bhola-input-block">
+
+                            <label for="bholaQuery">
+                                TOPIC
+                                <span>*</span>
+                            </label>
+
+                            <div class="bhola-input-wrap">
+
+                                <i class="fa-solid fa-list"></i>
+
+                                <select
+                                    id="bholaQuery"
+                                    name="Query Type"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Choose
+                                    </option>
+
+                                    <option value="Order">
+                                        Order
+                                    </option>
+
+                                    <option value="Product">
+                                        Product
+                                    </option>
+
+                                    <option value="Payment">
+                                        Payment
+                                    </option>
+
+                                    <option value="Delivery">
+                                        Delivery
+                                    </option>
+
+                                    <option value="Feedback">
+                                        Feedback
+                                    </option>
+
+                                    <option value="General Question">
+                                        General Question
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         MESSAGE
+                    ================================================== -->
+
+                    <div class="bhola-input-block">
+
+                        <label for="bholaMessage">
+                            YOUR MESSAGE
+                            <span>*</span>
+                        </label>
+
+                        <div class="bhola-textarea-wrap">
+
+                            <textarea
+                                id="bholaMessage"
+                                name="Message"
+                                rows="4"
+                                maxlength="1200"
+                                placeholder="Tell us what you need..."
+                                required
+                            ></textarea>
+
+                            <span class="bhola-message-icon">
+                                <i class="fa-regular fa-comment-dots"></i>
+                            </span>
+
+                        </div>
+
+                        <small>
+                            Keep your message clear and genuine.
+                        </small>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div
+                        class="bhola-form-status"
+                        id="bholaFormStatus"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <div class="bhola-form-bottom-space"></div>
+
+                </form>
+
+            </div>
+
+
+            <!-- =================================================
+                 FIXED ACTION BAR
+            ================================================== -->
+
+            <div class="bhola-form-actionbar">
+
+                <div class="bhola-action-note">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        Your message will be sent securely.
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    form="bholaContactForm"
+                    class="bhola-send-btn"
+                    id="bholaFormSubmit"
+                >
+
+                    <span class="bhola-submit-text">
+                        SEND MESSAGE
+                    </span>
+
+                    <span class="bhola-submit-loader">
+                        <i class="fa-solid fa-spinner"></i>
+                    </span>
+
+                    <span class="bhola-send-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUCCESS SCREEN
+            ================================================== -->
+
+            <div
+                class="bhola-form-success"
+                id="bholaFormSuccess"
+                aria-hidden="true"
+            >
+
+                <div class="bhola-success-mark">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <span>
+                    MESSAGE SENT
+                </span>
+
+                <h4>
+                    Thanks for reaching out.
+                </h4>
+
+                <p>
+                    Your message has been sent successfully.
+                    We'll get back to you through email.
+                </p>
+
+                <button
+                    type="button"
+                    id="bholaSuccessClose"
+                >
+                    DONE
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+
 <style>
 
-/* =====================================================
-   BHOLA — EDITORIAL CONTACT SECTION
-===================================================== */
+/* =========================================================
+   BHOLA CONTACT SECTION
+========================================================= */
 
 .bhola-contact {
     width: 100%;
@@ -4337,230 +4971,117 @@ background: #fffaf2;
     overflow: hidden;
 }
 
-
-/* =====================================================
-   MAIN OPEN LAYOUT
-===================================================== */
-
 .bhola-contact .contact-editorial {
-
     position: relative;
-
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.15fr)
-        minmax(280px, .85fr);
-
+    grid-template-columns: minmax(0,1.15fr) minmax(280px,.85fr);
     align-items: center;
-
     gap: 70px;
-
-    padding:
-        55px
-        0
-        55px;
-
-    border-top:
-        1px solid
-        rgba(23,23,23,.11);
-
-    border-bottom:
-        1px solid
-        rgba(23,23,23,.11);
+    padding: 55px 0;
+    border-top: 1px solid rgba(23,23,23,.11);
+    border-bottom: 1px solid rgba(23,23,23,.11);
 }
 
-
-/* Orange editorial accent */
-
 .bhola-contact .contact-editorial::before {
-
     content: "";
-
     position: absolute;
-
     left: 0;
     top: -1px;
-
     width: 90px;
     height: 2px;
-
     background: #ff7a18;
 }
 
-
-/* =====================================================
-   COPY
-===================================================== */
-
 .bhola-contact .contact-copy {
-
     max-width: 620px;
 }
 
-
 .bhola-contact .contact-copy .eyebrow {
-
     display: inline-block;
-
     color: #e65f00;
-
     font-size: 10px;
-
     font-weight: 800;
-
     letter-spacing: 1.8px;
 }
 
-
 .bhola-contact .contact-copy h2 {
-
-    margin:
-        11px
-        0
-        16px;
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:
-        clamp(
-            35px,
-            4.2vw,
-            52px
-        );
-
+    margin: 11px 0 16px;
+    font-family: "Manrope",sans-serif;
+    font-size: clamp(35px,4.2vw,52px);
     line-height: .98;
-
     letter-spacing: -2px;
-
     color: #171717;
 }
 
-
 .bhola-contact .contact-copy h2 em {
-
     display: inline-block;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
+    font-family: "Cormorant Garamond",serif;
     font-size: 1.1em;
-
     font-weight: 600;
-
     color: #e65f00;
 }
 
-
 .bhola-contact .contact-copy p {
-
     max-width: 430px;
-
     margin: 0;
-
     color: #777;
-
     font-size: 14px;
-
     line-height: 1.7;
 }
 
 
-/* =====================================================
-   ACTION SIDE
-===================================================== */
+/* =========================================================
+   CONTACT ACTION
+========================================================= */
 
 .bhola-contact .contact-action {
-
     position: relative;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
-
     justify-content: center;
-
     padding-left: 35px;
 }
 
-
-/* Vertical divider */
-
 .bhola-contact .contact-action::before {
-
     content: "";
-
     position: absolute;
-
     left: 0;
     top: 5px;
     bottom: 5px;
-
     width: 1px;
-
-    background:
-        rgba(23,23,23,.10);
+    background: rgba(23,23,23,.10);
 }
 
-
 .bhola-contact .contact-action-label {
-
     margin-bottom: 12px;
-
     color: #999;
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
+    font-family: "Manrope",sans-serif;
     font-size: 9px;
-
     font-weight: 800;
-
     letter-spacing: 1.6px;
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTACT BUTTON
-===================================================== */
+========================================================= */
 
 .bhola-contact .contact-btn {
-
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     gap: 13px;
-
-    width: min(100%, 340px);
-
+    width: min(100%,340px);
     min-height: 66px;
-
     padding: 8px 10px 8px 8px;
-
-    border: 1px solid
-        rgba(23,23,23,.10);
-
+    border: 1px solid rgba(23,23,23,.10);
     border-radius: 16px;
-
     background: rgba(255,255,255,.58);
-
     color: #171717;
-
-    text-decoration: none;
-
-    box-shadow:
-        0 8px 24px
-        rgba(23,23,23,.045);
-
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(23,23,23,.045);
     transition:
         transform .3s ease,
         border-color .3s ease,
@@ -4568,361 +5089,2000 @@ background: #fffaf2;
         background .3s ease;
 }
 
-
 .bhola-contact .contact-btn:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(255,122,24,.35);
-
+    transform: translateY(-4px);
+    border-color: rgba(255,122,24,.35);
     background: #fff;
-
-    box-shadow:
-        0 15px 32px
-        rgba(23,23,23,.09);
+    box-shadow: 0 15px 32px rgba(23,23,23,.09);
 }
 
-
-/* Phone icon */
-
 .bhola-contact .contact-btn-icon {
-
     width: 48px;
     height: 48px;
-
     flex-shrink: 0;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
-    background:
-        rgba(255,122,24,.10);
-
+    background: rgba(255,122,24,.10);
     color: #e65f00;
-
     font-size: 14px;
-
     transition:
         background .3s ease,
         color .3s ease,
         transform .3s ease;
 }
 
-
-.bhola-contact .contact-btn:hover
-.contact-btn-icon {
-
+.bhola-contact .contact-btn:hover .contact-btn-icon {
     background: #ff7a18;
-
     color: #fff;
-
-    transform:
-        rotate(-8deg)
-        scale(1.05);
+    transform: rotate(-8deg) scale(1.05);
 }
 
-
-/* Text */
-
 .bhola-contact .contact-btn-text {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 3px;
-
     min-width: 0;
 }
 
-
 .bhola-contact .contact-btn-text strong {
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
+    font-family: "Manrope",sans-serif;
     font-size: 13px;
-
     font-weight: 800;
-
     color: #222;
 }
 
-
 .bhola-contact .contact-btn-text small {
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
     font-size: 10px;
-
     color: #999;
 }
 
-
-/* Arrow */
-
 .bhola-contact .contact-btn-arrow {
-
     width: 32px;
     height: 32px;
-
     margin-left: auto;
-
     flex-shrink: 0;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
-
     background: #f5f1eb;
-
     color: #777;
-
     font-size: 9px;
-
     transition:
         background .3s ease,
         color .3s ease,
         transform .3s ease;
 }
 
-
-.bhola-contact .contact-btn:hover
-.contact-btn-arrow {
-
+.bhola-contact .contact-btn:hover .contact-btn-arrow {
     background: #ff7a18;
-
     color: #fff;
-
-    transform:
-        translateX(3px);
+    transform: translateX(3px);
 }
 
 
-/* =====================================================
+/* =========================================================
+   MODAL
+========================================================= */
+
+.bhola-contact-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity .28s ease,
+        visibility .28s ease;
+}
+
+.bhola-contact-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bhola-contact-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,122,24,.17),
+            transparent 36%
+        ),
+        rgba(18,14,10,.84);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   WINDOW
+========================================================= */
+
+.bhola-contact-window {
+    position: relative;
+    z-index: 5;
+    width: min(960px,100%);
+    height: min(700px,calc(100dvh - 32px));
+    display: grid;
+    grid-template-columns: 39% 61%;
+    overflow: hidden;
+    background: #fffaf3;
+    box-shadow: 0 35px 100px rgba(0,0,0,.38);
+    transform: translateY(24px) scale(.96);
+    transition:
+        transform .38s cubic-bezier(.2,.8,.2,1);
+}
+
+.bhola-contact-modal.is-open .bhola-contact-window {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.bhola-contact-close {
+    position: absolute;
+    z-index: 100;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.94);
+    color: #222;
+    cursor: pointer;
+    box-shadow: 0 6px 22px rgba(0,0,0,.16);
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease;
+}
+
+.bhola-contact-close:hover {
+    background: #171717;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   AD POSTER
+========================================================= */
+
+.bhola-ad-poster {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(255,207,133,.35),
+            transparent 27%
+        ),
+        linear-gradient(
+            145deg,
+            #ff8b25,
+            #e65f00 58%,
+            #bd4200
+        );
+    color: #fff;
+}
+
+
+/* BRAND */
+
+.bhola-poster-brand {
+    position: absolute;
+    z-index: 10;
+    top: 28px;
+    left: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bhola-poster-brand strong {
+    font-family: "Manrope",sans-serif;
+    font-size: 27px;
+    font-weight: 900;
+    line-height: .8;
+    letter-spacing: -1.7px;
+}
+
+.bhola-poster-brand span {
+    margin-top: 6px;
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: .72;
+}
+
+
+/* BADGE */
+
+.bhola-poster-badge {
+    position: absolute;
+    z-index: 10;
+    top: 32px;
+    right: 27px;
+    padding: 7px 10px;
+    background: #fff;
+    color: #dc5700;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    transform: rotate(4deg);
+    box-shadow: 0 8px 22px rgba(0,0,0,.15);
+}
+
+
+/* CIRCLES */
+
+.bhola-poster-circle {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50%;
+}
+
+.bhola-poster-circle.circle-one {
+    width: 430px;
+    height: 430px;
+    top: 105px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bhola-poster-circle.circle-two {
+    width: 320px;
+    height: 320px;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   PRODUCT
+========================================================= */
+
+.bhola-product-stage {
+    position: absolute;
+    z-index: 7;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 58%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%,-50%);
+}
+
+.bhola-product-shadow {
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    bottom: 18%;
+    border-radius: 50%;
+    background: rgba(57,20,0,.32);
+    filter: blur(17px);
+}
+
+.bhola-product-image {
+    position: relative;
+    z-index: 2;
+    width: 68%;
+    max-width: 285px;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(
+        0 24px 22px rgba(69,24,0,.32)
+    );
+
+    /* IMAGE ANIMATION REMOVED */
+    animation: none !important;
+}
+
+
+/* =========================================================
+   POSTER COPY
+========================================================= */
+
+.bhola-poster-copy {
+    position: absolute;
+    z-index: 10;
+    left: 28px;
+    right: 25px;
+    bottom: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bhola-poster-copy > span {
+    margin-bottom: 10px;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,.65);
+}
+
+.bhola-poster-copy strong {
+    display: flex;
+    flex-direction: column;
+    font-family: "Manrope",sans-serif;
+    font-size: 27px;
+    line-height: .92;
+    letter-spacing: -1.5px;
+}
+
+.bhola-poster-copy em {
+    font-family: "Cormorant Garamond",serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #fff3df;
+}
+
+.bhola-poster-copy p {
+    margin: 9px 0 0;
+    font-size: 9px;
+    color: rgba(255,255,255,.7);
+}
+
+.bhola-poster-footer {
+    position: absolute;
+    z-index: 10;
+    left: 28px;
+    right: 28px;
+    bottom: 22px;
+    padding-top: 11px;
+    border-top: 1px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.58);
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FORM SIDE
+========================================================= */
+
+.bhola-form-side {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,122,24,.08),
+            transparent 32%
+        ),
+        #fffaf3;
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.bhola-form-header {
+    flex-shrink: 0;
+    padding: 38px 42px 20px;
+    border-bottom: 1px solid rgba(23,23,23,.08);
+}
+
+.bhola-form-kicker {
+    display: block;
+    margin-bottom: 8px;
+    color: #e65f00;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.bhola-form-header h3 {
+    margin: 0 0 7px;
+    font-family: "Manrope",sans-serif;
+    font-size: clamp(30px,3vw,42px);
+    line-height: .95;
+    letter-spacing: -2px;
+    color: #171717;
+}
+
+.bhola-form-header h3 span {
+    color: #e65f00;
+}
+
+.bhola-form-header p {
+    margin: 0;
+    color: #858585;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   SCROLL AREA
+========================================================= */
+
+.bhola-form-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(230,95,0,.35)
+        transparent;
+}
+
+.bhola-form-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.bhola-form-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bhola-form-scroll::-webkit-scrollbar-thumb {
+    background: rgba(230,95,0,.32);
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#bholaContactForm {
+    padding: 20px 42px 20px;
+}
+
+.bhola-form-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #aaa;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+}
+
+.bhola-form-number b {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f2ebe2;
+    color: #e65f00;
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   INPUT BLOCK
+========================================================= */
+
+.bhola-input-block {
+    margin-bottom: 17px;
+}
+
+.bhola-input-block label {
+    display: block;
+    margin-bottom: 7px;
+    color: #777;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 1.25px;
+}
+
+.bhola-input-block label span {
+    color: #e65f00;
+}
+
+.bhola-input-wrap {
+    position: relative;
+}
+
+.bhola-input-wrap > i {
+    position: absolute;
+    z-index: 2;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 10px;
+    pointer-events: none;
+    transition: color .2s ease;
+}
+
+.bhola-input-wrap input,
+.bhola-input-wrap select {
+    width: 100%;
+    height: 43px;
+    box-sizing: border-box;
+    padding: 0 12px 0 36px;
+    border: 1px solid rgba(23,23,23,.11);
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+    color: #222;
+    font-family: "DM Sans",sans-serif;
+    font-size: 11px;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.bhola-input-wrap select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.bhola-input-wrap::after {
+    content: "";
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    transform: translateY(-65%) rotate(45deg);
+    pointer-events: none;
+}
+
+.bhola-input-wrap input:focus,
+.bhola-input-wrap select:focus {
+    border-color: rgba(255,122,24,.6);
+    box-shadow: 0 0 0 3px rgba(255,122,24,.08);
+}
+
+.bhola-input-wrap:focus-within > i {
+    color: #e65f00;
+}
+
+.bhola-input-block small {
+    display: block;
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 7.5px;
+    line-height: 1.4;
+}
+
+.bhola-input-wrap input::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================================================
+   TWO FIELDS
+========================================================= */
+
+.bhola-two-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.bhola-textarea-wrap {
+    position: relative;
+}
+
+.bhola-textarea-wrap textarea {
+    width: 100%;
+    min-height: 105px;
+    box-sizing: border-box;
+    padding: 12px 38px 12px 13px;
+    resize: vertical;
+    border: 1px solid rgba(23,23,23,.11);
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+    color: #222;
+    font-family: "DM Sans",sans-serif;
+    font-size: 11px;
+    line-height: 1.55;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.bhola-textarea-wrap textarea:focus {
+    border-color: rgba(255,122,24,.6);
+    box-shadow: 0 0 0 3px rgba(255,122,24,.08);
+}
+
+.bhola-textarea-wrap textarea::placeholder {
+    color: #aaa;
+}
+
+.bhola-message-icon {
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    color: #aaa;
+    font-size: 11px;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.bhola-form-status {
+    min-height: 18px;
+    margin-top: 5px;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.bhola-form-status.error {
+    color: #c44825;
+}
+
+.bhola-form-status.success {
+    color: #3d7b4a;
+}
+
+
+/* =========================================================
+   EXTRA BOTTOM SPACE
+========================================================= */
+
+.bhola-form-bottom-space {
+    height: 12px;
+}
+
+
+/* =========================================================
+   FIXED ACTION BAR
+========================================================= */
+
+.bhola-form-actionbar {
+    position: relative;
+    z-index: 20;
+    flex-shrink: 0;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 20px 11px 25px;
+    border-top: 1px solid rgba(23,23,23,.1);
+    background: rgba(255,250,243,.97);
+    box-shadow: 0 -8px 25px rgba(23,23,23,.045);
+}
+
+.bhola-action-note {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #999;
+    font-size: 7px;
+    line-height: 1.3;
+}
+
+.bhola-action-note i {
+    flex-shrink: 0;
+    color: #e65f00;
+    font-size: 9px;
+}
+
+.bhola-send-btn {
+    flex-shrink: 0;
+    min-width: 175px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 7px;
+    background: linear-gradient(105deg,#ff7a18,#e65f00);
+    color: #fff;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.25px;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(230,95,0,.2);
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        opacity .25s ease;
+}
+
+.bhola-send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px rgba(230,95,0,.28);
+}
+
+.bhola-send-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.bhola-send-arrow {
+    width: 23px;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.18);
+}
+
+.bhola-submit-loader {
+    display: none;
+}
+
+.bhola-send-btn.is-loading .bhola-submit-loader {
+    display: inline-flex;
+}
+
+.bhola-send-btn.is-loading .bhola-submit-loader i {
+    animation: bholaSpin .8s linear infinite;
+}
+
+@keyframes bholaSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.bhola-form-success {
+    position: absolute;
+    z-index: 40;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255,122,24,.09),
+            transparent 35%
+        ),
+        #fffaf3;
+}
+
+.bhola-form-success.is-visible {
+    display: flex;
+}
+
+.bhola-success-mark {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,122,24,.11);
+    color: #e65f00;
+    font-size: 20px;
+    animation: bholaSuccessPop .45s ease;
+}
+
+@keyframes bholaSuccessPop {
+    from {
+        opacity: 0;
+        transform: scale(.6);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.bhola-form-success > span {
+    color: #e65f00;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+.bhola-form-success h4 {
+    margin: 8px 0 7px;
+    color: #171717;
+    font-family: "Manrope",sans-serif;
+    font-size: 25px;
+}
+
+.bhola-form-success p {
+    max-width: 340px;
+    margin: 0 auto 20px;
+    color: #777;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.bhola-form-success button {
+    min-height: 40px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 7px;
+    background: #ff7a18;
+    color: #fff;
+    font-family: "Manrope",sans-serif;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
    TABLET
-===================================================== */
+========================================================= */
 
 @media (max-width: 900px) {
 
-    .bhola-contact {
-
-        padding:
-            65px
-            0
-            70px;
-    }
-
-
     .bhola-contact .contact-editorial {
-
         gap: 40px;
-
-        padding:
-            45px
-            0;
     }
-
 
     .bhola-contact .contact-action {
-
         padding-left: 25px;
     }
 
-
     .bhola-contact .contact-copy h2 {
-
         font-size: 40px;
     }
 
+    .bhola-contact-window {
+        width: min(850px,100%);
+        grid-template-columns: 35% 65%;
+        height: min(680px,calc(100dvh - 28px));
+    }
+
+    .bhola-form-header {
+        padding: 32px 30px 17px;
+    }
+
+    #bholaContactForm {
+        padding: 18px 30px 18px;
+    }
+
+    .bhola-product-image {
+        width: 78%;
+    }
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media (max-width: 680px) {
 
     .bhola-contact {
-
-        padding:
-            52px
-            0
-            58px;
+        padding: 52px 0 58px;
     }
-
 
     .bhola-contact .contact-editorial {
-
         grid-template-columns: 1fr;
-
         gap: 32px;
-
-        padding:
-            38px
-            0
-            42px;
+        padding: 38px 0 42px;
     }
 
-
     .bhola-contact .contact-copy h2 {
-
         font-size: 35px;
-
         letter-spacing: -1.5px;
     }
 
-
     .bhola-contact .contact-copy p {
-
         font-size: 12px;
-
         max-width: 330px;
     }
 
-
     .bhola-contact .contact-action {
-
         padding-left: 0;
-
         align-items: flex-start;
     }
 
-
-    /* Remove vertical divider */
-
     .bhola-contact .contact-action::before {
+        display: none;
+    }
 
+    .bhola-contact .contact-btn {
+        width: 100%;
+        max-width: 380px;
+    }
+
+
+    /* MODAL */
+
+    .bhola-contact-modal {
+        padding: 8px;
+    }
+
+    .bhola-contact-window {
+        width: 100%;
+        height: calc(100dvh - 16px);
+        max-height: calc(100dvh - 16px);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+
+    /* POSTER */
+
+    .bhola-ad-poster {
+        flex: 0 0 175px;
+        min-height: 175px;
+        height: 175px;
+    }
+
+    .bhola-poster-brand {
+        top: 18px;
+        left: 18px;
+    }
+
+    .bhola-poster-brand strong {
+        font-size: 21px;
+    }
+
+    .bhola-poster-brand span {
+        margin-top: 4px;
+        font-size: 5.5px;
+    }
+
+    .bhola-poster-badge {
+        top: 20px;
+        right: 18px;
+        padding: 6px 8px;
+        font-size: 6px;
+    }
+
+    .bhola-poster-circle.circle-one {
+        width: 190px;
+        height: 190px;
+        top: 18px;
+    }
+
+    .bhola-poster-circle.circle-two {
+        width: 140px;
+        height: 140px;
+        top: 43px;
+    }
+
+    .bhola-product-stage {
+        height: 145px;
+        top: 52%;
+    }
+
+    .bhola-product-image {
+        width: 125px;
+        max-width: 125px;
+        height: 145px;
+        animation: none !important;
+    }
+
+    .bhola-product-shadow {
+        width: 95px;
+        height: 18px;
+        bottom: 8%;
+    }
+
+    .bhola-poster-copy {
+        left: 18px;
+        bottom: 15px;
+    }
+
+    .bhola-poster-copy > span,
+    .bhola-poster-copy strong,
+    .bhola-poster-copy p,
+    .bhola-poster-footer {
         display: none;
     }
 
 
-    .bhola-contact .contact-action-label {
+    /* FORM SIDE */
 
-        margin-bottom: 10px;
+    .bhola-form-side {
+        flex: 1 1 auto;
+        min-height: 0;
     }
 
-
-    .bhola-contact .contact-btn {
-
-        width: 100%;
-
-        max-width: 380px;
-
-        min-height: 62px;
+    .bhola-form-header {
+        flex-shrink: 0;
+        padding: 21px 18px 14px;
     }
 
-
-    .bhola-contact .contact-btn-icon {
-
-        width: 44px;
-        height: 44px;
-
-        font-size: 13px;
+    .bhola-form-kicker {
+        margin-bottom: 5px;
+        font-size: 6px;
     }
 
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width: 380px) {
-
-    .bhola-contact {
-
-        padding-top: 45px;
+    .bhola-form-header h3 {
+        font-size: 29px;
+        letter-spacing: -1.4px;
     }
 
-
-    .bhola-contact .contact-editorial {
-
-        gap: 27px;
-
-        padding:
-            32px
-            0
-            36px;
-    }
-
-
-    .bhola-contact .contact-copy h2 {
-
-        font-size: 30px;
-    }
-
-
-    .bhola-contact .contact-copy p {
-
-        font-size: 11px;
-    }
-
-
-    .bhola-contact .contact-btn {
-
-        min-height: 58px;
-
-        gap: 10px;
-    }
-
-
-    .bhola-contact .contact-btn-icon {
-
-        width: 40px;
-        height: 40px;
-    }
-
-
-    .bhola-contact .contact-btn-text strong {
-
-        font-size: 12px;
-    }
-
-
-    .bhola-contact .contact-btn-text small {
-
+    .bhola-form-header p {
         font-size: 9px;
     }
 
 
-    .bhola-contact .contact-btn-arrow {
+    /* SCROLL */
 
-        width: 28px;
-        height: 28px;
+    .bhola-form-scroll {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
+    #bholaContactForm {
+        padding: 16px 18px 14px;
+    }
+
+    .bhola-form-number {
+        margin-bottom: 15px;
+    }
+
+    .bhola-input-block {
+        margin-bottom: 14px;
+    }
+
+    .bhola-input-block label {
+        margin-bottom: 6px;
+    }
+
+    .bhola-input-wrap input,
+    .bhola-input-wrap select {
+        height: 42px;
+    }
+
+    .bhola-two-fields {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .bhola-textarea-wrap textarea {
+        min-height: 95px;
+    }
+
+
+    /* ACTION BAR */
+
+    .bhola-form-actionbar {
+        flex-shrink: 0;
+        min-height: 67px;
+        padding: 9px 12px 9px 14px;
+        gap: 8px;
+    }
+
+    .bhola-action-note {
+        flex: 1;
+        font-size: 6.5px;
+    }
+
+    .bhola-send-btn {
+        min-width: 145px;
+        height: 44px;
+        font-size: 7.5px;
+    }
+
+    .bhola-send-arrow {
+        width: 21px;
+        height: 21px;
+    }
+
+
+    /* CLOSE */
+
+    .bhola-contact-close {
+        top: 9px;
+        right: 9px;
+        width: 32px;
+        height: 32px;
+    }
 }
 
 
-/* =====================================================
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .bhola-contact-modal {
+        padding: 5px;
+    }
+
+    .bhola-contact-window {
+        height: calc(100dvh - 10px);
+        max-height: calc(100dvh - 10px);
+    }
+
+    .bhola-ad-poster {
+        flex-basis: 145px;
+        min-height: 145px;
+        height: 145px;
+    }
+
+    .bhola-product-stage {
+        height: 125px;
+    }
+
+    .bhola-product-image {
+        width: 105px;
+        height: 125px;
+        animation: none !important;
+    }
+
+    .bhola-poster-brand {
+        top: 15px;
+        left: 15px;
+    }
+
+    .bhola-poster-brand strong {
+        font-size: 18px;
+    }
+
+    .bhola-poster-badge {
+        top: 16px;
+        right: 15px;
+    }
+
+    .bhola-form-header {
+        padding: 17px 15px 12px;
+    }
+
+    .bhola-form-header h3 {
+        font-size: 26px;
+    }
+
+    .bhola-form-header p {
+        font-size: 8px;
+    }
+
+    #bholaContactForm {
+        padding: 14px 15px 12px;
+    }
+
+    .bhola-input-block small {
+        font-size: 7px;
+    }
+
+    .bhola-form-actionbar {
+        padding: 8px 9px;
+    }
+
+    .bhola-action-note {
+        display: none;
+    }
+
+    .bhola-send-btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+
+/* =========================================================
    REDUCED MOTION
-===================================================== */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .bhola-contact .contact-btn,
-    .bhola-contact .contact-btn * {
-
+    .bhola-contact *,
+    .bhola-contact-modal *,
+    .bhola-product-image {
+        animation: none !important;
         transition: none !important;
     }
-
 }
 
+
 </style>
+
+
+<script>
+
+/* =========================================================
+   BHOLA COLD DRINKS
+   CONTACT POPUP + FORMSUBMIT AJAX
+========================================================= */
+
+(function () {
+
+    "use strict";
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const openBtn =
+        document.getElementById(
+            "bholaContactOpen"
+        );
+
+    const modal =
+        document.getElementById(
+            "bholaContactModal"
+        );
+
+    const backdrop =
+        document.getElementById(
+            "bholaContactBackdrop"
+        );
+
+    const closeBtn =
+        document.getElementById(
+            "bholaContactClose"
+        );
+
+    const successClose =
+        document.getElementById(
+            "bholaSuccessClose"
+        );
+
+    const form =
+        document.getElementById(
+            "bholaContactForm"
+        );
+
+    const submitBtn =
+        document.getElementById(
+            "bholaFormSubmit"
+        );
+
+    const statusBox =
+        document.getElementById(
+            "bholaFormStatus"
+        );
+
+    const successBox =
+        document.getElementById(
+            "bholaFormSuccess"
+        );
+
+
+    if (
+        !openBtn ||
+        !modal ||
+        !form ||
+        !submitBtn
+    ) {
+        return;
+    }
+
+
+    /* =====================================================
+       OPEN
+    ===================================================== */
+
+    function openModal() {
+
+        modal.classList.add(
+            "is-open"
+        );
+
+        modal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+
+        setTimeout(function () {
+
+            const name =
+                document.getElementById(
+                    "bholaName"
+                );
+
+            if (name) {
+                name.focus();
+            }
+
+        }, 350);
+
+    }
+
+
+    /* =====================================================
+       CLOSE
+    ===================================================== */
+
+    function closeModal() {
+
+        modal.classList.remove(
+            "is-open"
+        );
+
+        modal.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    openBtn.addEventListener(
+        "click",
+        function () {
+
+            resetPopup();
+
+            openModal();
+
+        }
+    );
+
+
+    if (closeBtn) {
+
+        closeBtn.addEventListener(
+            "click",
+            closeModal
+        );
+
+    }
+
+
+    if (backdrop) {
+
+        backdrop.addEventListener(
+            "click",
+            closeModal
+        );
+
+    }
+
+
+    if (successClose) {
+
+        successClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+    }
+
+
+    /* =====================================================
+       ESC
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains(
+                    "is-open"
+                )
+            ) {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       RESET POPUP
+    ===================================================== */
+
+    function resetPopup() {
+
+        form.style.display = "";
+
+        successBox.classList.remove(
+            "is-visible"
+        );
+
+        successBox.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        statusBox.textContent = "";
+
+        statusBox.className =
+            "bhola-form-status";
+
+        submitBtn.disabled = false;
+
+        submitBtn.classList.remove(
+            "is-loading"
+        );
+
+    }
+
+
+    /* =====================================================
+       DEVICE
+    ===================================================== */
+
+    function getDeviceType() {
+
+        const width =
+            window.innerWidth;
+
+        const ua =
+            navigator.userAgent || "";
+
+
+        if (
+            /iPad|Tablet|Android(?!.*Mobile)/i
+                .test(ua)
+        ) {
+
+            return "Tablet";
+
+        }
+
+
+        if (
+            /Mobi|Android|iPhone|iPod|Windows Phone/i
+                .test(ua) ||
+            width <= 680
+        ) {
+
+            return "Mobile";
+
+        }
+
+
+        return "Desktop / Laptop";
+
+    }
+
+
+    /* =====================================================
+       BROWSER
+    ===================================================== */
+
+    function getBrowser() {
+
+        const ua =
+            navigator.userAgent || "";
+
+
+        if (/Edg/i.test(ua)) {
+
+            return "Microsoft Edge";
+
+        }
+
+
+        if (/OPR|Opera/i.test(ua)) {
+
+            return "Opera";
+
+        }
+
+
+        if (
+            /Chrome/i.test(ua) &&
+            !/Edg/i.test(ua)
+        ) {
+
+            return "Google Chrome";
+
+        }
+
+
+        if (/Firefox/i.test(ua)) {
+
+            return "Mozilla Firefox";
+
+        }
+
+
+        if (
+            /Safari/i.test(ua) &&
+            !/Chrome/i.test(ua)
+        ) {
+
+            return "Safari";
+
+        }
+
+
+        return "Other / Unknown";
+
+    }
+
+
+    /* =====================================================
+       CONNECTION
+    ===================================================== */
+
+    function getConnection() {
+
+        const connection =
+            navigator.connection ||
+            navigator.mozConnection ||
+            navigator.webkitConnection;
+
+
+        if (!connection) {
+
+            return "Not available";
+
+        }
+
+
+        return (
+            connection.effectiveType ||
+            connection.type ||
+            "Unknown"
+        );
+
+    }
+
+
+    /* =====================================================
+       SET HIDDEN METADATA
+    ===================================================== */
+
+    function setHiddenMetadata() {
+
+        const now =
+            new Date();
+
+
+        const dateFormatter =
+            new Intl.DateTimeFormat(
+                "en-IN",
+                {
+                    timeZone:
+                        "Asia/Kolkata",
+
+                    day:
+                        "2-digit",
+
+                    month:
+                        "long",
+
+                    year:
+                        "numeric"
+                }
+            );
+
+
+        const timeFormatter =
+            new Intl.DateTimeFormat(
+                "en-IN",
+                {
+                    timeZone:
+                        "Asia/Kolkata",
+
+                    hour:
+                        "2-digit",
+
+                    minute:
+                        "2-digit",
+
+                    second:
+                        "2-digit",
+
+                    hour12:
+                        true
+                }
+            );
+
+
+        document.getElementById(
+            "bholaDate"
+        ).value =
+            dateFormatter.format(now);
+
+
+        document.getElementById(
+            "bholaTime"
+        ).value =
+            timeFormatter.format(now) +
+            " IST";
+
+
+        document.getElementById(
+            "bholaTimezone"
+        ).value =
+            Intl.DateTimeFormat()
+                .resolvedOptions()
+                .timeZone ||
+            "Unknown";
+
+
+        document.getElementById(
+            "bholaDevice"
+        ).value =
+            getDeviceType();
+
+
+        document.getElementById(
+            "bholaBrowser"
+        ).value =
+            getBrowser();
+
+
+        document.getElementById(
+            "bholaPlatform"
+        ).value =
+            navigator.platform ||
+            "Unknown";
+
+
+        document.getElementById(
+            "bholaLanguage"
+        ).value =
+            navigator.language ||
+            "Unknown";
+
+
+        document.getElementById(
+            "bholaScreen"
+        ).value =
+            window.screen
+                ? window.screen.width +
+                  " × " +
+                  window.screen.height
+                : "Unknown";
+
+
+        document.getElementById(
+            "bholaViewport"
+        ).value =
+            window.innerWidth +
+            " × " +
+            window.innerHeight;
+
+
+        document.getElementById(
+            "bholaReferrer"
+        ).value =
+            document.referrer ||
+            "Direct / None";
+
+
+        document.getElementById(
+            "bholaUserAgent"
+        ).value =
+            navigator.userAgent ||
+            "Unknown";
+
+
+        document.getElementById(
+            "bholaOnlineStatus"
+        ).value =
+            navigator.onLine
+                ? "Online"
+                : "Offline";
+
+
+        document.getElementById(
+            "bholaConnection"
+        ).value =
+            getConnection();
+
+
+        document.getElementById(
+            "bholaSourceURL"
+        ).value =
+            window.location.href;
+
+
+        document.getElementById(
+            "bholaPage"
+        ).value =
+            document.title ||
+            "Bhola Cold Drinks";
+
+    }
+
+
+    /* =====================================================
+       VALIDATION
+    ===================================================== */
+
+    function validateForm() {
+
+        const name =
+            document.getElementById(
+                "bholaName"
+            );
+
+        const email =
+            document.getElementById(
+                "bholaEmail"
+            );
+
+        const topic =
+            document.getElementById(
+                "bholaQuery"
+            );
+
+        const message =
+            document.getElementById(
+                "bholaMessage"
+            );
+
+
+        if (!name.value.trim()) {
+
+            name.focus();
+
+            return "Please enter your name.";
+
+        }
+
+
+        if (!email.value.trim()) {
+
+            email.focus();
+
+            return "Please enter your email address.";
+
+        }
+
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (
+            !emailPattern.test(
+                email.value.trim()
+            )
+        ) {
+
+            email.focus();
+
+            return "Please enter a valid email address.";
+
+        }
+
+
+        if (!topic.value) {
+
+            topic.focus();
+
+            return "Please select a topic.";
+
+        }
+
+
+        if (!message.value.trim()) {
+
+            message.focus();
+
+            return "Please enter your message.";
+
+        }
+
+
+        if (
+            message.value.trim().length < 5
+        ) {
+
+            message.focus();
+
+            return "Please enter a little more detail.";
+
+        }
+
+
+        return "";
+
+    }
+
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
+
+    form.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            statusBox.textContent = "";
+
+            statusBox.className =
+                "bhola-form-status";
+
+
+            const validationError =
+                validateForm();
+
+
+            if (validationError) {
+
+                statusBox.textContent =
+                    validationError;
+
+                statusBox.classList.add(
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /* Metadata */
+
+            setHiddenMetadata();
+
+
+            /* Reply-to */
+
+            document.getElementById(
+                "bholaReplyTo"
+            ).value =
+                document.getElementById(
+                    "bholaEmail"
+                ).value.trim();
+
+
+            /* Loading */
+
+            submitBtn.disabled = true;
+
+            submitBtn.classList.add(
+                "is-loading"
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "https://formsubmit.co/ajax/ydvaman2326@gmail.com",
+                        {
+                            method: "POST",
+
+                            body:
+                                new FormData(form),
+
+                            headers: {
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                const result =
+                    await response
+                        .json()
+                        .catch(
+                            function () {
+                                return {};
+                            }
+                        );
+
+
+                if (
+                    !response.ok ||
+                    result.success === false ||
+                    result.success === "false"
+                ) {
+
+                    throw new Error(
+                        result.message ||
+                        "Unable to send message."
+                    );
+
+                }
+
+
+                /* SUCCESS */
+
+                form.style.display =
+                    "none";
+
+
+                successBox.classList.add(
+                    "is-visible"
+                );
+
+
+                successBox.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                form.reset();
+
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Bhola Contact Form Error:",
+                    error
+                );
+
+
+                statusBox.textContent =
+                    "Message could not be sent right now. Please try again.";
+
+                statusBox.classList.add(
+                    "error"
+                );
+
+            }
+            finally {
+
+                submitBtn.disabled =
+                    false;
+
+                submitBtn.classList.remove(
+                    "is-loading"
+                );
+
+            }
+
+        }
+    );
+
+
+})();
+
+</script>
+
 </main>
 
 
